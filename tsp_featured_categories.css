@@ -1,0 +1,139 @@
+#tsp_featured_categories h3 {
+	font-size:12px;
+	font-weight:bold;
+	line-height:1;
+	margin:0;
+	padding:7px 9px;
+}
+
+.tspfc_image_selected_image {
+    width: auto;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.tspfc_image_url_display {
+    width: 100%; 
+    background-color: #FFFFFF; 
+    padding: 3px; 
+    border: #c6d9e9 1px solid; 
+    font-size: 13px;
+}
+
+#makeMeScrollable {
+	position:relative;
+	width:500px;
+	height:77px;
+	z-index:1;
+}
+
+#makeMeScrollable .scrollWrapper{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height:100%;
+}
+
+#makeMeScrollable .scrollWrapper .scrollableArea {
+	position: relative;
+	width: auto;
+	height: 100%;
+}
+
+#makeMeScrollable .scrollWrapper .scrollableArea .img{
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	/* If you don't want the images in the scroller to be selectable, try the following
+	   block of code. It's just a nice feature that prevent the images from
+	   accidentally becoming selected/inverted when the user interacts with the scroller. */
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#makeMeScrollable .scrollWrapper .scrollableArea .img .title{
+	position: absolute;
+	background-color: #000;
+	text-align: center;
+	overflow: hidden;
+	margin:auto;
+	height: 35px;
+	opacity: 0.65; /* Standard CSS3 opacity setting */
+	-moz-opacity: 0.65; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
+	filter: alpha(opacity = 65); /* Opacity for Internet Explorer. */
+	
+}
+
+#makeMeScrollable .scrollWrapper .scrollableArea .img .title a{
+	font-size: 11px;
+	color: white;
+	text-transform: none;
+	/*color: #910003;*/
+}
+
+/* AUTOMATED STYLES - ADDED AT RUNTIME BY SMOOTH SCROLL */
+/* Invisible left hotspot */
+div.scrollingHotSpotLeft
+{
+	/* The hotspots have a minimum width of 75 pixels 
+	   and if there is room the will grow and occupy 10% 
+	   of the scrollable area (20% combined). 
+	   Adjust it to your own taste. */
+	min-width: 15px;
+	height: 100%;
+	/* There is a big background image and it's used to 
+	solve some problems I experienced in Internet Explorer 6. */
+	background-image: url(images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	left: 0;
+	/*  The first cursor url is for Firefox and other 
+	    browsers, the second is for Internet Explorer */
+	cursor: url(images/cursors/cursor_arrow_left.cur),w-resize;
+}
+
+/* Visible left hotspot */
+div.scrollingHotSpotLeftVisible
+{
+	background-image: url(images/arrow_left.png);				
+	background-repeat: no-repeat;
+	left: -15px;
+	/*opacity: 0.35; /* Standard CSS3 opacity setting */
+	/*-moz-opacity: 0.35; /* Opacity for really old versions of Mozilla Firefox (0.9 or older) */
+	/*filter: alpha(opacity = 35); /* Opacity for Internet Explorer. */
+	/*zoom: 1; /* Trigger "hasLayout" in Internet Explorer 6 or older versions */
+}
+
+/* Invisible right hotspot */
+div.scrollingHotSpotRight
+{
+	min-width: 15px;
+	height: 100%;
+	background-image: url(images/big_transparent.gif);
+	background-repeat: repeat;
+	background-position: center center;
+	position: absolute;
+	z-index: 200;
+	right: 0;
+	cursor: url(images/cursors/cursor_arrow_right.cur),e-resize;
+}
+
+/* Visible right hotspot */
+div.scrollingHotSpotRightVisible
+{
+	background-image: url(images/arrow_right.png);
+	background-repeat: no-repeat;
+	right: -15px;
+	/*opacity: 0.35;
+	filter: alpha(opacity = 35);
+	-moz-opacity: 0.35;
+	zoom: 1;*/
+}
