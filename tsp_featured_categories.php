@@ -82,7 +82,7 @@ function fn_tsp_featured_categories_install()
     
     // create table on first install
     if ($wpdb->get_var("show tables like '$tspfc_table_name'") != $tspfc_table_name) {
-        tsp_featured_categories_create_table($wpdb, $tspfc_table_name);
+        fn_tsp_featured_categories_create_table($wpdb, $tspfc_table_name);
         add_option("tspfc_db_version", $tspfc_db_version);
         add_option("tspfc_configuration", '');
     }
@@ -374,7 +374,7 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
     $title           = $fp['title'];
     $numbercats 	 = $fp['numbercats'];
     $cattype         = $fp['cattype'];
-    $parentcat          = $fp['parentcat'];
+    $parentcat       = $fp['parentcat'];
     $hideempty       = $fp['hideempty'];
     $hidedesc        = $fp['hidedesc'];
     $maxdesc       	 = $fp['maxdesc'];
@@ -383,11 +383,11 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
     $widththumb      = $fp['widththumb'];
     $heightthumb     = $fp['heightthumb'];
     $before_title    = $fp['beforetitle'];
-    $after_title     = $fp['aftertitle'];
+    $aftertitle      = $fp['aftertitle'];
     
     // If there is a title insert before/after title tags
     if (!empty($title)) {
-        $return_HTML .= $before_title . $title . $after_title;
+        $return_HTML .= $before_title . $title . $aftertitle;
     }
     	
 	$queried_categories = array();
@@ -548,7 +548,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
             'layout' 		=> $instance['layout'],
             'numbercats' 	=> $instance['numbercats'],
             'cattype' 		=> $instance['cattype'],
-            'parentcat' 		=> $instance['parentcat'],
+            'parentcat' 	=> $instance['parentcat'],
             'hideempty' 	=> $instance['hideempty'],
             'hidedesc'	 	=> $instance['hidedesc'],
             'maxdesc'	 	=> $instance['maxdesc'],
@@ -556,7 +556,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
             'widththumb' 	=> $instance['widththumb'],
             'heightthumb' 	=> $instance['heightthumb'],
             'beforetitle' 	=> $before_title,
-            'aftertitle' 	=> $after_title
+            'aftertitle' 	=> $aftertitle
         );
         // Display the widget
         echo $before_widget;
@@ -569,18 +569,22 @@ class TSP_Featured_Categories_Widget extends WP_Widget
     function update($new_instance, $old_instance)
     {
         $instance = $old_instance;
+        
         // Update the widget data
         $instance['title']        = strip_tags($new_instance['title']);
         $instance['layout']       = $new_instance['layout'];
         $instance['cattype']      = $new_instance['cattype'];
-        $instance['parentcat']       = $new_instance['parentcat'];
-        $instance['hideempty']   = $new_instance['hideempty'];
+        $instance['parentcat']    = $new_instance['parentcat'];
+        $instance['hideempty']    = $new_instance['hideempty'];
         $instance['hidedesc']     = $new_instance['hidedesc'];
         $instance['maxdesc']      = $new_instance['maxdesc'];
         $instance['numbercats']   = $new_instance['numbercats'];
         $instance['orderby']      = $new_instance['orderby'];
         $instance['widththumb']   = $new_instance['widththumb'];
         $instance['heightthumb']  = $new_instance['heightthumb'];
+        $instance['beforetitle']  = $new_instance['beforetitle'];
+        $instance['aftertitle']   = $new_instance['aftertitle'];
+
         return $instance;
     }
     //--------------------------------------------------------
