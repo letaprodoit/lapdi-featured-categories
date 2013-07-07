@@ -415,28 +415,6 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		$queried_categories = get_terms('category',$cat_args);
 	}//endelse
 	
-	$layout2_before_html = '';
-	$layout2_html = '';
-	$layout2_after_html = '';
-	$layout2_img_cnt = 0;
-	
-	// gallery before & after code
-	if ($layout == 2)
-	{
-		$layout2_before_html = '
-		<div id="makeMeScrollable">
-			<div class="scrollingHotSpotLeft"></div>
-			<div class="scrollingHotSpotRight"></div>
-			<div class="scrollWrapper">
-				<div class="scrollableArea">
-		';
-					
-		$layout2_after_html = '
-			    </div>																		
-			</div>
-		</div>';
-	}
-	
 	$cat_cnt = 0;
 	$num_cats = sizeof($queried_categories);
 	
@@ -476,7 +454,6 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		$smarty->assign("target", $target, true);
 		$smarty->assign("desc", $desc, true);
 		$smarty->assign("cat_term", $category->term_id, true);
-		$smarty->assign("img_count", $layout2_img_cnt++, true);
 		$smarty->assign("cat_width", $cat_width, true);
 		
 		if ($cat_cnt == $num_cats)
@@ -484,19 +461,9 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		else
 			$smarty->assign("last_cat", null, true);
 
-        if ($layout == 2)
-        	$layout2_html .= $smarty->fetch('layout'.$layout.'.tpl');
-        else
         	$return_HTML .= $smarty->fetch('layout'.$layout.'.tpl');
         
     }//endforeach
-    
-    if ($layout == 2)
-    {
-    	$return_HTML .=  $layout2_before_html;
-    	$return_HTML .=  $layout2_html;
-    	$return_HTML .=  $layout2_after_html;
-    }
     
     if ($echo)
     	echo $return_HTML;
