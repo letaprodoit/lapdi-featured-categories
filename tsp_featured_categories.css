@@ -24,8 +24,6 @@
 
 #makeMeScrollable {
 	position:relative;
-	width:500px;
-	height:77px;
 	z-index:1;
 }
 

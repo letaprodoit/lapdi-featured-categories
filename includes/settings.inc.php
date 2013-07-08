@@ -4,16 +4,18 @@
 $TSPFC_DEFAULTS        = array(
 		'title'        => 'TSP Featured Categories',
 		'numbercats'   => 5,
-		'parentcat'       => '',
+		'parentcat'    => '',
 		'cattype'      => 'all',
-		'hideempty'   => 1,
+		'hideempty'    => 1,
 		'hidedesc'     => 'N',
 		'maxdesc'      => 60,
 		'layout'       => 0,
+		'widthbox'     => 500,
+		'heightbox'    => 300,
 		'orderby'      => 'ID',
 		'widththumb'   => 80,
 		'heightthumb'  => 80,
-		'beforetitle'  => '<h3>',
+        'beforetitle'  => '<h3 class="widget-title">',
 		'aftertitle'   => '</h3>'
 	);
     
@@ -27,6 +29,8 @@ $TSPFC_ADMIN_FIELDS = array (
 		array( 'hidedesc', 'SELECT', __( 'Hide Category Description?', 'tsp_featured_categories' ), __( 'Hide Category Description?', 'tsp_featured_categories' ) ),
 		array( 'maxdesc', 'TEXT', __( 'Max chars to display for description', 'tsp_featured_categories' ), __( 'Max chars to display for description', 'tsp_featured_categories' ) ),
 		array( 'layout', 'SELECT', __( 'Choose category layout', 'tsp_featured_categories' ), __( 'Choose category layout', 'tsp_featured_categories' ) ),
+		array( 'widthbox', 'TEXT', __( 'Box Width (Scrolling Gallery Only)', 'tsp_featured_categories' ), __( 'Box Width (Scrolling Gallery Only)', 'tsp_featured_categories' ) ),
+		array( 'heightbox', 'TEXT', __( 'Box Height (Scrolling Gallery Only)', 'tsp_featured_categories' ), __( 'Box Height (Scrolling Gallery Only)', 'tsp_featured_categories' ) ),
 		array( 'orderby', 'SELECT', __( 'Choose how the categories will be ordered', 'tsp_featured_categories' ), __( 'Choose how the categories will be ordered', 'tsp_featured_categories' ) ),
 		array( 'widththumb', 'TEXT', __( 'Thumbnail Width', 'tsp_featured_categories' ), __( 'Thumbnail Width', 'tsp_featured_categories' ) ),
 		array( 'heightthumb', 'TEXT', __( 'Thumbnail Height', 'tsp_featured_categories' ), __( 'Thumbnail Height', 'tsp_featured_categories' ) ),
@@ -289,7 +293,9 @@ function fn_tsp_featured_categories_settings_page() {
 										<li>2: Scrolling Gallery [Horizontal]</li>
 									</ul>
 								</li>
-								<li>Order By: <strong>orderby="rand"</strong>(Options: rand,name,date,count,ID)</li>
+								<li>Box Width: <strong>widthbox="500"</strong></li>
+								<li>Box Height: <strong>heightbox="300"</strong></li>
+								<li>Order By: <strong>orderby="none"</strong>(Options: none,name,date,count,ID)</li>
 								<li>Thumbnail Width: <strong>widththumb="80"</strong></li>
 								<li>Thumbnail Height: <strong>heightthumb="80"</strong></li>
 								<li>HTML Tag Before Title: <strong>beforetitle="&lt;h3&gt;"</strong></li>
@@ -300,7 +306,7 @@ function fn_tsp_featured_categories_settings_page() {
 					</ul>
 					<hr>
 					A shortcode with all the options will look like the following:<br><br>
-					<strong>[tsp_featured_categories title="Featured Categories"  numbercats="3" cattype="all" hideempty="1" hidedesc="N" maxdesc="60" layout="0" parentcat="3" orderby="count" widththumb="80" heightthumb="80" beforetitle="" aftertitle=""]</strong>
+					<strong>[tsp_featured_categories title="Featured Categories"  numbercats="3" cattype="all" hideempty="1" hidedesc="N" maxdesc="60" layout="0" parentcat="3" widthbox=500 heightbox=300 orderby="count" widththumb="80" heightthumb="80" beforetitle="" aftertitle=""]</strong>
 				</div>
 			</div>
 			<script>
@@ -357,11 +363,11 @@ function fn_tsp_featured_categories_delete_options() {
 
 function fn_tsp_featured_categories_admin_head() 
 {
-	wp_register_script( 'tsp_plugin_skel_min', plugins_url( 'js/skel.min.js', __FILE__ ) );
-	wp_enqueue_script( 'tsp_plugin_skel_min' );
+	wp_register_script( 'tspp-skel_min.js', plugins_url( 'js/skel.min.js', __FILE__ ) );
+	wp_enqueue_script( 'tspp-skel_min.js' );
 
-	wp_register_style( 'tspfc_admin_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
-	wp_enqueue_style( 'tspfc_admin_stylesheet' );
+	wp_register_style( 'tspfc_admin-style.css', plugins_url( 'css/style.css', __FILE__ ) );
+	wp_enqueue_style( 'tspfc_admin-style.css' );
 }
 
 // Add global setting for Captcha

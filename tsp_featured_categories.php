@@ -146,7 +146,9 @@ function fn_tsp_featured_categories_get_admin_scripts()
         wp_enqueue_script('thickbox');
         wp_enqueue_script('media-upload');
         wp_enqueue_script('quicktags');
-        wp_enqueue_script('tsp_featured_categories-scripts.js', TSPFC_URL_PATH.'/js/tsp_featured_categories-scripts.js');
+
+	    wp_register_script('tspfp-scripts.js', plugins_url('js/scripts.js', __FILE__ ), array('jquery'));
+        wp_enqueue_script('tspfc-scripts.js');
     }
 }
 // Actions
@@ -304,7 +306,7 @@ function fn_tsp_featured_categories_update_category_meta_cache($terms_ids)
 //--------------------------------------------------------
 function fn_tsp_featured_categories_enqueue_styles()
 {
-    wp_enqueue_style('tsp_featured_categories.css', TSPFC_URL_PATH . 'tsp_featured_categories.css');
+    wp_enqueue_style('tsp_featured_categories.css', plugins_url('tsp_featured_categories.css', __FILE__ ));
 }
 
 add_action('wp_print_styles', 'fn_tsp_featured_categories_enqueue_styles');
@@ -315,20 +317,20 @@ add_action('wp_print_styles', 'fn_tsp_featured_categories_enqueue_styles');
 //--------------------------------------------------------
 function fn_tsp_featured_categories_enqueue_scripts()
 {
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery' ); // Queue in wordpress jquery
     
-    wp_register_script('tsp_plugin_jquery.ui.widget.js', plugins_url('js/jquery.ui.widget.js', __FILE__ ), array('jquery'));
-    wp_enqueue_script('tsp_plugin_jquery.ui.widget.js');
-    
-    wp_register_script('tsp_plugin_jquery.smoothDivScroll-1.1.js', plugins_url('js/jquery.smoothDivScroll-1.1.js', __FILE__ ), array('jquery','tsp_plugin_jquery.ui.widget.js'));
-    wp_enqueue_script('tsp_plugin_jquery.smoothDivScroll-1.1.js');
-    
-	wp_register_script( 'tsp_plugin_skel.min.js', plugins_url( 'includes/js/skel.min.js', __FILE__ ) );
-	wp_enqueue_script( 'tsp_plugin_skel.min.js' );
+    wp_enqueue_script( 'jquery-ui-widget' ); // Queue in wordpress jquery.ui
 
-    wp_enqueue_script('tsp_featured_categories-gallery-scripts.js', 
-    	plugins_url( 'js/tsp_featured_categories-gallery-scripts.js', __FILE__ ), 
-    	array('jquery','tsp_plugin_jquery.ui.widget.js','tsp_plugin_jquery.smoothDivScroll-1.1.js','tsp_plugin_skel.min.js'));
+    // Smooth Div Scroll is NOT apart of WordPress library so add
+    wp_register_script('tspfc-jquery.smoothDivScroll-1.1.js', plugins_url('js/jquery.smoothDivScroll-1.1.js', __FILE__ ), array('jquery','jquery-ui-widget'));
+    wp_enqueue_script('tspfc-jquery.smoothDivScroll-1.1.js');
+    
+ 	// Slider initiation for Smooth Div Scroll
+	wp_register_script( 'tspfc-gallery-scripts.js', plugins_url( 'js/gallery-scripts.js', __FILE__ ), array('jquery','jquery-ui-widget','tspfc-jquery.smoothDivScroll-1.1.js' ));
+    wp_enqueue_script('tspfc-gallery-scripts.js');
+
+	wp_register_script( 'tspp-skel.min.js', plugins_url( 'includes/js/skel.min.js', __FILE__ ) );
+	wp_enqueue_script( 'tspp-skel.min.js' );
 }
 add_action('wp_enqueue_scripts', 'fn_tsp_featured_categories_enqueue_scripts');
 //--------------------------------------------------------
@@ -379,33 +381,39 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
     $hidedesc        = $fp['hidedesc'];
     $maxdesc       	 = $fp['maxdesc'];
     $layout          = $fp['layout'];
+    $widthbox      	 = $fp['widthbox'];
+    $heightbox     	 = $fp['heightbox'];
     $orderby         = $fp['orderby'];
     $widththumb      = $fp['widththumb'];
     $heightthumb     = $fp['heightthumb'];
-    $before_title    = $fp['beforetitle'];
-    $aftertitle      = $fp['aftertitle'];
+    $beforetitle 	 = html_entity_decode($fp['beforetitle']);
+    $aftertitle  	 = html_entity_decode($fp['aftertitle']);
     
     // If there is a title insert before/after title tags
     if (!empty($title)) {
-        $return_HTML .= $before_title . $title . $aftertitle;
+        $return_HTML .= $beforetitle . $title . $aftertitle;
     }
     	
 	$queried_categories = array();
 		
 	if ($cattype == 'featured')
 	{
-		// Return all categories with a limit of $numbercats categories
+		// Return all categories
 		$cat_args = array('orderby' => $orderby, 'parent' => $parentcat, 'hide_empty' => $hideempty);
 		$all_categories = get_terms('category',$cat_args);
 
+		$cat_cnt = 1;
+		
 		// Add only featured categories
 		foreach ($all_categories as $category)
 		{
 			// Determine if the category is featured
 			$featured   = fn_tsp_featured_categories_get_category_metadata($category->term_id, 'featured', 1);
 			
-			if ($featured)
+			if ($featured && $cat_cnt <= $numbercats)
 				$queried_categories[] = $category;
+				
+			$cat_cnt++;
 		}//endforeach
 	}//endif
 	else
@@ -447,7 +455,6 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		else
 			$smarty->assign("first_cat", null, true);
 			
-		
 		$smarty->assign("title", $title, true);
 		$smarty->assign("url", $url, true);
 		$smarty->assign("image", $image, true);
@@ -461,7 +468,7 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		else
 			$smarty->assign("last_cat", null, true);
 
-        	$return_HTML .= $smarty->fetch('layout'.$layout.'.tpl');
+        $return_HTML .= $smarty->fetch('layout'.$layout.'.tpl');
         
     }//endforeach
     
@@ -510,6 +517,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
     function widget($args, $instance)
     {
         extract($args);
+        
         $arguments = array(
             'title' 		=> $instance['title'],
             'layout' 		=> $instance['layout'],
@@ -519,12 +527,15 @@ class TSP_Featured_Categories_Widget extends WP_Widget
             'hideempty' 	=> $instance['hideempty'],
             'hidedesc'	 	=> $instance['hidedesc'],
             'maxdesc'	 	=> $instance['maxdesc'],
+            'widthbox' 		=> $instance['widthbox'],
+            'heightbox' 	=> $instance['heightbox'],
             'orderby' 		=> $instance['orderby'],
             'widththumb' 	=> $instance['widththumb'],
             'heightthumb' 	=> $instance['heightthumb'],
-            'beforetitle' 	=> $before_title,
-            'aftertitle' 	=> $aftertitle
+            'beforetitle' 	=> $instance['beforetitle'],
+            'aftertitle' 	=> $instance['aftertitle']
         );
+        
         // Display the widget
         echo $before_widget;
         fn_tsp_featured_categories_display($arguments);
@@ -546,11 +557,13 @@ class TSP_Featured_Categories_Widget extends WP_Widget
         $instance['hidedesc']     = $new_instance['hidedesc'];
         $instance['maxdesc']      = $new_instance['maxdesc'];
         $instance['numbercats']   = $new_instance['numbercats'];
+        $instance['widthbox']  	  = $new_instance['widthbox'];
+        $instance['heightbox']    = $new_instance['heightbox'];
         $instance['orderby']      = $new_instance['orderby'];
         $instance['widththumb']   = $new_instance['widththumb'];
         $instance['heightthumb']  = $new_instance['heightthumb'];
-        $instance['beforetitle']  = $new_instance['beforetitle'];
-        $instance['aftertitle']   = $new_instance['aftertitle'];
+        $instance['beforetitle']  = htmlentities($new_instance['beforetitle']);
+        $instance['aftertitle']   = htmlentities($new_instance['aftertitle']);
 
         return $instance;
     }
@@ -670,11 +683,34 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('parentcat'); ?>"><?php
-        _e('Parent categoery', 'tsp_featured_categories') ?></label>
+        _e('Parent category', 'tsp_featured_categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('parentcat'); ?>" name="<?php
         echo $this->get_field_name('parentcat'); ?>" value="<?php
         echo $instance['parentcat']; ?>" style="width:20%;" />
+</p>
+
+
+<!-- Choose the Box Width (Scrolling Gallery Only) -->
+<p>
+   <label for="<?php
+        echo $this->get_field_id('widthbox'); ?>"><?php
+        _e('Box Width (Scrolling Gallery Only)', 'tsp_featured_categories') ?></label>
+   <input id="<?php
+        echo $this->get_field_id('widthbox'); ?>" name="<?php
+        echo $this->get_field_name('widthbox'); ?>" value="<?php
+        echo $instance['widthbox']; ?>" style="width:20%;" />
+</p>
+
+<!-- Choose the Box Width (Scrolling Gallery Only) -->
+<p>
+   <label for="<?php
+        echo $this->get_field_id('heightbox'); ?>"><?php
+        _e('Box Height (Scrolling Gallery Only)', 'tsp_featured_categories') ?></label>
+   <input id="<?php
+        echo $this->get_field_id('heightbox'); ?>" name="<?php
+        echo $this->get_field_name('heightbox'); ?>" value="<?php
+        echo $instance['heightbox']; ?>" style="width:20%;" />
 </p>
 
 <!-- Choose how the categories will be ordered -->
@@ -687,7 +723,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
         echo $this->get_field_id('orderby'); ?>" >
       <option class="level-0" value="none" <?php
         if ($instance['orderby'] == "none") echo " selected='selected'" ?>><?php
-        _e('Random', 'tsp_featured_categories') ?></option>
+        _e('None', 'tsp_featured_categories') ?></option>
       <option class="level-0" value="name" <?php
         if ($instance['orderby'] == "name") echo " selected='selected'" ?>><?php
         _e('Name', 'tsp_featured_categories') ?></option>
