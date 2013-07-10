@@ -147,7 +147,7 @@ function fn_tsp_featured_categories_get_admin_scripts()
         wp_enqueue_script('media-upload');
         wp_enqueue_script('quicktags');
 
-	    wp_register_script('tspfp-scripts.js', plugins_url('js/scripts.js', __FILE__ ), array('jquery'));
+	    wp_register_script('tspfc-scripts.js', plugins_url('js/scripts.js', __FILE__ ), array('jquery'));
         wp_enqueue_script('tspfc-scripts.js');
     }
 }
