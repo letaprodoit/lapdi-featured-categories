@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: featured categories display gallery slider jquery moving boxes the software people
 Requires at least: 3.5.1
 Tested up to: 3.5.2
-Stable tag: trunk
+Stable tag: 1.0.0
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
