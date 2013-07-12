@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="{$stylesheet}" type="text/css" media="screen" />
-<div id="tsp_featured_categories" class="postbox">
+<div id="tsp-featured-categories" class="postbox">
 <h3 class='handle'><span>{$title}</h3>
 <div class="inside">
 
@@ -22,14 +22,14 @@
 		<label for="{$field_prefix}">Category Thumbnail</label>    
 	</th>
     <td align="left" valign="top">
-    	<div name="{$field_prefix}_selected_image"  id="{$field_prefix}_selected_image" class="tsp_featured_categories_selected_image">
+    	<div name="{$field_prefix}_selected_image"  id="{$field_prefix}_selected_image" class="tsp-featured-categories-selected_image">
       		{if $cur_image != ''}<img src="{$cur_image}" />{/if}
     	</div>
     </td>
   </tr>
   <tr>
     <td valign="top">
-    	<div name="{$field_prefix}_url_display" id="{$field_prefix}_url_display" class="tsp_featured_categories_url_display">
+    	<div name="{$field_prefix}_url_display" id="{$field_prefix}_url_display" class="tsp-featured-categories-url_display">
       		{if $cur_image != ''}{$cur_image}{else}No image selected{/if}
     	</div>
         <img src="images/media-button-image.gif"

@@ -11,31 +11,31 @@ $TSPFC_DEFAULTS        = array(
 		'maxdesc'      => 60,
 		'layout'       => 0,
 		'widthbox'     => 500,
-		'heightbox'    => 300,
+		'heightbox'    => 80,
 		'orderby'      => 'ID',
 		'widththumb'   => 80,
 		'heightthumb'  => 80,
-        'beforetitle'  => '<h3 class="widget-title">',
+        'beforetitle'  => '<h3>',
 		'aftertitle'   => '</h3>'
 	);
     
 // These fields for the settings block which is located at the admin setting TSP Featured Posts page
 $TSPFC_ADMIN_FIELDS = array (
-		array( 'title', 'TEXT', __( 'Title', 'tsp_featured_categories' ), __( 'Title', 'tsp_featured_categories' ) ),
-		array( 'numbercats', 'TEXT', __( 'How many categories do you want to display?', 'tsp_featured_categories' ), __( 'How many categories do you want to display', 'tsp_featured_categories' ) ),
-		array( 'parentcat', 'TEXT', __( 'Category ID of Parent Category', 'tsp_featured_categories' ), __( 'Category ID of Parent Category', 'tsp_featured_categories' ) ),
-		array( 'cattype', 'SELECT', __( 'Category Type', 'tsp_featured_categories' ), __( 'Category Type', 'tsp_featured_categories' ) ),
-		array( 'hideempty', 'SELECT', __( 'Hide Empty Categories?', 'tsp_featured_categories' ), __( 'Hide Empty Categories?', 'tsp_featured_categories' ) ),
-		array( 'hidedesc', 'SELECT', __( 'Hide Category Description?', 'tsp_featured_categories' ), __( 'Hide Category Description?', 'tsp_featured_categories' ) ),
-		array( 'maxdesc', 'TEXT', __( 'Max chars to display for description', 'tsp_featured_categories' ), __( 'Max chars to display for description', 'tsp_featured_categories' ) ),
-		array( 'layout', 'SELECT', __( 'Choose category layout', 'tsp_featured_categories' ), __( 'Choose category layout', 'tsp_featured_categories' ) ),
-		array( 'widthbox', 'TEXT', __( 'Box Width (Scrolling Gallery Only)', 'tsp_featured_categories' ), __( 'Box Width (Scrolling Gallery Only)', 'tsp_featured_categories' ) ),
-		array( 'heightbox', 'TEXT', __( 'Box Height (Scrolling Gallery Only)', 'tsp_featured_categories' ), __( 'Box Height (Scrolling Gallery Only)', 'tsp_featured_categories' ) ),
-		array( 'orderby', 'SELECT', __( 'Choose how the categories will be ordered', 'tsp_featured_categories' ), __( 'Choose how the categories will be ordered', 'tsp_featured_categories' ) ),
-		array( 'widththumb', 'TEXT', __( 'Thumbnail Width', 'tsp_featured_categories' ), __( 'Thumbnail Width', 'tsp_featured_categories' ) ),
-		array( 'heightthumb', 'TEXT', __( 'Thumbnail Height', 'tsp_featured_categories' ), __( 'Thumbnail Height', 'tsp_featured_categories' ) ),
-		array( 'beforetitle', 'TEXT', __( 'HTML Before Title', 'tsp_featured_categories' ), __( 'HTML Before Title', 'tsp_featured_categories' ) ),
-		array( 'aftertitle', 'TEXT', __( 'HTML After Title', 'tsp_featured_categories' ), __( 'HTML After Title', 'tsp_featured_categories' ) ),
+		array( 'title', 'TEXT', __( 'Title', 'tsp-featured-categories' ), __( 'Title', 'tsp-featured-categories' ) ),
+		array( 'numbercats', 'TEXT', __( 'How many categories do you want to display?', 'tsp-featured-categories' ), __( 'How many categories do you want to display', 'tsp-featured-categories' ) ),
+		array( 'parentcat', 'TEXT', __( 'Category ID of Parent Category', 'tsp-featured-categories' ), __( 'Category ID of Parent Category', 'tsp-featured-categories' ) ),
+		array( 'cattype', 'SELECT', __( 'Category Type', 'tsp-featured-categories' ), __( 'Category Type', 'tsp-featured-categories' ) ),
+		array( 'hideempty', 'SELECT', __( 'Hide Empty Categories?', 'tsp-featured-categories' ), __( 'Hide Empty Categories?', 'tsp-featured-categories' ) ),
+		array( 'hidedesc', 'SELECT', __( 'Hide Category Description?', 'tsp-featured-categories' ), __( 'Hide Category Description?', 'tsp-featured-categories' ) ),
+		array( 'maxdesc', 'TEXT', __( 'Max chars to display for description', 'tsp-featured-categories' ), __( 'Max chars to display for description', 'tsp-featured-categories' ) ),
+		array( 'layout', 'SELECT', __( 'Choose category layout', 'tsp-featured-categories' ), __( 'Choose category layout', 'tsp-featured-categories' ) ),
+		array( 'widthbox', 'TEXT', __( 'Box Width (Scrolling Gallery Only)', 'tsp-featured-categories' ), __( 'Box Width (Scrolling Gallery Only)', 'tsp-featured-categories' ) ),
+		array( 'heightbox', 'TEXT', __( 'Box Height (Scrolling Gallery Only)', 'tsp-featured-categories' ), __( 'Box Height (Scrolling Gallery Only)', 'tsp-featured-categories' ) ),
+		array( 'orderby', 'SELECT', __( 'Choose how the categories will be ordered', 'tsp-featured-categories' ), __( 'Choose how the categories will be ordered', 'tsp-featured-categories' ) ),
+		array( 'widththumb', 'TEXT', __( 'Thumbnail Width', 'tsp-featured-categories' ), __( 'Thumbnail Width', 'tsp-featured-categories' ) ),
+		array( 'heightthumb', 'TEXT', __( 'Thumbnail Height', 'tsp-featured-categories' ), __( 'Thumbnail Height', 'tsp-featured-categories' ) ),
+		array( 'beforetitle', 'TEXT', __( 'HTML Before Title', 'tsp-featured-categories' ), __( 'HTML Before Title', 'tsp-featured-categories' ) ),
+		array( 'aftertitle', 'TEXT', __( 'HTML After Title', 'tsp-featured-categories' ), __( 'HTML After Title', 'tsp-featured-categories' ) ),
 );
 
 
@@ -51,10 +51,10 @@ if (! function_exists('fn_tsp_plugins_add_menu_render') ){
 		$array_recomend = array();
 		$count_activate = $count_install = $count_recomend = 0;
 		$array_plugins	= array(
-			array( 'tsp_featured_categories\/tsp_featured_categories.php', 'Featured Categories', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Featured+Categories&plugin-search-input=Search+Plugins', 'admin.php?page=tsp_featured_categories.php' ), 
-			array( 'tsp_featured_posts\/tsp_featured_posts.php', 'Featured Posts', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-posts-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-posts-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Featured+Posts&plugin-search-input=Search+Plugins', 'admin.php?page=tsp_featured_posts.php' ), 
-			array( 'tsp_facepile\/tsp_facepile.php', 'Facepile', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/facepile-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/facepile-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Facepile&plugin-search-input=Search+Plugins', 'admin.php?page=tsp_facepile.php' ), 
-			array( 'tsp_disable_autosave\/tsp_disable_autosave.php', 'Disable Auto-Save', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/disable-autosave-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/disable-autosave-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Disable+Autosave&plugin-search-input=Search+Plugins', '#' ), 
+			array( 'tsp-featured-categories\/tsp-featured-categories.php', 'Featured Categories', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Featured+Categories&plugin-search-input=Search+Plugins', 'admin.php?page=tsp-featured-categories.php' ), 
+			array( 'tsp-featured-posts\/tsp-featured-posts.php', 'Featured Posts', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-posts-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-posts-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Featured+Posts&plugin-search-input=Search+Plugins', 'admin.php?page=tsp-featured-posts.php' ), 
+			array( 'tsp-facepile\/tsp-facepile.php', 'Facepile', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/facepile-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/facepile-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Facepile&plugin-search-input=Search+Plugins', 'admin.php?page=tsp-facepile.php' ), 
+			array( 'tsp-disable-auto-save\/tsp-disable-auto-save.php', 'Disable Auto-Save', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/disable-autosave-for-wordpress.html', 'http://www.thesoftwarepeople.com/software/plugins/wordpress/disable-autosave-for-wordpress.html', '/wp-admin/plugin-install.php?tab=search&type=term&s=TSP+Disable+Auto+Save&plugin-search-input=Search+Plugins', '#' ), 
 		);
 		foreach ( $array_plugins as $plugins ) {
 			if( 0 < count( preg_grep( "/".$plugins[0]."/", $active_plugins ) ) ) {
@@ -162,7 +162,7 @@ if (! function_exists('fn_tsp_plugins_add_menu_render') ){
 }
 
 // Function for display captcha settings page in the admin area
-function fn_tsp_featured_categories_settings_page() {
+function fn_tspfc_settings_page() {
 	global $TSPFC_ADMIN_FIELDS;
 	global $TSPFC_OPTIONS;
 
@@ -180,157 +180,151 @@ function fn_tsp_featured_categories_settings_page() {
 		// array merge incase this version has added new options
 		$TSPFC_OPTIONS = array_merge( $TSPFC_OPTIONS , $tspfc_request_options );
 
-		update_option( 'tsp_featured_categories_options', $TSPFC_OPTIONS );
-		$message = __( "Options saved.", 'tsp_featured_categories' );
+		update_option( 'tspfc_options', $TSPFC_OPTIONS );
+		$message = __( "Options saved.", 'tsp-featured-categories' );
 	}
 
 	// Display form on the setting page
 ?>
 <div class="tsp_container">
 	<div class="icon32 tsp_icon" id="tsp_icon-options-general"></div>
-	<h2><?php _e('Featured Categories Shortcode Settings (The Software People)', 'tsp_featured_categories' ); ?></h2>
-	<div class="row">
-		<div class="4u">
-			<div class="updated fade" <?php if( ! isset( $_REQUEST['tspfc_form_submit'] ) || $error != "" ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
-			<div class="error" <?php if( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-			<form method="post" action="admin.php?page=tsp_featured_categories.php">
-				<fieldset>
-				<?php foreach ($TSPFC_ADMIN_FIELDS as $fields): ?>
-					<div class="tsp_form_element" id="<?php echo $fields[0]; ?>_container_div" style="">
-						<label for="<?php echo $fields[0]; ?>"><?php echo __( $fields[2], 'tsp_featured_categories' ); ?></label>
-						
-						<?php if ($fields[1] == 'TEXT'): ?>
-						   <input id="<?php echo $fields[0]; ?>" name="<?php echo $fields[0]; ?>" value="<?php echo $TSPFC_OPTIONS[$fields[0]]; ?>" />
-						<?php elseif ($fields[1] == 'SELECT'): ?>
-							<?php if ($fields[0] == 'cattype'): ?>
-							   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
-							      <option class="level-0" value="all" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "all") echo " selected='selected'" ?>><?php
-							        _e('All', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="featured" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "featured") echo " selected='selected'" ?>><?php
-							        _e('Featured Only', 'tsp_featured_categories') ?></option>
-							   </select>
-							<?php elseif ($fields[0] == 'hideempty'): ?>
-							   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
-							      <option class="level-0" value="1" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == 1) echo " selected='selected'" ?>><?php
-							        _e('Yes', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="0" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == 0) echo " selected='selected'" ?>><?php
-							        _e('No', 'tsp_featured_categories') ?></option>
-							   </select>
-							<?php elseif ($fields[0] == 'hidedesc'): ?>
-							   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
-							      <option class="level-0" value="Y" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "Y") echo " selected='selected'" ?>><?php
-							        _e('Yes', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="N" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "N") echo " selected='selected'" ?>><?php
-							        _e('No', 'tsp_featured_categories') ?></option>
-							   </select>
-							<?php elseif ($fields[0] == 'layout'): ?>
-							   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
-							      <option class="level-0" value="0" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "0") echo " selected='selected'" ?>><?php
-        							_e('Image (left), Title, Text (right) [Horizontal]', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="1" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "1") echo " selected='selected'" ?>><?php
-        							_e('Image (left), Title, Text (right) [Vertical]', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="2" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "2") echo " selected='selected'" ?>><?php
-  							        _e('Scrolling Gallery [Horizontal]', 'tsp_featured_categories') ?></option>
-							   </select>
-							<?php elseif ($fields[0] == 'orderby'): ?>
-							   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
-							      <option class="level-0" value="none" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "none") echo " selected='selected'" ?>><?php
-							        _e('None', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="name" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "name") echo " selected='selected'" ?>><?php
-							        _e('Title', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="count" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "count") echo " selected='selected'" ?>><?php
-							        _e('Count', 'tsp_featured_categories') ?></option>
-							      <option class="level-0" value="ID" <?php
-							        if ($TSPFC_OPTIONS[$fields[0]] == "ID") echo " selected='selected'" ?>><?php
-							        _e('ID', 'tsp_featured_categories') ?></option>
-							   </select>
-							<?php endif; ?>
-						<?php endif; ?>
-						
-						<div class="clear"></div>
-						<div id="error-message-name"></div>
-					</div>
-				<?php endforeach; ?>
-				</fieldset>
-				<input type="hidden" name="tspfc_form_submit" value="submit" />
-				<p class="submit">
-					<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
-				</p>
-				<?php wp_nonce_field( plugin_basename(__FILE__), 'tspfc_nonce_name' ); ?>
-			</form>
-		</div><!-- 4u -->
-		<div class="8u">
-			<div class="mycomment">
-				<p><h3>Using Featured Categories Shortcode <a href="#" class="toggle">(hide/show details)</a>:</h3></p>
-				<div class="note-details">
-					<ul style="list-style-type:square;">
-						<li>Changing the default post options below allows you to place <strong>[tsp_featured_categories]</strong> shortcode tag into any post or page with these options.</li>
-						<li>However, if you wish to add different options to the <strong>[tsp_featured_categories]</strong> shortcode please use the following settings:
+	<h2><?php _e('Featured Categories Shortcode Settings (The Software People)', 'tsp-featured-categories' ); ?></h2>
+	<div class="mycomment">
+		<p><h3>Using Featured Categories Shortcode <a href="#" class="toggle">(hide/show details)</a>:</h3></p>
+		<div class="note-details">
+			<ul style="list-style-type:square;">
+				<li>Changing the default post options below allows you to place <strong>[tsp-featured-categories]</strong> shortcode tag into any post or page with these options.</li>
+				<li>However, if you wish to add different options to the <strong>[tsp-featured-categories]</strong> shortcode please use the following settings:
+					<ul style="padding-left: 30px;">
+						<li>Title: <strong>title="Title of Posts"</strong></li>
+						<li>Number Categories: <strong>numbercats="5"</strong></li>
+						<li>Parent Category: <strong>parentcat="5"</strong></li>
+						<li>Category Type: <strong>cattype="all"</strong>(Options: all, featured)</li>
+						<li>Hide Empty Categories: <strong>hideempty="1"</strong>(Options: 0,1)[0=No, 1=Yes]</li>
+						<li>Hide Description: <strong>hidedesc="N"</strong>(Options: Y, N)</li>
+						<li>Max Chars for Description: <strong>maxdesc="60"</strong></li>
+						<li>Layout: <strong>layout="0"</strong>(Options: 0, 1, 2)
 							<ul style="padding-left: 30px;">
-								<li>Title: <strong>title="Title of Posts"</strong></li>
-								<li>Number Categories: <strong>numbercats="5"</strong></li>
-								<li>Parent Category: <strong>parentcat="5"</strong></li>
-								<li>Category Type: <strong>cattype="all"</strong>(Options: all, featured)</li>
-								<li>Hide Empty Categories: <strong>hideempty="1"</strong>(Options: 0,1)[0=No, 1=Yes]</li>
-								<li>Hide Description: <strong>hidedesc="N"</strong>(Options: Y, N)</li>
-								<li>Max Chars for Description: <strong>maxdesc="60"</strong></li>
-								<li>Layout: <strong>layout="0"</strong>(Options: 0, 1, 2)
-									<ul style="padding-left: 30px;">
-										<li>0: Image (left), Title, Text (right) [Horizontal]</li>
-										<li>1: Image (left), Title, Text (right) [Vertical]</li>
-										<li>2: Scrolling Gallery [Horizontal]</li>
-									</ul>
-								</li>
-								<li>Box Width: <strong>widthbox="500"</strong></li>
-								<li>Box Height: <strong>heightbox="300"</strong></li>
-								<li>Order By: <strong>orderby="none"</strong>(Options: none,name,date,count,ID)</li>
-								<li>Thumbnail Width: <strong>widththumb="80"</strong></li>
-								<li>Thumbnail Height: <strong>heightthumb="80"</strong></li>
-								<li>HTML Tag Before Title: <strong>beforetitle="&lt;h3&gt;"</strong></li>
-								<li>HTML Tag After Title: <strong>aftertitle="&lt;/h3&gt;"</strong></li>
+								<li>0: Image (left), Title, Text (right) [Horizontal]</li>
+								<li>1: Image (left), Title, Text (right) [Vertical]</li>
+								<li>2: Scrolling Gallery [Horizontal]</li>
 							</ul>
 						</li>
-						<li>Insert your desired shortcode into any page or post.</li>
+						<li>Box Width: <strong>widthbox="500"</strong></li>
+						<li>Box Height: <strong>heightbox="300"</strong></li>
+						<li>Order By: <strong>orderby="none"</strong>(Options: none,name,date,count,ID)</li>
+						<li>Thumbnail Width: <strong>widththumb="80"</strong></li>
+						<li>Thumbnail Height: <strong>heightthumb="80"</strong></li>
+						<li>HTML Tag Before Title: <strong>beforetitle="&lt;h3&gt;"</strong></li>
+						<li>HTML Tag After Title: <strong>aftertitle="&lt;/h3&gt;"</strong></li>
 					</ul>
-					<hr>
-					A shortcode with all the options will look like the following:<br><br>
-					<strong>[tsp_featured_categories title="Featured Categories"  numbercats="3" cattype="all" hideempty="1" hidedesc="N" maxdesc="60" layout="0" parentcat="3" widthbox=500 heightbox=300 orderby="count" widththumb="80" heightthumb="80" beforetitle="" aftertitle=""]</strong>
-				</div>
+				</li>
+				<li>Insert your desired shortcode into any page or post.</li>
+			</ul>
+			<hr>
+			A shortcode with all the options will look like the following:<br><br>
+			<strong>[tsp-featured-categories title="Featured Categories"  numbercats="3" cattype="all" hideempty="1" hidedesc="N" maxdesc="60" layout="0" parentcat="3" widthbox=500 heightbox=300 orderby="count" widththumb="80" heightthumb="80" beforetitle="" aftertitle=""]</strong>
+		</div>
+	</div>
+	<script>
+		jQuery("div.tsp_container a.toggle").click(function () {
+			jQuery(".note-details").toggle();
+		});
+	</script>
+	<div class="updated fade" <?php if( ! isset( $_REQUEST['tspfc_form_submit'] ) || $error != "" ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
+	<div class="error" <?php if( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
+	<form method="post" action="admin.php?page=tsp-featured-categories.php">
+		<fieldset>
+		<?php foreach ($TSPFC_ADMIN_FIELDS as $fields): ?>
+			<div class="tsp_form_element" id="<?php echo $fields[0]; ?>_container_div" style="">
+				<label for="<?php echo $fields[0]; ?>"><?php echo __( $fields[2], 'tsp-featured-categories' ); ?></label>
+				
+				<?php if ($fields[1] == 'TEXT'): ?>
+				   <input id="<?php echo $fields[0]; ?>" name="<?php echo $fields[0]; ?>" value="<?php echo $TSPFC_OPTIONS[$fields[0]]; ?>" />
+				<?php elseif ($fields[1] == 'SELECT'): ?>
+					<?php if ($fields[0] == 'cattype'): ?>
+					   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
+					      <option class="level-0" value="all" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "all") echo " selected='selected'" ?>><?php
+					        _e('All', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="featured" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "featured") echo " selected='selected'" ?>><?php
+					        _e('Featured Only', 'tsp-featured-categories') ?></option>
+					   </select>
+					<?php elseif ($fields[0] == 'hideempty'): ?>
+					   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
+					      <option class="level-0" value="1" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == 1) echo " selected='selected'" ?>><?php
+					        _e('Yes', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="0" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == 0) echo " selected='selected'" ?>><?php
+					        _e('No', 'tsp-featured-categories') ?></option>
+					   </select>
+					<?php elseif ($fields[0] == 'hidedesc'): ?>
+					   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
+					      <option class="level-0" value="Y" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "Y") echo " selected='selected'" ?>><?php
+					        _e('Yes', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="N" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "N") echo " selected='selected'" ?>><?php
+					        _e('No', 'tsp-featured-categories') ?></option>
+					   </select>
+					<?php elseif ($fields[0] == 'layout'): ?>
+					   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
+					      <option class="level-0" value="0" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "0") echo " selected='selected'" ?>><?php
+							_e('Image (left), Title, Text (right) [Horizontal]', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="1" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "1") echo " selected='selected'" ?>><?php
+							_e('Image (left), Title, Text (right) [Vertical]', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="2" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "2") echo " selected='selected'" ?>><?php
+						        _e('Scrolling Gallery [Horizontal]', 'tsp-featured-categories') ?></option>
+					   </select>
+					<?php elseif ($fields[0] == 'orderby'): ?>
+					   <select name="<?php echo $fields[0]; ?>" id="<?php echo $fields[0]; ?>" >
+					      <option class="level-0" value="none" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "none") echo " selected='selected'" ?>><?php
+					        _e('None', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="name" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "name") echo " selected='selected'" ?>><?php
+					        _e('Title', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="count" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "count") echo " selected='selected'" ?>><?php
+					        _e('Count', 'tsp-featured-categories') ?></option>
+					      <option class="level-0" value="ID" <?php
+					        if ($TSPFC_OPTIONS[$fields[0]] == "ID") echo " selected='selected'" ?>><?php
+					        _e('ID', 'tsp-featured-categories') ?></option>
+					   </select>
+					<?php endif; ?>
+				<?php endif; ?>
+				
+				<div class="clear"></div>
+				<div id="error-message-name"></div>
 			</div>
-			<script>
-				jQuery("div.tsp_container a.toggle").click(function () {
-					jQuery(".note-details").toggle();
-				});
-			</script>
-		</div><!-- 8u -->
-	</div><!-- row -->
+		<?php endforeach; ?>
+		</fieldset>
+		<input type="hidden" name="tspfc_form_submit" value="submit" />
+		<p class="submit">
+			<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+		</p>
+		<?php wp_nonce_field( plugin_basename(__FILE__), 'tspfc_nonce_name' ); ?>
+	</form>
 </div><!-- tsp_container -->
 <?php } 
 
 // register settings function
-function fn_tsp_featured_categories_register_settings() {
+function fn_tspfc_register_settings() {
 
 	global $TSPFC_DEFAULTS,$TSPFC_OPTIONS;
 			
 	// install the option defaults
-	if( !get_option( 'tsp_featured_categories_options' ) ) 
+	if( !get_option( 'tspfc_options' ) ) 
 	{
-		add_option( 'tsp_featured_categories_options', $TSPFC_DEFAULTS, '', 'yes' );
+		add_option( 'tspfc_options', $TSPFC_DEFAULTS, '', 'yes' );
 	}
 
-	$TSPFC_OPTIONS = get_option( 'tsp_featured_categories_options' );// get options from the database
+	$TSPFC_OPTIONS = get_option( 'tspfc_options' );// get options from the database
 	
 	// array merge incase this version has added new options
 	
@@ -344,41 +338,77 @@ function fn_tsp_featured_categories_register_settings() {
 	}//endelse
 }
 
-function fn_tsp_featured_categories_add_admin_menu() 
+function fn_tspfc_add_admin_menu() 
 {
-	add_menu_page( 'TSP Plugins', 'TSP Plugins', 'manage_options', 'tsp_plugins', 'fn_tsp_plugins_add_menu_render', WP_CONTENT_URL."/plugins/tsp_featured_categories/images/tsp_icon_16.png", 2617638); 
-	add_submenu_page('tsp_plugins', __( 'Featured Categories', 'tsp_featured_categories' ), __( 'Featured Categories', 'tsp_featured_categories' ), 'manage_options', "tsp_featured_categories.php", 'fn_tsp_featured_categories_settings_page');
+	add_menu_page( 'TSP Plugins', 'TSP Plugins', 'manage_options', 'tsp_plugins', 'fn_tsp_plugins_add_menu_render', WP_CONTENT_URL."/plugins/tsp-featured-categories/images/tsp_icon_16.png", 2617638); 
+	add_submenu_page('tsp_plugins', __( 'Featured Categories', 'tsp-featured-categories' ), __( 'Featured Categories', 'tsp-featured-categories' ), 'manage_options', "tsp-featured-categories.php", 'fn_tspfc_settings_page');
 
 	//call register settings function
-	add_action( 'admin_init', 'fn_tsp_featured_categories_register_settings' );
+	add_action( 'admin_init', 'fn_tspfc_register_settings' );
 }
 
-function fn_tsp_featured_categories_plugin_init() 
+function fn_tspfc_plugin_init() 
 {
+	global $wp_version;
+	
+	if (version_compare($wp_version, TSPFC_REQUIRED_WP_VERSION, "<"))
+	{
+		wp_die("<pre>TSP Featured Categories Plugin requires WordPress version <strong>" . TSPFC_REQUIRED_WP_VERSION . " or higher</<strong>.<br>You have version <strong>$wp_version</strong> installed.</pre>");
+	}//endif
+	
+	if( is_plugin_active('tsp_featured_categories/tsp_featured_categories.php') ) 
+	{
+		deactivate_plugins( 'tsp_featured_categories/tsp_featured_categories.php' );
+	}//endif
 }
 
-function fn_tsp_featured_categories_delete_options() {
-	delete_option( 'tsp_featured_categories_options' );
-}
-
-function fn_tsp_featured_categories_admin_head() 
+function fn_tspfc_admin_head() 
 {
 	wp_register_script( 'tspp-skel_min.js', plugins_url( 'js/skel.min.js', __FILE__ ) );
 	wp_enqueue_script( 'tspp-skel_min.js' );
 
-	wp_register_style( 'tspfc_admin-style.css', plugins_url( 'css/style.css', __FILE__ ) );
-	wp_enqueue_style( 'tspfc_admin-style.css' );
+	wp_register_style( 'tspfc-admin_stylesheet', plugins_url( 'css/style.css', __FILE__ ) );
+	wp_enqueue_style( 'tspfc-admin_stylesheet' );
 }
 
+/*
+function fn_tspfc_plugin_action_links( $links, $file ) 
+{
+	//Static so we don't call plugin_basename on every plugin row.
+	static $this_plugin;
+	if ( ! $this_plugin ) $this_plugin = plugin_basename(__FILE__);
+
+	if ( $file == $this_plugin ){
+			 $settings_link = '<a href="admin.php?page=tsp-featured-categories.php">' . __( 'Settings', 'tsp-featured-categories' ) . '</a>';
+			 array_unshift( $links, $settings_link );
+	}
+	return $links;
+} // end function fn_tspfc_plugin_action_links
+
+// adds "Settings" link to the plugin action page
+add_filter( 'plugin_action_links', 'fn_tspfc_plugin_action_links', 10, 2 );
+
+function fn_tspfc_register_plugin_links($links, $file) 
+{
+	$base = plugin_basename(__FILE__);
+	if ($file == $base) {
+		$links[] = '<a href="admin.php?page=tsp-featured-categories.php">' . __( 'Settings', 'tsp-featured-categories' ) . '</a>';
+		$links[] = '<a href="http://wordpress.org/extend/plugins/tsp-featured-categories/faq/" target="_blank">' . __( 'FAQ', 'tsp-featured-categories' ) . '</a>';
+		$links[] = '<a href="http://lab.thesoftwarepeople.com/tracker/wordpress-fc" target="_blank">' . __( 'Support', 'tsp-featured-categories' ) . '</a>';
+	}
+	return $links;
+} // end function fn_tspfc_register_plugin_links
+
+//Additional links on the plugin page
+add_filter( 'plugin_row_meta', 'fn_tspfp_register_plugin_links', 10, 2 );
+*/
+
 // Add global setting for Captcha
-$TSPFC_OPTIONS = get_option( 'tsp_featured_categories_options' );// get the options from the database
+$TSPFC_OPTIONS = get_option( 'tspfc_options' );// get the options from the database
 
-add_action( 'init', 'fn_tsp_featured_categories_plugin_init' );
-add_action( 'admin_init', 'fn_tsp_featured_categories_plugin_init' );
-add_action( 'admin_menu', 'fn_tsp_featured_categories_add_admin_menu' );
-add_action( 'admin_enqueue_scripts', 'fn_tsp_featured_categories_admin_head' );
-
-register_uninstall_hook( __FILE__, 'fn_tsp_featured_categories_delete_options' );
-
+add_action( 'init', 'fn_tspfc_plugin_init' );
+add_action( 'admin_init', 'fn_tspfc_plugin_init' );
+add_action( 'admin_menu', 'fn_tspfc_add_admin_menu' );
+add_action( 'admin_enqueue_scripts', 'fn_tspfc_admin_head' );
 
 ?>

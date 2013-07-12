@@ -10,6 +10,11 @@ Copyright: 		Copyright © 2013 The Software People, LLC (www.thesoftwarepeople.c
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 */
 
+define( 'TSPFC_REQUIRED_WP_VERSION', '3.5.1' );
+define( 'TSPFC_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+
+require_once(ABSPATH . 'wp-admin/includes/plugin.php' );
+
 // Get the plugin path
 if (!defined('WP_CONTENT_DIR')) define('WP_CONTENT_DIR', ABSPATH . 'wp-content');
 if (!defined('DIRECTORY_SEPARATOR')) {
@@ -19,12 +24,16 @@ if (!defined('DIRECTORY_SEPARATOR')) {
 
 // Set the abs plugin path
 define('PLUGIN_ABS_PATH', ABSPATH . PLUGINDIR );
-$plugin_abs_path = ABSPATH . PLUGINDIR . DIRECTORY_SEPARATOR . "tsp_featured_categories";
+$plugin_abs_path = PLUGIN_ABS_PATH . DIRECTORY_SEPARATOR . "tsp-featured-categories";
 define('TSPFC_ABS_PATH', $plugin_abs_path);
 $plugin_url = WP_CONTENT_URL . '/plugins/' . plugin_basename(dirname(__FILE__)) . '/';
 define('TSPFC_URL_PATH', $plugin_url);
 
+$upload_dir = wp_upload_dir();
+
 define('TSPFC_TEMPLATE_PATH', TSPFC_ABS_PATH . '/templates');
+define('TSPFC_TEMPLATE_CACHE_PATH', $upload_dir['basedir'] . '/tsp-plugins/tsp-featured-categories/cache');
+define('TSPFC_TEMPLATE_COMPILE_PATH', $upload_dir['basedir'] . '/tsp-plugins/tsp-featured-categories/compiled');
 
 // Set the file path
 $file_path    = $plugin_abs_path . DIRECTORY_SEPARATOR . basename(__FILE__);
@@ -36,83 +45,111 @@ define('TSPFC_ABSPATH', $asolute_path);
 
 include_once(TSPFC_ABS_PATH . '/includes/settings.inc.php');
 
+
+if (!class_exists('Smarty'))
+{
+    if (file_exists(TSPFC_ABS_PATH . '/libs/Smarty.class.php'))
+        require_once TSPFC_ABS_PATH . '/libs/Smarty.class.php';
+}
+
 // Initialization and Hooks
 global $wpdb;
 global $wp_version;
-global $tspfc_version;
-global $tspfc_db_version;
-global $tspfc_table_name;
 
-$tspfc_version    = '1.0.0';
-$tspfc_db_version = '0.0.1';
-$tspfc_table_name = $wpdb->prefix . 'termsmeta';
+define('TSPFC_VERSION', '1.0.0');
+define('TSPFC_DB_VERSION', '0.0.2');
+define('TSPFC_TABLE_NAME', $wpdb->prefix . 'tspfc_termsmeta');
+define('TSPFC_OLD_TABLE_NAME', $wpdb->prefix . 'termsmeta');
 
-register_activation_hook($file_path, 'fn_tsp_featured_categories_install');
-register_uninstall_hook($file_path, 'fn_tsp_featured_categories_uninstall');
+register_activation_hook( __FILE__, 'fn_tspfc_install') ;
+register_uninstall_hook( __FILE__, 'fn_tspfc_uninstall' );
 
+//--------------------------------------------------------
+// install plugin
+//--------------------------------------------------------
+function fn_tspfc_install()
+{
+    global $wpdb;
+    
+    $new_install = false;
+    
+    // create table on first install
+    if ($wpdb->get_var("show tables like '" . TSPFC_TABLE_NAME . "'") != TSPFC_TABLE_NAME) {
+        fn_tspfc_create_table($wpdb);
+        add_option("tspfc_db_version", TSPFC_DB_VERSION);
+        add_option("tspfc_configuration", '');
+        $new_install = true;
+    }
+    
+    // On plugin update only the version number is updated.
+    $installed_ver = get_option("tspfc_db_version");
+    if ($installed_ver != TSPFC_DB_VERSION) {
+        update_option("tspfc_db_version", TSPFC_DB_VERSION);
+    }
+    
+	// if old table exists and this is a new install, copy its contents into the new table
+    if ($new_install && $wpdb->get_var("show tables like '" . TSPFC_OLD_TABLE_NAME ."'") == TSPFC_OLD_TABLE_NAME) {
+        fn_tspfc_copy_table($wpdb);
+    }
+    
+	$message = "";
+	
+	if (!wp_mkdir_p( TSPFC_TEMPLATE_CACHE_PATH ))
+		$message .= "<br>Unable to create " . TSPFC_TEMPLATE_CACHE_PATH . " directory. Please create this directory manually via FTP or cPanel.";
+	else
+		@chmod( TSPFC_TEMPLATE_CACHE_PATH, 0777 );
+	
+	
+	if (!wp_mkdir_p( TSPFC_TEMPLATE_COMPILE_PATH ))
+		$message .= "<br>Unable to create " . TSPFC_TEMPLATE_COMPILE_PATH . " directory. Please create this directory manually via FTP or cPanel.";
+	else
+		@chmod( TSPFC_TEMPLATE_COMPILE_PATH, 0777 );
+	
+	return $message;
+}
+//--------------------------------------------------------
+// uninstall plugin
+//--------------------------------------------------------
+function fn_tspfc_uninstall()
+{
+    global $wpdb;
+    
+    // delete table
+    if ($wpdb->get_var("show tables like '" . TSPFC_TABLE_NAME . "'") == TSPFC_TABLE_NAME) {
+        fn_tspfc_drop_table($wpdb);
+    }
+    delete_option( "tspfc_db_version" );
+    delete_option( "tspfc_configuration" );
+	delete_option( 'tspfc_options' );
+}
 //--------------------------------------------------------
 // Process shortcodes
 //--------------------------------------------------------
-function fn_tsp_featured_categories_process_shortcodes($att)
+function fn_tspfc_process_shortcodes($att)
 {
 	global $TSPFC_OPTIONS;
 	
 	if ( is_feed() )
-		return '[tsp_featured_categories]';
+		return '[tsp-featured-categories]';
 
 	$options = $TSPFC_OPTIONS;
 	
 	if (!empty($att))
 		$options = array_merge( $TSPFC_OPTIONS, $att );
 		     	
-	$output = fn_tsp_featured_categories_display($options,false);
+	$output = fn_tspfc_display($options,false);
 	
 	return $output;
 }
 
-add_shortcode('tsp_featured_categories', 'fn_tsp_featured_categories_process_shortcodes');
-//--------------------------------------------------------
-// install plugin
-//--------------------------------------------------------
-function fn_tsp_featured_categories_install()
-{
-    global $wpdb;
-    global $tspfc_table_name;
-    global $tspfc_db_version;
-    
-    // create table on first install
-    if ($wpdb->get_var("show tables like '$tspfc_table_name'") != $tspfc_table_name) {
-        fn_tsp_featured_categories_create_table($wpdb, $tspfc_table_name);
-        add_option("tspfc_db_version", $tspfc_db_version);
-        add_option("tspfc_configuration", '');
-    }
-    
-    // On plugin update only the version number is updated.
-    $installed_ver = get_option("tspfc_db_version");
-    if ($installed_ver != $tspfc_db_version) {
-        update_option("tspfc_db_version", $tspfc_db_version);
-    }
-}
-//--------------------------------------------------------
-// uninstall plugin
-//--------------------------------------------------------
-function fn_tsp_featured_categories_uninstall()
-{
-    global $wpdb;
-    global $tspfc_table_name;
-    // delete table
-    if ($wpdb->get_var("show tables like '$tspfc_table_name'") == $tspfc_table_name) {
-        fn_tsp_featured_categories_drop_table($wpdb, $tspfc_table_name);
-    }
-    delete_option("tspfc_db_version");
-    delete_option("tspfc_configuration");
-}
+add_shortcode('tsp-featured-categories', 'fn_tspfc_process_shortcodes');
+add_shortcode('tsp_featured_categories', 'fn_tspfc_process_shortcodes');
 //--------------------------------------------------------
 // create table to store metadata
 //--------------------------------------------------------
-function fn_tsp_featured_categories_create_table($wpdb, $table_name)
+function fn_tspfc_create_table($wpdb)
 {
-    $sql     = "CREATE TABLE  " . $table_name . " (
+    $sql     = "CREATE TABLE  " . TSPFC_TABLE_NAME . " (
           meta_id bigint(20) NOT NULL auto_increment,
           terms_id bigint(20) NOT NULL default '0',
           meta_key varchar(255) default NULL,
@@ -126,15 +163,30 @@ function fn_tsp_featured_categories_create_table($wpdb, $table_name)
 //--------------------------------------------------------
 // delete table to store metadata
 //--------------------------------------------------------
-function fn_tsp_featured_categories_drop_table($wpdb, $table_name)
+function fn_tspfc_drop_table($wpdb)
 {
-    $sql     = "DROP TABLE  " . $table_name . " ;";
+    $sql     = "DROP TABLE  " . TSPFC_TABLE_NAME . " ;";
     $results = $wpdb->query($sql);
+}
+//--------------------------------------------------------
+// copy old table data to new one
+//--------------------------------------------------------
+function fn_tspfc_copy_table($wpdb)
+{
+    $sql     = "SELECT * FROM `" . TSPFC_OLD_TABLE_NAME . "` WHERE `meta_key` = 'featured' OR `meta_key` = 'image';";
+    $entries = $wpdb->get_results($sql, ARRAY_A);
+    
+    foreach ( $entries as $e ) 
+    {
+    	$sql = "REPLACE INTO `" . TSPFC_TABLE_NAME . "` (`terms_id`,`meta_key`,`meta_value`) VALUES ('{$e['terms_id']}','{$e['meta_key']}', '{$e['meta_value']}');";
+    	$results = $wpdb->query($sql);
+    	
+    }//endforeach
 }
 //--------------------------------------------------------
 // Get admin scripts
 //--------------------------------------------------------
-function fn_tsp_featured_categories_get_admin_scripts()
+function fn_tspfc_get_admin_scripts()
 {
     if (is_admin()) {
     
@@ -152,17 +204,17 @@ function fn_tsp_featured_categories_get_admin_scripts()
     }
 }
 // Actions
-add_filter('admin_enqueue_scripts', 'fn_tsp_featured_categories_get_admin_scripts');
+add_filter('admin_enqueue_scripts', 'fn_tspfc_get_admin_scripts');
 //--------------------------------------------------------
 // Get category metadata
 //--------------------------------------------------------
-function fn_tsp_featured_categories_get_category_metadata($terms_id, $key, $single = false)
+function fn_tspfc_get_category_metadata($terms_id, $key, $single = false)
 {
     $terms_id   = (int)$terms_id;
     $meta_cache = wp_cache_get($terms_id, 'terms_meta');
     
     if (!$meta_cache) {
-        fn_tsp_featured_categories_update_category_meta_cache($terms_id);
+        fn_tspfc_update_category_meta_cache($terms_id);
         $meta_cache = wp_cache_get($terms_id, 'terms_meta');
     }
     
@@ -178,18 +230,17 @@ function fn_tsp_featured_categories_get_category_metadata($terms_id, $key, $sing
 //--------------------------------------------------------
 // Add metadata to category
 //--------------------------------------------------------
-function fn_tsp_featured_categories_add_category_metadata($terms_id, $meta_key, $meta_value, $unique = false)
+function fn_tspfc_add_category_metadata($terms_id, $meta_key, $meta_value, $unique = false)
 {
     global $wpdb;
-    global $tspfc_table_name;
     
     // expected_slashed ($meta_key)
     $meta_key   = stripslashes($meta_key);
     $meta_value = stripslashes($meta_value);
     
-    if ($unique && $wpdb->get_var($wpdb->prepare("SELECT meta_key FROM $tspfc_table_name WHERE meta_key = %s AND terms_id = %d", $meta_key, $terms_id))) return false;
+    if ($unique && $wpdb->get_var($wpdb->prepare("SELECT meta_key FROM " . TSPFC_TABLE_NAME . " WHERE meta_key = %s AND terms_id = %d", $meta_key, $terms_id))) return false;
     $meta_value = maybe_serialize($meta_value);
-    $wpdb->insert($tspfc_table_name, compact('terms_id', 'meta_key', 'meta_value'));
+    $wpdb->insert(TSPFC_TABLE_NAME, compact('terms_id', 'meta_key', 'meta_value'));
     
     wp_cache_delete($terms_id, 'terms_meta');
     
@@ -198,26 +249,25 @@ function fn_tsp_featured_categories_add_category_metadata($terms_id, $meta_key, 
 //--------------------------------------------------------
 // Delete metadata to category
 //--------------------------------------------------------
-function fn_tsp_featured_categories_delete_category_metadata($terms_id, $key, $value = '')
+function fn_tspfc_delete_category_metadata($terms_id, $key, $value = '')
 {
     global $wpdb;
-    global $tspfc_table_name;
     
     // expected_slashed ($key, $value)
     $key     = stripslashes($key);
     $value   = stripslashes($value);
     
     if (empty($value)) {
-        $sql1    = $wpdb->prepare("SELECT meta_id FROM $tspfc_table_name WHERE terms_id = %d AND meta_key = %s", $terms_id, $key);
+        $sql1    = $wpdb->prepare("SELECT meta_id FROM " . TSPFC_TABLE_NAME . " WHERE terms_id = %d AND meta_key = %s", $terms_id, $key);
         $meta_id = $wpdb->get_var($sql1);
     } else {
-        $sql2    = $wpdb->prepare("SELECT meta_id FROM $tspfc_table_name WHERE terms_id = %d AND meta_key = %s AND meta_value = %s", $terms_id, $key, $value);
+        $sql2    = $wpdb->prepare("SELECT meta_id FROM " . TSPFC_TABLE_NAME . " WHERE terms_id = %d AND meta_key = %s AND meta_value = %s", $terms_id, $key, $value);
         $meta_id = $wpdb->get_var($sql2);
     }
     
     if (!$meta_id) return false;
-    if (empty($value)) $wpdb->query($wpdb->prepare("DELETE FROM $tspfc_table_name WHERE terms_id = %d AND meta_key = %s", $terms_id, $key));
-    else $wpdb->query($wpdb->prepare("DELETE FROM $tspfc_table_name WHERE terms_id = %d AND meta_key = %s AND meta_value = %s", $terms_id, $key, $value));
+    if (empty($value)) $wpdb->query($wpdb->prepare("DELETE FROM " . TSPFC_TABLE_NAME . " WHERE terms_id = %d AND meta_key = %s", $terms_id, $key));
+    else $wpdb->query($wpdb->prepare("DELETE FROM " . TSPFC_TABLE_NAME . " WHERE terms_id = %d AND meta_key = %s AND meta_value = %s", $terms_id, $key, $value));
     
     wp_cache_delete($terms_id, 'terms_meta');
     
@@ -226,17 +276,16 @@ function fn_tsp_featured_categories_delete_category_metadata($terms_id, $key, $v
 //--------------------------------------------------------
 // Update the category metadata cache
 //--------------------------------------------------------
-function fn_tsp_featured_categories_update_category_metadata($terms_id, $meta_key, $meta_value, $prev_value = '')
+function fn_tspfc_update_category_metadata($terms_id, $meta_key, $meta_value, $prev_value = '')
 {
     global $wpdb;
-    global $tspfc_table_name;
     
     // expected_slashed ($meta_key)
     $meta_key   = stripslashes($meta_key);
     $meta_value = stripslashes($meta_value);
     
-    if (!$wpdb->get_var($wpdb->prepare("SELECT meta_key FROM $tspfc_table_name WHERE meta_key = %s AND terms_id = %d", $meta_key, $terms_id))) {
-        return fn_tsp_featured_categories_add_category_metadata($terms_id, $meta_key, $meta_value);
+    if (!$wpdb->get_var($wpdb->prepare("SELECT meta_key FROM " . TSPFC_TABLE_NAME . " WHERE meta_key = %s AND terms_id = %d", $meta_key, $terms_id))) {
+        return fn_tspfc_add_category_metadata($terms_id, $meta_key, $meta_value);
     }
     
     $meta_value = maybe_serialize($meta_value);
@@ -248,7 +297,7 @@ function fn_tsp_featured_categories_update_category_metadata($terms_id, $meta_ke
         $where['meta_value']            = $prev_value;
     }
     
-    $wpdb->update($tspfc_table_name, $data, $where);
+    $wpdb->update(TSPFC_TABLE_NAME, $data, $where);
     
     wp_cache_delete($terms_id, 'terms_meta');
     
@@ -257,10 +306,9 @@ function fn_tsp_featured_categories_update_category_metadata($terms_id, $meta_ke
 //--------------------------------------------------------
 // Update the category metadata cache
 //--------------------------------------------------------
-function fn_tsp_featured_categories_update_category_meta_cache($terms_ids)
+function fn_tspfc_update_category_meta_cache($terms_ids)
 {
     global $wpdb;
-    global $tspfc_table_name;
     
     if (empty($terms_ids)) return false;
     if (!is_array($terms_ids)) {
@@ -280,7 +328,7 @@ function fn_tsp_featured_categories_update_category_meta_cache($terms_ids)
     // Get terms-meta info
     $id_list   = join(',', $ids);
     $cache     = array();
-    if ($meta_list = $wpdb->get_results("SELECT terms_id, meta_key, meta_value FROM $tspfc_table_name WHERE terms_id IN ($id_list) ORDER BY terms_id, meta_key", ARRAY_A)) {
+    if ($meta_list = $wpdb->get_results("SELECT terms_id, meta_key, meta_value FROM " . TSPFC_TABLE_NAME . " WHERE terms_id IN ($id_list) ORDER BY terms_id, meta_key", ARRAY_A)) {
         foreach ((array)$meta_list as $metarow) {
             $mpid      = (int)$metarow['terms_id'];
             $mkey      = $metarow['meta_key'];
@@ -304,18 +352,19 @@ function fn_tsp_featured_categories_update_category_meta_cache($terms_ids)
 //--------------------------------------------------------
 // Queue the stylesheet
 //--------------------------------------------------------
-function fn_tsp_featured_categories_enqueue_styles()
+function fn_tspfc_enqueue_styles()
 {
-    wp_enqueue_style('tsp_featured_categories.css', plugins_url('tsp_featured_categories.css', __FILE__ ));
+	wp_register_style( 'tspfc-stylesheet', plugins_url( 'tsp-featured-categories.css', __FILE__ ) );
+	wp_enqueue_style( 'tspfc-stylesheet' );
 }
 
-add_action('wp_print_styles', 'fn_tsp_featured_categories_enqueue_styles');
+add_action('wp_print_styles', 'fn_tspfc_enqueue_styles');
 //--------------------------------------------------------
 
 //--------------------------------------------------------
 // Queue the javascripts
 //--------------------------------------------------------
-function fn_tsp_featured_categories_enqueue_scripts()
+function fn_tspfc_enqueue_scripts()
 {
     wp_enqueue_script( 'jquery' ); // Queue in wordpress jquery
     
@@ -332,12 +381,12 @@ function fn_tsp_featured_categories_enqueue_scripts()
 	wp_register_script( 'tspp-skel.min.js', plugins_url( 'includes/js/skel.min.js', __FILE__ ) );
 	wp_enqueue_script( 'tspp-skel.min.js' );
 }
-add_action('wp_enqueue_scripts', 'fn_tsp_featured_categories_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'fn_tspfc_enqueue_scripts');
 //--------------------------------------------------------
 //--------------------------------------------------------
 // Get category thumbnail
 //--------------------------------------------------------
-function fn_tsp_featured_categories_get_category_thumbnail($category)
+function fn_tspfc_get_category_thumbnail($category)
 {
     $img = '';
     
@@ -356,15 +405,15 @@ function fn_tsp_featured_categories_get_category_thumbnail($category)
 //--------------------------------------------------------
 // Show simple featured categories
 //--------------------------------------------------------
-function fn_tsp_featured_categories_display($args = null, $echo = true)
+function fn_tspfc_display($args = null, $echo = true)
 {
     global $TSPFC_OPTIONS;
 	    
 	$smarty = new Smarty;
 	$smarty->setTemplateDir(TSPFC_TEMPLATE_PATH);
-	$smarty->setCompileDir(TSPFC_TEMPLATE_PATH.'/compiled/');
-	$smarty->setCacheDir(TSPFC_TEMPLATE_PATH.'/cache/');
-	
+	$smarty->setCompileDir(TSPFC_TEMPLATE_CACHE_PATH);
+	$smarty->setCacheDir(TSPFC_TEMPLATE_COMPILE_PATH);
+
 	$return_HTML = "";
 	
 	$fp = $TSPFC_OPTIONS;
@@ -408,7 +457,7 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 		foreach ($all_categories as $category)
 		{
 			// Determine if the category is featured
-			$featured   = fn_tsp_featured_categories_get_category_metadata($category->term_id, 'featured', 1);
+			$featured   = fn_tspfc_get_category_metadata($category->term_id, 'featured', 1);
 			
 			if ($featured && $cat_cnt <= $numbercats)
 				$queried_categories[] = $category;
@@ -430,7 +479,7 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
    
     foreach ($queried_categories as $category)
     {   
-	    $image   = fn_tsp_featured_categories_get_category_metadata($category->term_id, 'image', 1);
+	    $image   = fn_tspfc_get_category_metadata($category->term_id, 'image', 1);
 	    $url = site_url()."/?cat=".$category->term_id;
 	    $title = $category->name;
 	    
@@ -483,14 +532,14 @@ function fn_tsp_featured_categories_display($args = null, $echo = true)
 //--------------------------------------------------------
 // Register widget
 //--------------------------------------------------------
-function tsp_featured_categories_widget_init()
+function fn_tspfc_widget_init()
 {
-    register_widget('TSP_Featured_Categories_Widget');
+    register_widget('TSPFC_Widget');
 }
 // Add functions to init
-add_action('widgets_init', 'tsp_featured_categories_widget_init');
+add_action('widgets_init', 'fn_tspfc_widget_init');
 //--------------------------------------------------------
-class TSP_Featured_Categories_Widget extends WP_Widget
+class TSPFC_Widget extends WP_Widget
 {
     //--------------------------------------------------------
     // Constructor
@@ -499,17 +548,17 @@ class TSP_Featured_Categories_Widget extends WP_Widget
     {
         // Get widget options
         $widget_options  = array(
-            'classname'                 => 'widget_tsp_featured_categories',
-            'description'               => __('This widget allows you to add in your sites themes a list of featured categories.', 'tsp_featured_categories')
+            'classname'                 => 'widget-tsp-featured-categories',
+            'description'               => __('This widget allows you to add in your sites themes a list of featured categories.', 'tsp-featured-categories')
         );
         // Get control options
         $control_options = array(
             'width' => 300,
             'height' => 350,
-            'id_base' => 'widget_tsp_featured_categories'
+            'id_base' => 'widget-tsp-featured-categories'
         );
         // Create the widget
-        parent::__construct('widget_tsp_featured_categories', __('TSP Featured Categories', 'tsp_featured_categories') , $widget_options, $control_options);
+        parent::__construct('widget-tsp-featured-categories', __('TSP Featured Categories', 'tsp-featured-categories') , $widget_options, $control_options);
     }
     //--------------------------------------------------------
     // initialize the widget
@@ -538,7 +587,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
         
         // Display the widget
         echo $before_widget;
-        fn_tsp_featured_categories_display($arguments);
+        fn_tspfc_display($arguments);
         echo $after_widget;
     }
     //--------------------------------------------------------
@@ -580,7 +629,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('title'); ?>"><?php
-        _e('Title:', 'tsp_featured_categories') ?></label>
+        _e('Title:', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('title'); ?>" name="<?php
         echo $this->get_field_name('title'); ?>" value="<?php
@@ -591,7 +640,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('numbercats'); ?>"><?php
-        _e('How many categories do you want to display?', 'tsp_featured_categories') ?></label>
+        _e('How many categories do you want to display?', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('numbercats'); ?>" name="<?php
         echo $this->get_field_name('numbercats'); ?>" value="<?php
@@ -601,16 +650,16 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('cattype'); ?>"><?php
-        _e('Category Type.', 'tsp_featured_categories') ?></label>
+        _e('Category Type.', 'tsp-featured-categories') ?></label>
    <select name="<?php
         echo $this->get_field_name('cattype'); ?>" id="<?php
         echo $this->get_field_id('cattype'); ?>" >
       <option class="level-0" value="all" <?php
         if ($instance['cattype'] == "all") echo " selected='selected'" ?>><?php
-        _e('All', 'tsp_featured_categories') ?></option>
+        _e('All', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="featured" <?php
         if ($instance['cattype'] == "featured") echo " selected='selected'" ?>><?php
-        _e('Featured Only', 'tsp_featured_categories') ?></option>
+        _e('Featured Only', 'tsp-featured-categories') ?></option>
    </select>
 </p>
 
@@ -618,16 +667,16 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('hideempty'); ?>"><?php
-        _e('Hide Empty Categories?', 'tsp_featured_categories') ?></label>
+        _e('Hide Empty Categories?', 'tsp-featured-categories') ?></label>
    <select name="<?php
         echo $this->get_field_name('hideempty'); ?>" id="<?php
         echo $this->get_field_id('hideempty'); ?>" >
       <option class="level-0" value="1" <?php
         if ($instance['hideempty'] == 1) echo " selected='selected'" ?>><?php
-        _e('Yes', 'tsp_featured_categories') ?></option>
+        _e('Yes', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="0" <?php
         if ($instance['hideempty'] == 0) echo " selected='selected'" ?>><?php
-        _e('No', 'tsp_featured_categories') ?></option>
+        _e('No', 'tsp-featured-categories') ?></option>
    </select>
 </p>
 
@@ -635,16 +684,16 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('hidedesc'); ?>"><?php
-        _e('Hide Category Descriptions?', 'tsp_featured_categories') ?></label>
+        _e('Hide Category Descriptions?', 'tsp-featured-categories') ?></label>
    <select name="<?php
         echo $this->get_field_name('hidedesc'); ?>" id="<?php
         echo $this->get_field_id('hidedesc'); ?>" >
       <option class="level-0" value="Y" <?php
         if ($instance['hidedesc'] == "Y") echo " selected='selected'" ?>><?php
-        _e('Yes', 'tsp_featured_categories') ?></option>
+        _e('Yes', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="N" <?php
         if ($instance['hidedesc'] == "N") echo " selected='selected'" ?>><?php
-        _e('No', 'tsp_featured_categories') ?></option>
+        _e('No', 'tsp-featured-categories') ?></option>
    </select>
 </p>
 
@@ -652,7 +701,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('maxdesc'); ?>"><?php
-        _e('Max chars to display for description', 'tsp_featured_categories') ?></label>
+        _e('Max chars to display for description', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('maxdesc'); ?>" name="<?php
         echo $this->get_field_name('maxdesc'); ?>" value="<?php
@@ -663,19 +712,19 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('layout'); ?>"><?php
-        _e('Choose layout of the category preview:', 'tsp_featured_categories') ?></label>
+        _e('Choose layout of the category preview:', 'tsp-featured-categories') ?></label>
    <select name="<?php
         echo $this->get_field_name('layout'); ?>" id="<?php
         echo $this->get_field_id('layout'); ?>" >
       <option class="level-0" value="0" <?php
         if ($instance['layout'] == "0") echo " selected='selected'" ?>><?php
-        _e('Image (left), Title, Text (right) [Horizontal]', 'tsp_featured_categories') ?></option>
+        _e('Image (left), Title, Text (right) [Horizontal]', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="1" <?php
         if ($instance['layout'] == "1") echo " selected='selected'" ?>><?php
-        _e('Image (left), Title, Text (right) [Vertical]', 'tsp_featured_categories') ?></option>
+        _e('Image (left), Title, Text (right) [Vertical]', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="2" <?php
         if ($instance['layout'] == "2") echo " selected='selected'" ?>><?php
-        _e('Scrolling Gallery [Horizontal]', 'tsp_featured_categories') ?></option>
+        _e('Scrolling Gallery [Horizontal]', 'tsp-featured-categories') ?></option>
    </select>
 </p>
 
@@ -683,7 +732,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('parentcat'); ?>"><?php
-        _e('Parent category', 'tsp_featured_categories') ?></label>
+        _e('Parent category', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('parentcat'); ?>" name="<?php
         echo $this->get_field_name('parentcat'); ?>" value="<?php
@@ -695,7 +744,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('widthbox'); ?>"><?php
-        _e('Box Width (Scrolling Gallery Only)', 'tsp_featured_categories') ?></label>
+        _e('Box Width (Scrolling Gallery Only)', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('widthbox'); ?>" name="<?php
         echo $this->get_field_name('widthbox'); ?>" value="<?php
@@ -706,7 +755,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('heightbox'); ?>"><?php
-        _e('Box Height (Scrolling Gallery Only)', 'tsp_featured_categories') ?></label>
+        _e('Box Height (Scrolling Gallery Only)', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('heightbox'); ?>" name="<?php
         echo $this->get_field_name('heightbox'); ?>" value="<?php
@@ -717,22 +766,22 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('orderby'); ?>"><?php
-        _e('Choose type of order:', 'tsp_featured_categories') ?></label>
+        _e('Choose type of order:', 'tsp-featured-categories') ?></label>
    <select name="<?php
         echo $this->get_field_name('orderby'); ?>" id="<?php
         echo $this->get_field_id('orderby'); ?>" >
       <option class="level-0" value="none" <?php
         if ($instance['orderby'] == "none") echo " selected='selected'" ?>><?php
-        _e('None', 'tsp_featured_categories') ?></option>
+        _e('None', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="name" <?php
         if ($instance['orderby'] == "name") echo " selected='selected'" ?>><?php
-        _e('Name', 'tsp_featured_categories') ?></option>
+        _e('Name', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="count" <?php
         if ($instance['orderby'] == "count") echo " selected='selected'" ?>><?php
-        _e('Count', 'tsp_featured_categories') ?></option>
+        _e('Count', 'tsp-featured-categories') ?></option>
       <option class="level-0" value="id" <?php
         if ($instance['orderby'] == "id") echo " selected='selected'" ?>><?php
-        _e('ID', 'tsp_featured_categories') ?></option>
+        _e('ID', 'tsp-featured-categories') ?></option>
    </select>
 </p>
 
@@ -740,7 +789,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('widththumb'); ?>"><?php
-        _e('Thumbnail Width', 'tsp_featured_categories') ?></label>
+        _e('Thumbnail Width', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('widththumb'); ?>" name="<?php
         echo $this->get_field_name('widththumb'); ?>" value="<?php
@@ -751,7 +800,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('heightthumb'); ?>"><?php
-        _e('Thumbnail Height', 'tsp_featured_categories') ?></label>
+        _e('Thumbnail Height', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('heightthumb'); ?>" name="<?php
         echo $this->get_field_name('heightthumb'); ?>" value="<?php
@@ -762,7 +811,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('beforetitle'); ?>"><?php
-        _e('HTML Before Title', 'tsp_featured_categories') ?></label>
+        _e('HTML Before Title', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('beforetitle'); ?>" name="<?php
         echo $this->get_field_name('beforetitle'); ?>" value="<?php
@@ -773,7 +822,7 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 <p>
    <label for="<?php
         echo $this->get_field_id('aftertitle'); ?>"><?php
-        _e('HTML After Title', 'tsp_featured_categories') ?></label>
+        _e('HTML After Title', 'tsp-featured-categories') ?></label>
    <input id="<?php
         echo $this->get_field_id('aftertitle'); ?>" name="<?php
         echo $this->get_field_name('aftertitle'); ?>" value="<?php
@@ -781,14 +830,14 @@ class TSP_Featured_Categories_Widget extends WP_Widget
 </p>
    <?php
     }
-} //end class TSP_Featured_Categories_Widget
+} //end class TSPFC_Widget
 //---------------------------------------------------
 // Category MetaData Section
 //---------------------------------------------------
 //--------------------------------------------------------
 // save the metadata
 //--------------------------------------------------------
-function fn_tsp_featured_categories_modify_data($category_ID)
+function fn_tspfc_modify_data($category_ID)
 {
     // Check that the meta form is posted
     $tspfc_edit = $_POST["tspfc_edit"];
@@ -796,42 +845,42 @@ function fn_tsp_featured_categories_modify_data($category_ID)
     if (isset($tspfc_edit) && !empty($tspfc_edit)) {
         // featured
         if ((int)$_POST['tspfc_image_category'] == 1) {
-            fn_tsp_featured_categories_add_category_metadata($category_ID, 'featured', 1, TRUE) or fn_tsp_featured_categories_update_category_metadata($category_ID, 'featured', 1);
+            fn_tspfc_add_category_metadata($category_ID, 'featured', 1, TRUE) or fn_tspfc_update_category_metadata($category_ID, 'featured', 1);
         } elseif ((int)$_POST['tspfc_image_category'] == 0) {
-            fn_tsp_featured_categories_delete_category_metadata($category_ID, 'featured');
+            fn_tspfc_delete_category_metadata($category_ID, 'featured');
         }
         
         // image
         if ($_POST['tspfc_image']) {
-            fn_tsp_featured_categories_add_category_metadata($category_ID, 'image', "{$_POST['tspfc_image']}", TRUE) or fn_tsp_featured_categories_update_category_metadata($category_ID, 'image', "{$_POST['tspfc_image']}");
+            fn_tspfc_add_category_metadata($category_ID, 'image', "{$_POST['tspfc_image']}", TRUE) or fn_tspfc_update_category_metadata($category_ID, 'image', "{$_POST['tspfc_image']}");
         } else {
-            fn_tsp_featured_categories_delete_category_metadata($category_ID, 'image');
+            fn_tspfc_delete_category_metadata($category_ID, 'image');
         }
     }
 }
-add_action('created_term', 'fn_tsp_featured_categories_modify_data');
-add_action('edit_term', 'fn_tsp_featured_categories_modify_data');
+add_action('created_term', 'fn_tspfc_modify_data');
+add_action('edit_term', 'fn_tspfc_modify_data');
 //--------------------------------------------------------
 //--------------------------------------------------------
 // Funciton to display form fields to update/save meta data
 //--------------------------------------------------------
-function fn_tsp_featured_categories_box($tag)
+function fn_tspfc_box($tag)
 {
     global $wp_version, $taxonomy;
     $category_ID = $tag->term_id;
 
-    $featured    = fn_tsp_featured_categories_get_category_metadata($category_ID, 'featured', 1);
-    $cur_image   = fn_tsp_featured_categories_get_category_metadata($category_ID, 'image', 1);
+    $featured    = fn_tspfc_get_category_metadata($category_ID, 'featured', 1);
+    $cur_image   = fn_tspfc_get_category_metadata($category_ID, 'image', 1);
 
 	$smarty = new Smarty;
 	$smarty->setTemplateDir(TSPFC_TEMPLATE_PATH);
 	$smarty->setCompileDir(TSPFC_TEMPLATE_PATH.'/compiled/');
 	$smarty->setCacheDir(TSPFC_TEMPLATE_PATH.'/cache/');
 
-	$smarty->assign("stylesheet", TSPFC_URL_PATH."/tsp_featured_categories.css", true);
+	$smarty->assign("stylesheet", TSPFC_URL_PATH."/tsp-featured-categories.css", true);
 	$smarty->assign("cat_ID", $category_ID, true);
-	$smarty->assign("title", __('TSP Featured Categories', 'tsp_featured_categories'), true);
-	$smarty->assign("subtitle", __('Featured category?', 'tsp_featured_categories'), true);
+	$smarty->assign("title", __('TSP Featured Categories', 'tsp-featured-categories'), true);
+	$smarty->assign("subtitle", __('Featured category?', 'tsp-featured-categories'), true);
 	$smarty->assign("featured", $featured, true);
 	$smarty->assign("cur_image", $cur_image, true);
 	$smarty->assign("field_prefix", "tspfc_image", true);
@@ -842,7 +891,7 @@ function fn_tsp_featured_categories_box($tag)
     echo $return_HTML;
 }
 
-add_action('edit_category_form', 'fn_tsp_featured_categories_box');
+add_action('edit_category_form', 'fn_tspfc_box');
 //--------------------------------------------------------
 
 ?>
