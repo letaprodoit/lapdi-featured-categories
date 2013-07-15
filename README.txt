@@ -49,6 +49,11 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
-
+= 1.0.1 =
+* Checks for existence of parent settings menu before overwriting it
+* Added in default images. TSP Plugins menu icon missing.
 
 == Upgrade notice ==
+
+= 1.0.1 =
+Menu fix. Added in default images.
