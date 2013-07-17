@@ -1,6 +1,6 @@
-Featured Categories (Wordress Plugin) 1.0
+Featured Categories for WordPress
 -------
-Featured Categories (Wordress Plugin) allows you to add featured categories with images to your blog's website. Featured categories have three (3) layouts and include thumbnails.
+Featured Categories for WordPress allows you to add featured categories with images to your blog's website. Featured categories have three (3) layouts and include thumbnails.
 
 For up-to-date installation and setup notes, visit the FAQ:
 [http://lab.thesoftwarepeople.com/tracker/wiki/wordpress-fc:MainPage](http://lab.thesoftwarepeople.com/tracker/wiki/wordpress-fc:MainPage)
@@ -40,3 +40,4 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+he License.

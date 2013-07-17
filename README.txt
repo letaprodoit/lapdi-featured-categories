@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: featured categories display gallery slider jquery moving boxes the software people
 Requires at least: 3.5.1
 Tested up to: 3.5.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -49,6 +49,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
+= 1.0.2 =
+* Fixed bug that caused images to not be added to posts.
+
 = 1.0.1 =
 * Checks for existence of parent settings menu before overwriting it
 * Added in default images. TSP Plugins menu icon missing.
@@ -57,6 +60,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.0.2 =
+Image attachment fix.
 
 = 1.0.1 =
 Menu fix. Added in default images.

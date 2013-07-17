@@ -54,3 +54,17 @@
 </table>
 </div>
 </div>
+<script>
+{literal}
+jQuery(document).ready(function() {
+ 
+	window.send_to_editor = function(html) {
+	  
+		imgurl = jQuery('img',html).attr('src');
+		save_image_url(imgurl);
+		tb_remove();
+	}
+ 
+})
+{/literal}
+</script>
