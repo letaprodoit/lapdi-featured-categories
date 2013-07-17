@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: featured categories display gallery slider jquery moving boxes the software people
 Requires at least: 3.5.1
 Tested up to: 3.5.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -49,6 +49,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
+= 1.0.3 =
+* Updated path for smarty compile and cache directories. User no longer required to change directory permissions.
+
 = 1.0.2 =
 * Fixed bug that caused images to not be added to posts.
 
@@ -60,6 +63,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.0.3 =
+Setting directory permissions no longer required.
 
 = 1.0.2 =
 Image attachment fix.

@@ -5,7 +5,7 @@ Plugin URI: 	http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Description: 	Featured Categories allows you to add featured categories with images to your blog's website. Featured categories have three (3) layouts and include thumbnails.
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.0.2
+Version: 		1.0.3
 Copyright: 		Copyright © 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 */
@@ -411,8 +411,8 @@ function fn_tspfc_display($args = null, $echo = true)
 	    
 	$smarty = new Smarty;
 	$smarty->setTemplateDir(TSPFC_TEMPLATE_PATH);
-	$smarty->setCompileDir(TSPFC_TEMPLATE_CACHE_PATH);
-	$smarty->setCacheDir(TSPFC_TEMPLATE_COMPILE_PATH);
+	$smarty->setCompileDir(TSPFC_TEMPLATE_COMPILE_PATH);
+	$smarty->setCacheDir(TSPFC_TEMPLATE_CACHE_PATH);
 
 	$return_HTML = "";
 	
@@ -874,8 +874,8 @@ function fn_tspfc_box($tag)
 
 	$smarty = new Smarty;
 	$smarty->setTemplateDir(TSPFC_TEMPLATE_PATH);
-	$smarty->setCompileDir(TSPFC_TEMPLATE_PATH.'/compiled/');
-	$smarty->setCacheDir(TSPFC_TEMPLATE_PATH.'/cache/');
+	$smarty->setCompileDir(TSPFC_TEMPLATE_COMPILE_PATH);
+	$smarty->setCacheDir(TSPFC_TEMPLATE_CACHE_PATH);
 
 	$smarty->assign("stylesheet", TSPFC_URL_PATH."/tsp-featured-categories.css", true);
 	$smarty->assign("cat_ID", $category_ID, true);
