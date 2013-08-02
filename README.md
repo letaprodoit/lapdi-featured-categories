@@ -14,7 +14,7 @@ For up-to-date installation and setup notes, visit the FAQ:
 *USING THE MODULE*
 
 - After installation, refer to the 'TSP Featured Categories' settings page for more detailed instructions on setting up your shortcodes.
-- Featured Posts widgets can be added to the sidemenu bar by visiting 'Appearance > Widgets' and dragging the TSP Featured Posts widget to your sidebar menu.
+- Featured Categories widgets can be added to the sidemenu bar by visiting 'Appearance > Widgets' and dragging the TSP Featured Categories widget to your sidebar menu.
 - Add some widgets to the sidemenu bar, Add shortcodes to pages and posts (see Instructions)
 - View your site
 - Adjust your CSS for your theme by visiting 'Appearance > Edit CSS'

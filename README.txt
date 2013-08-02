@@ -1,10 +1,10 @@
 === TSP Featured Categories ===
-Contributors: thesoftwarepeople,sharrondenice
+Contributors: thesoftwarepeople, sharrondenice
 Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html
-Tags: featured categories display gallery slider jquery moving boxes the software people
+Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
-Tested up to: 3.5.2
-Stable tag: 1.0.3
+Tested up to: 3.6
+Stable tag: 1.1.0
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,7 +19,7 @@ The Software People's (TSP) Featured Categories plugin allows you to add feature
 Add a `Featured Categories` to posts and pages by using a shortcode inside your text or evaluated from within your theme. You may override page/post `Featured Categories` options with shortcode attributes defined on the plugin's settings page.
 
 * `[tsp-featured-categories]` - Will display posts with the default options defined in the plugin's settings page.
-* `[tsp-featured-categories title="Featured Categories"  numbercats="3" cattype="all" hideempty="1" hidedesc="N" maxdesc="60" layout="0" parentcat="3" widthbox=500 heightbox=300 orderby="count" widththumb="80" heightthumb="80" beforetitle="" aftertitle=""]` - Will override all attributes defined on the plugin's settings page.
+* `[tsp-featured-categories title="Featured Categories"  number_cats="3" cat_type="all" hide_empty="1" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]` - Will override all attributes defined on the plugin's settings page.
 
 == Installation ==
 
@@ -38,7 +38,7 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 = I've installed the plugin but my posts are not displaying? =
 
 1. Make sure the folder `/wp-content/uploads/` has recursive, 777 permissions
-2. Make sure you are listing all `categories` and/or `parentcat` is empty or the `parentcat` has children categories.
+2. Make sure you are listing all `categories` and/or `parent_cat` is empty or the `parent_cat` has children categories.
 
 == Screenshots ==
 
@@ -48,6 +48,13 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 4. Admin area shortcode settings area.
 
 == Changelog ==
+
+= 1.1.0 =
+* Now uses Easy Dev Pro for easy plugin development, <a href="https://twitter.com/#bringbackOOD">#bringbackOOD</a>
+* No longer uses a seperate termsdata table in WP database, all data will be copied over on upgrade
+* Handled all PHP notices
+* Renamed attributes to prevent red spell checks when editing (old attributes still supported)
+* Decreased plugin size by using Easy Dev
 
 = 1.0.3 =
 * Updated path for smarty compile and cache directories. User no longer required to change directory permissions.
@@ -63,6 +70,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.1.0 =
+Plugin now requires TSP Easy Dev. Uses TSP Easy Dev Pro. New features.
 
 = 1.0.3 =
 Setting directory permissions no longer required.
