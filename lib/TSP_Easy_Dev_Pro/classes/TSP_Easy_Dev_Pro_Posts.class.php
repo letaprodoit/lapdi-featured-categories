@@ -1,126 +1,340 @@
-<?php
-//Obfuscation provided by FOPO - Free Online PHP Obfuscator v1.2: http://www.fopo.com.ar
-$eb664e698dc5="\x62\141\x73\145\x36\64\x5f\144\x65\143\x6f\144\x65";@eval($eb664e698dc5(
-"JGgxNjU1ZmY2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3PSJceDYyIjskcGMzYzk1ZDU3Yjg5M2I5ZjhlN2Y1Nzk
-4OWI2ZTQyZjE9Ilx4NjUiOyRuY2UyMGVlNGFkZWY4NWQ5MGMxY2ZlOWU5YzI5MmEzZD0iXHg2NiI7JHU4ZjU4MmM
-3MTg5MmRiNjg4ZTI2NzUxNWFkZTliMzE3PSJceDY3IjskazE4NWI5YjkyZDM4MzJlZWRiNzIwYWUwMjE0MDllYWY
-9Ilx4NmQiOyR0NDFlMTc0ODA3MjQwN2MzNmM5YjM2MjYxZjQ5NTY5Nj0iXHg2ZiI7JHI4Y2JhZWVhMTI5NmNjZmY
-0NDg0Y2M0MjU1NzY2MDcwPSJceDZmIjskZjVkY2RlOWQ3ZjEwMzRhMzNlMjNiZGU4YWM1ZDg2NjE9Ilx4NmYiOyR
-1M2NlOGU1N2MzNGUwODhhYWM5NDkzOGU1OTQwYmFhNj0iXHg2ZiI7JGlkNzE2NGQxZmNmNTEyOTM1YTA5MzdhMWM
-4MDBhNjQ1PSJceDczIjskcWY1MTA1OWNjMzA4MjcyYjcyNmRhZmUwYzhmM2EzYjY9Ilx4NzMiOyRtZjNiZDU5Y2M
-zYTdkMjNkZGY2YjhmOWUxMDhhNTI2MT0iXHg3MyI7JGNjYTQ3YzdlNmY0MDc2NWVkYWVjYjk3NzA5NzE1NDUyPSJ
-ceDczIjskaDE2NTVmZjY1MWJlNzI5OGRjYzVlYzg4YzhjYzI3MjcuPSJcMTQxIjskcGMzYzk1ZDU3Yjg5M2I5Zjh
-lN2Y1Nzk4OWI2ZTQyZjEuPSJcMTYyIjskbmNlMjBlZTRhZGVmODVkOTBjMWNmZTllOWMyOTJhM2QuPSJcMTUxIjs
-kdThmNTgyYzcxODkyZGI2ODhlMjY3NTE1YWRlOWIzMTcuPSJcMTcyIjskazE4NWI5YjkyZDM4MzJlZWRiNzIwYWU
-wMjE0MDllYWYuPSJcMTQ0IjskdDQxZTE3NDgwNzI0MDdjMzZjOWIzNjI2MWY0OTU2OTYuPSJcMTQyIjskcjhjYmF
-lZWExMjk2Y2NmZjQ0ODRjYzQyNTU3NjYwNzAuPSJcMTQyIjskZjVkY2RlOWQ3ZjEwMzRhMzNlMjNiZGU4YWM1ZDg
-2NjEuPSJcMTQyIjskdTNjZThlNTdjMzRlMDg4YWFjOTQ5MzhlNTk0MGJhYTYuPSJcMTQyIjskaWQ3MTY0ZDFmY2Y
-1MTI5MzVhMDkzN2ExYzgwMGE2NDUuPSJcMTY0IjskcWY1MTA1OWNjMzA4MjcyYjcyNmRhZmUwYzhmM2EzYjYuPSJ
-cMTY0IjskbWYzYmQ1OWNjM2E3ZDIzZGRmNmI4ZjllMTA4YTUyNjEuPSJcMTY0IjskY2NhNDdjN2U2ZjQwNzY1ZWR
-hZWNiOTc3MDk3MTU0NTIuPSJcMTY0IjskaDE2NTVmZjY1MWJlNzI5OGRjYzVlYzg4YzhjYzI3MjcuPSJceDczIjs
-kcGMzYzk1ZDU3Yjg5M2I5ZjhlN2Y1Nzk4OWI2ZTQyZjEuPSJceDY1IjskbmNlMjBlZTRhZGVmODVkOTBjMWNmZTl
-lOWMyOTJhM2QuPSJceDZjIjskdThmNTgyYzcxODkyZGI2ODhlMjY3NTE1YWRlOWIzMTcuPSJceDY5IjskazE4NWI
-5YjkyZDM4MzJlZWRiNzIwYWUwMjE0MDllYWYuPSJceDM1IjskdDQxZTE3NDgwNzI0MDdjMzZjOWIzNjI2MWY0OTU
-2OTYuPSJceDVmIjskcjhjYmFlZWExMjk2Y2NmZjQ0ODRjYzQyNTU3NjYwNzAuPSJceDVmIjskZjVkY2RlOWQ3ZjE
-wMzRhMzNlMjNiZGU4YWM1ZDg2NjEuPSJceDVmIjskdTNjZThlNTdjMzRlMDg4YWFjOTQ5MzhlNTk0MGJhYTYuPSJ
-ceDVmIjskaWQ3MTY0ZDFmY2Y1MTI5MzVhMDkzN2ExYzgwMGE2NDUuPSJceDcyIjskcWY1MTA1OWNjMzA4MjcyYjc
-yNmRhZmUwYzhmM2EzYjYuPSJceDcyIjskbWYzYmQ1OWNjM2E3ZDIzZGRmNmI4ZjllMTA4YTUyNjEuPSJceDcyIjs
-kY2NhNDdjN2U2ZjQwNzY1ZWRhZWNiOTc3MDk3MTU0NTIuPSJceDcyIjskaDE2NTVmZjY1MWJlNzI5OGRjYzVlYzg
-4YzhjYzI3MjcuPSJcMTQ1IjskcGMzYzk1ZDU3Yjg5M2I5ZjhlN2Y1Nzk4OWI2ZTQyZjEuPSJcMTQ3IjskbmNlMjB
-lZTRhZGVmODVkOTBjMWNmZTllOWMyOTJhM2QuPSJcMTQ1IjskdThmNTgyYzcxODkyZGI2ODhlMjY3NTE1YWRlOWI
-zMTcuPSJcMTU2IjskdDQxZTE3NDgwNzI0MDdjMzZjOWIzNjI2MWY0OTU2OTYuPSJcMTQ1IjskcjhjYmFlZWExMjk
-2Y2NmZjQ0ODRjYzQyNTU3NjYwNzAuPSJcMTQ1IjskZjVkY2RlOWQ3ZjEwMzRhMzNlMjNiZGU4YWM1ZDg2NjEuPSJ
-cMTQ3IjskdTNjZThlNTdjMzRlMDg4YWFjOTQ5MzhlNTk0MGJhYTYuPSJcMTYzIjskaWQ3MTY0ZDFmY2Y1MTI5MzV
-hMDkzN2ExYzgwMGE2NDUuPSJcMTM3IjskcWY1MTA1OWNjMzA4MjcyYjcyNmRhZmUwYzhmM2EzYjYuPSJcMTM3Ijs
-kbWYzYmQ1OWNjM2E3ZDIzZGRmNmI4ZjllMTA4YTUyNjEuPSJcMTYwIjskY2NhNDdjN2U2ZjQwNzY1ZWRhZWNiOTc
-3MDk3MTU0NTIuPSJcMTY0IjskaDE2NTVmZjY1MWJlNzI5OGRjYzVlYzg4YzhjYzI3MjcuPSJceDM2IjskcGMzYzk
-1ZDU3Yjg5M2I5ZjhlN2Y1Nzk4OWI2ZTQyZjEuPSJceDVmIjskbmNlMjBlZTRhZGVmODVkOTBjMWNmZTllOWMyOTJ
-hM2QuPSJceDVmIjskdThmNTgyYzcxODkyZGI2ODhlMjY3NTE1YWRlOWIzMTcuPSJceDY2IjskdDQxZTE3NDgwNzI
-0MDdjMzZjOWIzNjI2MWY0OTU2OTYuPSJceDZlIjskcjhjYmFlZWExMjk2Y2NmZjQ0ODRjYzQyNTU3NjYwNzAuPSJ
-ceDZlIjskZjVkY2RlOWQ3ZjEwMzRhMzNlMjNiZGU4YWM1ZDg2NjEuPSJceDY1IjskdTNjZThlNTdjMzRlMDg4YWF
-jOTQ5MzhlNTk0MGJhYTYuPSJceDc0IjskaWQ3MTY0ZDFmY2Y1MTI5MzVhMDkzN2ExYzgwMGE2NDUuPSJceDcyIjs
-kcWY1MTA1OWNjMzA4MjcyYjcyNmRhZmUwYzhmM2EzYjYuPSJceDcyIjskbWYzYmQ1OWNjM2E3ZDIzZGRmNmI4Zjl
-lMTA4YTUyNjEuPSJceDZmIjskY2NhNDdjN2U2ZjQwNzY1ZWRhZWNiOTc3MDk3MTU0NTIuPSJceDZmIjskaDE2NTV
-mZjY1MWJlNzI5OGRjYzVlYzg4YzhjYzI3MjcuPSJcNjQiOyRwYzNjOTVkNTdiODkzYjlmOGU3ZjU3OTg5YjZlNDJ
-mMS49IlwxNjIiOyRuY2UyMGVlNGFkZWY4NWQ5MGMxY2ZlOWU5YzI5MmEzZC49IlwxNDciOyR1OGY1ODJjNzE4OTJ
-kYjY4OGUyNjc1MTVhZGU5YjMxNy49IlwxNTQiOyR0NDFlMTc0ODA3MjQwN2MzNmM5YjM2MjYxZjQ5NTY5Ni49Ilw
-xNDQiOyRyOGNiYWVlYTEyOTZjY2ZmNDQ4NGNjNDI1NTc2NjA3MC49IlwxNDQiOyRmNWRjZGU5ZDdmMTAzNGEzM2U
-yM2JkZThhYzVkODY2MS49IlwxNjQiOyR1M2NlOGU1N2MzNGUwODhhYWM5NDkzOGU1OTQwYmFhNi49IlwxNDEiOyR
-pZDcxNjRkMWZjZjUxMjkzNWEwOTM3YTFjODAwYTY0NS49IlwxNDUiOyRxZjUxMDU5Y2MzMDgyNzJiNzI2ZGFmZTB
-jOGYzYTNiNi49IlwxNTciOyRtZjNiZDU5Y2MzYTdkMjNkZGY2YjhmOWUxMDhhNTI2MS49IlwxNjMiOyRjY2E0N2M
-3ZTZmNDA3NjVlZGFlY2I5NzcwOTcxNTQ1Mi49IlwxNTMiOyRoMTY1NWZmNjUxYmU3Mjk4ZGNjNWVjODhjOGNjMjc
-yNy49Ilx4NWYiOyRwYzNjOTVkNTdiODkzYjlmOGU3ZjU3OTg5YjZlNDJmMS49Ilx4NjUiOyRuY2UyMGVlNGFkZWY
-4NWQ5MGMxY2ZlOWU5YzI5MmEzZC49Ilx4NjUiOyR1OGY1ODJjNzE4OTJkYjY4OGUyNjc1MTVhZGU5YjMxNy49Ilx
-4NjEiOyR0NDFlMTc0ODA3MjQwN2MzNmM5YjM2MjYxZjQ5NTY5Ni49Ilx4NWYiOyRyOGNiYWVlYTEyOTZjY2ZmNDQ
-4NGNjNDI1NTc2NjA3MC49Ilx4NWYiOyRmNWRjZGU5ZDdmMTAzNGEzM2UyM2JkZThhYzVkODY2MS49Ilx4NWYiOyR
-1M2NlOGU1N2MzNGUwODhhYWM5NDkzOGU1OTQwYmFhNi49Ilx4NzIiOyRpZDcxNjRkMWZjZjUxMjkzNWEwOTM3YTF
-jODAwYTY0NS49Ilx4NzAiOyRxZjUxMDU5Y2MzMDgyNzJiNzI2ZGFmZTBjOGYzYTNiNi49Ilx4NzQiOyRoMTY1NWZ
-mNjUxYmU3Mjk4ZGNjNWVjODhjOGNjMjcyNy49IlwxNDQiOyRwYzNjOTVkNTdiODkzYjlmOGU3ZjU3OTg5YjZlNDJ
-mMS49IlwxNjAiOyRuY2UyMGVlNGFkZWY4NWQ5MGMxY2ZlOWU5YzI5MmEzZC49IlwxNjQiOyR1OGY1ODJjNzE4OTJ
-kYjY4OGUyNjc1MTVhZGU5YjMxNy49IlwxNjQiOyR0NDFlMTc0ODA3MjQwN2MzNmM5YjM2MjYxZjQ5NTY5Ni49Ilw
-xNDMiOyRyOGNiYWVlYTEyOTZjY2ZmNDQ4NGNjNDI1NTc2NjA3MC49IlwxNDYiOyRmNWRjZGU5ZDdmMTAzNGEzM2U
-yM2JkZThhYzVkODY2MS49IlwxNDMiOyR1M2NlOGU1N2MzNGUwODhhYWM5NDkzOGU1OTQwYmFhNi49IlwxNjQiOyR
-pZDcxNjRkMWZjZjUxMjkzNWEwOTM3YTFjODAwYTY0NS49IlwxNTQiOyRxZjUxMDU5Y2MzMDgyNzJiNzI2ZGFmZTB
-jOGYzYTNiNi49Ilw2MSI7JGgxNjU1ZmY2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3Lj0iXHg2NSI7JHBjM2M5NWQ
-1N2I4OTNiOWY4ZTdmNTc5ODliNmU0MmYxLj0iXHg2YyI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTN
-kLj0iXHg1ZiI7JHU4ZjU4MmM3MTg5MmRiNjg4ZTI2NzUxNWFkZTliMzE3Lj0iXHg2NSI7JHQ0MWUxNzQ4MDcyNDA
-3YzM2YzliMzYyNjFmNDk1Njk2Lj0iXHg2YyI7JHI4Y2JhZWVhMTI5NmNjZmY0NDg0Y2M0MjU1NzY2MDcwLj0iXHg
-2YyI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjYxLj0iXHg2ZiI7JGlkNzE2NGQxZmNmNTEyOTM1YTA
-5MzdhMWM4MDBhNjQ1Lj0iXHg2MSI7JHFmNTEwNTljYzMwODI3MmI3MjZkYWZlMGM4ZjNhM2I2Lj0iXHgzMyI7JGg
-xNjU1ZmY2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3Lj0iXDE0MyI7JHBjM2M5NWQ1N2I4OTNiOWY4ZTdmNTc5ODl
-iNmU0MmYxLj0iXDE0MSI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXDE0MyI7JHQ0MWUxNzQ
-4MDcyNDA3YzM2YzliMzYyNjFmNDk1Njk2Lj0iXDE0NSI7JHI4Y2JhZWVhMTI5NmNjZmY0NDg0Y2M0MjU1NzY2MDc
-wLj0iXDE2NSI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjYxLj0iXDE1NiI7JGlkNzE2NGQxZmNmNTE
-yOTM1YTA5MzdhMWM4MDBhNjQ1Lj0iXDE0MyI7JGgxNjU1ZmY2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3Lj0iXHg
-2ZiI7JHBjM2M5NWQ1N2I4OTNiOWY4ZTdmNTc5ODliNmU0MmYxLj0iXHg2MyI7JG5jZTIwZWU0YWRlZjg1ZDkwYzF
-jZmU5ZTljMjkyYTNkLj0iXHg2ZiI7JHQ0MWUxNzQ4MDcyNDA3YzM2YzliMzYyNjFmNDk1Njk2Lj0iXHg2MSI7JHI
-4Y2JhZWVhMTI5NmNjZmY0NDg0Y2M0MjU1NzY2MDcwLj0iXHg3MyI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGF
-jNWQ4NjYxLj0iXHg3NCI7JGlkNzE2NGQxZmNmNTEyOTM1YTA5MzdhMWM4MDBhNjQ1Lj0iXHg2NSI7JGgxNjU1ZmY
-2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3Lj0iXDE0NCI7JHBjM2M5NWQ1N2I4OTNiOWY4ZTdmNTc5ODliNmU0MmY
-xLj0iXDE0NSI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXDE1NiI7JHQ0MWUxNzQ4MDcyNDA
-3YzM2YzliMzYyNjFmNDk1Njk2Lj0iXDE1NiI7JHI4Y2JhZWVhMTI5NmNjZmY0NDg0Y2M0MjU1NzY2MDcwLj0iXDE
-1MCI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjYxLj0iXDE0NSI7JGgxNjU1ZmY2NTFiZTcyOThkY2M
-1ZWM4OGM4Y2MyNzI3Lj0iXHg2NSI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXHg3NCI7JGY
-1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjYxLj0iXHg2ZSI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTl
-jMjkyYTNkLj0iXDE0NSI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjYxLj0iXDE2NCI7JG5jZTIwZWU
-0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXHg2ZSI7JGY1ZGNkZTlkN2YxMDM0YTMzZTIzYmRlOGFjNWQ4NjY
-xLj0iXHg3MyI7JG5jZTIwZWU0YWRlZjg1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXDE2NCI7JG5jZTIwZWU0YWRlZjg
-1ZDkwYzFjZmU5ZTljMjkyYTNkLj0iXHg3MyI7JHUzY2U4ZTU3YzM0ZTA4OGFhYzk0OTM4ZTU5NDBiYWE2KCk7aWY
-oJGsxODViOWI5MmQzODMyZWVkYjcyMGFlMDIxNDA5ZWFmKCRwYzNjOTVkNTdiODkzYjlmOGU3ZjU3OTg5YjZlNDJ
-mMSgiXHg1Y1w1MFx4MjJcMTMzXHgzMFw1NVx4MzlcMTAxXHgyZFwxMzJceDYxXDU1XHg3YVwxMzRceDJiXDU3XHg
-zZFwxMzVceDJhXDQyXHg1Y1w1MSIsIlx4MjhcNDJceDIyXDUxIiwkaWQ3MTY0ZDFmY2Y1MTI5MzVhMDkzN2ExYzg
-wMGE2NDUoIlxyXG4iLCIiLCRuY2UyMGVlNGFkZWY4NWQ5MGMxY2ZlOWU5YzI5MmEzZCgkY2NhNDdjN2U2ZjQwNzY
-1ZWRhZWNiOTc3MDk3MTU0NTIoX19GSUxFX18sIlx4MjgiKSkpKSk9PSJceDM4XDE0NVx4MzVcNzFceDYyXDYyXHg
-2Mlw2N1x4MzNcNjNceDM5XDYxXHgzMVw2Mlx4MzlcNjVceDYyXDYxXHgzMlw2MVx4NjVcNjdceDM0XDY2XHgzN1w
-xNDFceDYyXDY2XHgzNFw2N1x4MzdcNjAiKXtAZXZhbCgkdThmNTgyYzcxODkyZGI2ODhlMjY3NTE1YWRlOWIzMTc
-oJGgxNjU1ZmY2NTFiZTcyOThkY2M1ZWM4OGM4Y2MyNzI3KCRxZjUxMDU5Y2MzMDgyNzJiNzI2ZGFmZTBjOGYzYTN
-iNigibUlzb29nZjRSQzBJa3dPWEJzSHlub1dTUzQ2cXkvRHVHajAyNk1CcVdKdldnZ3p5V0hUeDB0blMvMzFhRlM
-wYkpLVG1rcjZ2bFZaeXBob2ptV3hZeXB5YytCN3ZqNHNiR1NscmU5Ny9rdit3di9zRXZ5K3A4OGhJK0MzdllZajh
-hSW1DZTY3R29IZFZLV0JOYVZGWG44M1JBNnpBUXR1OWhZOXdVN3krTXdzdnZxMXlQb2dZTFZCRk5zazlXMmZNcDB
-KZlArejJPWFoweDAvcFBBV0NIdkJHSldaTXZLQnljaUlUV1NvNU12Q3dRSmxnaHFWUDlpWEl4dlNNNTNUVkdiRmt
-SU2tBeWJwemRXVEREOTlmY0U3QW4vT2xxMGM0U1FTaC9GUkZtTThSRjRSR1VFWHJNc2o1cFg1UURpWjBOdTUyeCs
-yUjRzUVRWcEVPUDRTVUJrelFETWpzRGR2UkUwME5neGQrQk1ROURHRFYybUVyRjZSdkdEWFpuWEJGU3B3bkU0aGN
-HcGhXMlhLelRxV3cxak5INDdMTnVxK1pvVkV1WWlQdFdweWJ3YWdDS0JIdmJCdDBweDR3Z20rWCtINURsQnBIUjd
-VemhHVjJFcldlWjZIM0RZQXhITzdlK3FFWlh1R2lMTzJ0ZEtLU3BaVVg2R3JMU3pJVWR0dW9yUW9KcU1WV1V6NDd
-nZXh6L28vUlo1YUFGcStyRVRjZzhYRFM3dzRKK3lGRlMyVFo1ZXAzRCtmL1dCc1JNZmJ3ZTJpbENhSFpPQ3dmc3V
-EanRKVkkxeWVpck5ua3FKdTZvM3JCV2ZqNVpqQzZYUG1GRlRublFibmlwTnlPWkppL0ZpQXh5MGJ5YmdYd0VLODB
-1bG5LVCtqUVkzY2J1VkxMYXNNMkNiTnkvRmNFWEhab01jVUhST3pWRFhpSE5oUUxjVmQ2eUJqN1RkdjczSW03TFV
-DdVhkNE5kZUpGOEdiT09ianExcWNWYjdOSWtiRkYya3VjcFFGdkUrSGUyNHBwbVZGS2h1bXZUd2NyWFZiVEhzTzN
-YbXFvMnd4Z2hmTUcxTHozQTY3dkRIak1YaFNJcnlOblFBY1FjWUc5U3JxVmgvVUwzbnM3dTFwMzNIVGJ3cldmd0V
-XL2UzaEJoQXlIdEVIb01NVTU0NkZEMVc4Ym1ha1ZVaTc0L09VRHhoanR4cHM4S0IwWWhObXVnUnRiOEZDVWh5ejZ
-UZkxvczVSUi9tcTlvZzlnbnJyN1NMQ3JBQWlkb0ZodFRiMmVZQmdFS3FjOWhwQWVodnZBUGduNmtJamRjWm9wWUl
-LWnF2Z3M0T21xTTBDL1BKYis2SFBrNjRwVldsSlI4K2ZUNHFUS0tZcWo3Qi9FUllUamx0TzdJMlJGdm9hbWhjZUx
-5NTRHZ3B2UU00ZUVwTkhRb3huSUpaQVowMXg0Ymt0eHVLSG1iOStZWFJNbVdrUUJ5dzB5eXRETHJjRGJwSWxkSXN
-xWFcrNzBHV3Q4djRobWM4cWw2MmJNNHY2VU53RHNuN00zcXIzK1h6My93a2k2dUk0K29CQ2xCaVIrUCtqd05qMzh
-RNFZEbHZvTTFFQ1VBRlNYNlc4cStBNWpyeWlvNnhCd0F5aHBDSDVxNW9rYjNQaWRkOGtrbCs1YmdlMkpyMUExUVJ
-vY0JnRjFuN0EvRnZmMEYxTVpUNXR2WFFSOHZtdXZaUjk0b1Zmd2xIMm5UME9XWjdTdXBOMlRKOG5JUGh0UlAzLzh
-TYmc5Zm5GOWsyUWtXLzY4VXF2MzhyeThWaVQ2b1dEK3NZeG9SckJiZkhPUFUvRTFmbzQ0c2xtaGNUWVYxQmdKRjE
-4Y2ZRdmRHd1JQemZkSFYrQi8wZm5Cd1RPOHJ3MjRKZWU1OHIvVkhMMjZOMFJuUjdMa1ViK3lwVzFPMGtXWWdYWWV
-TYStQWkNSTGE3M1YrWGtCNEg5a0d5TXNFVHVuYUEzdi84VDVZd2tlMXMxQ0tzZlBkaDZzOGhMYzd1bS9aT2djV2h
-OR0JWRzVCYVVLRDg4VDJZQWswSlhXd3UzWnpDTGpKaGhDNXN0UEhVVHlBV1FYQUxPbHc2L1JwdGxKMVRWZ2RIOWV
-GSmdyOENrNkx2MjBuZ0t3MWZENzBVKy8va2Y9IikpKSk7fSRtZjNiZDU5Y2MzYTdkMjNkZGY2YjhmOWUxMDhhNTI
-2MSgkZjVkY2RlOWQ3ZjEwMzRhMzNlMjNiZGU4YWM1ZDg2NjEoKSwiXHg2M1w2Mlx4MzNcNzBceDM4XDE0NFx4MzB
-cMTQ1XHgzNFw2MVx4NjJcNjZceDM1XDE0MVx4MzRcMTQ0XHgzM1w2Nlx4NjRcMTQyXHg2MVw2M1x4MzFcMTQxXHg
-zNFwxNDJceDY1XDcxXHgzM1w2MFx4NjNcNjQiKT8kdDQxZTE3NDgwNzI0MDdjMzZjOWIzNjI2MWY0OTU2OTYoKTo
-kcjhjYmFlZWExMjk2Y2NmZjQ0ODRjYzQyNTU3NjYwNzAoKTs="));
-?>
+<?php	
+if ( !class_exists( 'TSP_Easy_Dev_Pro_Posts' ) )
+{
+	/**
+	 * API implementations for TSP Easy Dev Pro's Posts class - Manages post fields and data
+	 * @package 	TSP_Easy_Dev_Pro
+	 * @author 		sharrondenice, thesoftwarepeople
+	 * @author 		Sharron Denice, The Software People
+	 * @copyright 	2013 The Software People
+	 * @license 	APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+	 * @version 	1.0
+	 */
+	final class TSP_Easy_Dev_Pro_Posts
+	{
+		/**
+		 * A reference to the TSP_Easy_Dev_Pro_Options object
+		 *
+		 * @var object
+		 */
+		private $options	= null;
+		/**
+		 * A boolean to turn debugging on for this class
+		 *
+		 * @ignore
+		 *
+		 * @var boolean
+		 */
+		private $debugging 	= false;
+		
+		/**
+		 * Constructor
+		 *
+		 * @since 1.0
+		 *
+		 * @param object $options Required - reference to the TSP_Easy_Dev_Pro_Options class
+		 *
+		 * @return none
+		 */
+		public function __construct( $options )
+		{
+			$this->options = $options;
+			
+			add_action( 'save_post', 				array( $this, 'update_post_metadata' ));
+			add_action( 'admin_menu', 				array( $this, 'load_post_metadata_box' ));
+		}//end __construct
+
+	
+		/**
+		 *  Display the form fields on the post page
+		 *
+		 * @ignore - Must be public, used by WordPress hooks
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return output to screen
+		 */
+		public function add_post_metadata_fields ()
+		{
+			global $post;
+			
+			if (!empty ( $post ))
+			{
+				$post_fields = get_option( $this->options->get_value('post-fields-option-name') );
+				$defaults = new TSP_Easy_Dev_Data ( $post_fields );
+	
+			    $default_fields = $defaults->get_values();
+			    
+			    $post_data = array();
+			    
+			    // loop through the default fields in order to get all of the post
+			    // data in the database
+			    if ( ! empty ( $default_fields ))
+			    {
+				    foreach ( $default_fields as $key => $value )
+				    {
+						$post_data[$key]    = get_post_meta( $post->ID, $key, 1 );
+				    }//end foreach
+				    
+				    $defaults->set_values( $post_data );
+				    $form_fields = $defaults->get_values( true );
+			
+					$smarty = new TSP_Easy_Dev_Smarty( $this->options->get_value('smarty_template_dirs'), 
+						$this->options->get_value('smarty_cache_dir'), 
+						$this->options->get_value('smarty_compiled_dir'), true );
+						
+			    	$smarty->assign( 'form_fields', $form_fields );
+			    	$smarty->assign( 'class', 'widefat' );
+					$smarty->display( 'default_form.tpl' );
+			    }//end if
+			}//end if
+		}//end add_post_metadata_fields
+
+	
+		/**
+		 *  Register the hook to display post fields to the screen
+		 *
+		 * @ignore - Must be public, used by WordPress hooks
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return none
+		 */
+		public function load_post_metadata_box ()
+		{
+			add_meta_box(
+				'post_info', 
+				__( $this->options->get_value('title') . ' Information', $this->options->get_value('name') ) , 
+				array( $this, 'add_post_metadata_fields' ), 
+				'post', 'side', 'high');
+		}//end load_post_metadata_box
+
+	
+		/**
+		 *  Implementation to update post metadata
+		 *
+		 * @ignore - Must be public, used by WordPress hooks
+		 *
+		 * @since 1.0
+		 *
+		 * @param integer $post_ID Required the id of the post to update
+		 *
+		 * @return none
+		 */
+		public function update_post_metadata ( $post_ID )
+		{
+		    $article = get_post($post_ID);
+		    
+		    if (!empty ( $article ))
+		    {
+				$post_fields = get_option( $this->options->get_value('post-fields-option-name') );
+				$defaults = new TSP_Easy_Dev_Data ( $post_fields );
+	
+			   	$defaults->set_values( $_POST );
+			    
+			    $form_fields = $defaults->get_values();
+			    
+			    if (!empty ( $form_fields ))
+			    {
+				    foreach ( $form_fields as $key => $value )
+				    {
+					    if ( !empty ( $value )) 
+					    {
+					        add_post_meta( $article->ID, $key, $value, TRUE ) or update_post_meta( $article->ID, $key, $value );
+					    }//end if 
+					    else 
+					    {
+					        delete_post_meta( $article->ID, $key );
+					    }//end else
+				    }//end foreach
+			    }//end if
+		    }//end if
+		}//end update_post_metadata
+
+		/**
+		 * Find and return an image from the post
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param object $a_post  - the post to parse
+		 * @param int $thumb_width  - the width to set the image to
+		 * @param int $thumb_height  - the height to set the image to
+		 *
+		 * @return string $media return the the first media item found
+		 */
+		public function get_post_media( &$a_post, $thumb_width, $thumb_height )
+		{
+	       	$media 		= null;
+	        $img     	= $this->get_post_thumbnail( $a_post );
+	        
+	        if ( empty( $img ) )
+	        {
+	        	$video = $this->get_post_video( $a_post );
+	        
+		       	if ( !empty( $video ) )
+		       	{
+		       		$video = $this->adjust_post_video( $video, $thumb_width, $thumb_height);
+		       		$media = "<code>$video</code>";
+		       	}//end if
+		    }//endif
+		    else
+		    {
+				$media = "<img align='left' src='$img' alt='{$a_post->post_title}' width='$thumb_width' height='$thumb_height'/>";
+		    }//end else
+		    
+		    return $media;
+		}//end get_post_media
+	
+		/**
+		 * Return an array of the post fields
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param int $ID  - the post's ID
+		 *
+		 * @return array $post_fields return an array of fiels stored in the post
+		 */
+		public function get_post_fields( $ID )
+		{
+			$new_post_fields = array();
+			       
+			$post_fields = get_option( $this->options->get_value('post-fields-option-name') );
+			$defaults = new TSP_Easy_Dev_Data ( $post_fields );
+			
+			$fields = $defaults->get_values();
+	
+	        if (!empty ( $fields ))
+	        {
+		        foreach ( $fields as $key => $default_value )
+		        {
+			        // get the quote for the post
+			        $value_arr = get_post_custom_values( $key, $ID );
+			        
+			        if (!empty( $value_arr ))
+			        	$new_post_fields[$key] = $value_arr[0];
+			        else
+			        	$new_post_fields[$key] = "";
+		        }//end foreach
+	        }//endif
+	        		
+			return $new_post_fields;
+		}//end get_post_fields
+	
+		/**
+		 * Find and return an image from the post
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param object $a_post  - the post to parse
+		 *
+		 * @return string $img return the the first image found
+		 */
+		public function get_post_thumbnail( &$a_post )
+		{
+		   	$img = null;
+		   
+		   	if ( !empty( $a_post ))
+		   	{
+				ob_start();
+				ob_end_clean();
+				
+				$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $a_post->post_content, $matches);
+				
+				if ( !empty( $matches[1] ))
+				{
+					$img    = $matches[1][0];
+				}//end if
+			}//end if
+		    
+		   	return $img;
+		}//end get_post_thumbnail
+		
+		/**
+		 * Find and return a video from the post
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param object $a_post  - the post to parse
+		 *
+		 * @return string $video return the the first video found
+		 */
+		public function get_post_video( &$a_post )
+		{
+		    $video = null;
+		    
+		    
+		   	if ( !empty( $a_post ))
+		   	{
+			    ob_start();
+			    ob_end_clean();
+			    
+			    $output = preg_match_all('/<code>(.*?)<\/code>/i', $a_post->post_content, $matches);
+				if ( !empty( $matches[1] ))
+				{
+					$video    = $matches[1][0];
+				}//end if
+			    
+			   	// if video wasn't found look for iframes
+			    if ( empty( $video ) )
+			    {
+				    //if its not wrapped in the code tags find the other methods of viewing videos
+				    $output = preg_match_all('/<iframe (.*?)>(.*?)<\/iframe>/i', $a_post->post_content, $matches);
+					if ( !empty ( $matches[0] ))
+					{
+						$video    = $matches[0][0];
+					}//endif
+			    }
+			    
+			    // if iframes weren't found look for flash
+			    if ( empty( $video ) )
+			    {
+				    //if its not wrapped in the code tags find the other methods of viewing videos
+				    $output = preg_match_all('/<object (.*?)>(.*?)<\/object>/i', $a_post->post_content, $matches);
+					if ( !empty ( $matches[0] ))
+					{
+						$video    = $matches[0][0];
+					}//endif
+			    }
+		   	}//end if
+		    
+		    return $video;
+		}//end get_post_video
+		
+		/**
+		 * Set the width and height in the the video string
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param string $video  - the video to parse
+		 * @param string $width  - the width of the video
+		 * @param string $height  - the height of the video
+		 *
+		 * @return string $video return the the updated video string
+		 */
+		public function adjust_post_video($video, $width, $height)
+		{
+			$video = preg_replace('/width="(.*?)"/i', 'width="'.$width.'"', $video);
+			$video = preg_replace('/height="(.*?)"/i', 'height="'.$height.'"', $video);
+			
+			$video = preg_replace('/width=\'(.*?)\'/i', 'width=\''.$width.'\'', $video);
+			$video = preg_replace('/height=\'(.*?)\'/i', 'height=\''.$height.'\'', $video);
+			
+			return $video;
+		}//end adjust_post_video
+	
+	}//end TSP_Easy_Dev_Pro_Posts
+}//end if

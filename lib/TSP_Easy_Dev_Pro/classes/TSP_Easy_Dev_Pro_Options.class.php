@@ -1,111 +1,180 @@
-<?php
-//Obfuscation provided by FOPO - Free Online PHP Obfuscator v1.2: http://www.fopo.com.ar
-$sffde0aec8b6="\x62\141\x73\145\x36\64\x5f\144\x65\143\x6f\144\x65";@eval($sffde0aec8b6(
-"JHQ5OTg1NjkzNTUxZGZmZTkzYjgwMTI3Y2RkYzBmNDA1PSJceDYyIjskczUxYWY2ZDVhNmEzMmM3MDA2MDRjNzR
-iODg4ZDljM2M9Ilx4NjUiOyRrYTA2ZTk3OTQ5Mjg4MTBmYzcxNGQwYWEyOWQ2Y2NiZT0iXHg2NiI7JHJkYzdiNGU
-3OWQ2ZDNkY2JjOTRmODI1NjRhM2Q4NTBlPSJceDY3Ijska2FlNzk1MWJhZmI1YjFlZjcwMWJiMDUyMzc5Njg1ZjE
-9Ilx4NmQiOyRlNjZkNDUxM2Y3ZTNiZGUxODRiNGYxMTdlYTgyMWRmNT0iXHg2ZiI7JHUyMDBiNmM3NjBmMjVhMTY
-xNDhiMDNjNjhkZWY2MmFiPSJceDZmIjskZ2I2M2QxNmFmZWQ2ZjhiODc5YWU2ZmIwNTQ2MDNkMTc9Ilx4NmYiOyR
-0MmEwMWQzNGFiNGU2YjQxYzdmODQyMzFmY2YyOWM4Yj0iXHg2ZiI7JGViMzBmNjA0OTJjMTZmMzZkMWVlZTg0MTZ
-iZTk3ZDE5PSJceDczIjskaGY1MDFkZmYxMTVlOGVmMTVlZmJjYWU2YzRmMzM4MjA9Ilx4NzMiOyRmNWEwYTE2ZGE
-wNWY2MGRhNmU3MDFiOTRmM2I0OWEyYT0iXHg3MyI7JGwzMWEwYjVkNGU5MDRmZTFlOGE2NjZhNzg0NTg2Y2Q2PSJ
-ceDczIjskdDk5ODU2OTM1NTFkZmZlOTNiODAxMjdjZGRjMGY0MDUuPSJcMTQxIjskczUxYWY2ZDVhNmEzMmM3MDA
-2MDRjNzRiODg4ZDljM2MuPSJcMTYyIjska2EwNmU5Nzk0OTI4ODEwZmM3MTRkMGFhMjlkNmNjYmUuPSJcMTUxIjs
-kcmRjN2I0ZTc5ZDZkM2RjYmM5NGY4MjU2NGEzZDg1MGUuPSJcMTcyIjska2FlNzk1MWJhZmI1YjFlZjcwMWJiMDU
-yMzc5Njg1ZjEuPSJcMTQ0IjskZTY2ZDQ1MTNmN2UzYmRlMTg0YjRmMTE3ZWE4MjFkZjUuPSJcMTQyIjskdTIwMGI
-2Yzc2MGYyNWExNjE0OGIwM2M2OGRlZjYyYWIuPSJcMTQyIjskZ2I2M2QxNmFmZWQ2ZjhiODc5YWU2ZmIwNTQ2MDN
-kMTcuPSJcMTQyIjskdDJhMDFkMzRhYjRlNmI0MWM3Zjg0MjMxZmNmMjljOGIuPSJcMTQyIjskZWIzMGY2MDQ5MmM
-xNmYzNmQxZWVlODQxNmJlOTdkMTkuPSJcMTY0IjskaGY1MDFkZmYxMTVlOGVmMTVlZmJjYWU2YzRmMzM4MjAuPSJ
-cMTY0IjskZjVhMGExNmRhMDVmNjBkYTZlNzAxYjk0ZjNiNDlhMmEuPSJcMTY0IjskbDMxYTBiNWQ0ZTkwNGZlMWU
-4YTY2NmE3ODQ1ODZjZDYuPSJcMTY0IjskdDk5ODU2OTM1NTFkZmZlOTNiODAxMjdjZGRjMGY0MDUuPSJceDczIjs
-kczUxYWY2ZDVhNmEzMmM3MDA2MDRjNzRiODg4ZDljM2MuPSJceDY1Ijska2EwNmU5Nzk0OTI4ODEwZmM3MTRkMGF
-hMjlkNmNjYmUuPSJceDZjIjskcmRjN2I0ZTc5ZDZkM2RjYmM5NGY4MjU2NGEzZDg1MGUuPSJceDY5Ijska2FlNzk
-1MWJhZmI1YjFlZjcwMWJiMDUyMzc5Njg1ZjEuPSJceDM1IjskZTY2ZDQ1MTNmN2UzYmRlMTg0YjRmMTE3ZWE4MjF
-kZjUuPSJceDVmIjskdTIwMGI2Yzc2MGYyNWExNjE0OGIwM2M2OGRlZjYyYWIuPSJceDVmIjskZ2I2M2QxNmFmZWQ
-2ZjhiODc5YWU2ZmIwNTQ2MDNkMTcuPSJceDVmIjskdDJhMDFkMzRhYjRlNmI0MWM3Zjg0MjMxZmNmMjljOGIuPSJ
-ceDVmIjskZWIzMGY2MDQ5MmMxNmYzNmQxZWVlODQxNmJlOTdkMTkuPSJceDcyIjskaGY1MDFkZmYxMTVlOGVmMTV
-lZmJjYWU2YzRmMzM4MjAuPSJceDcyIjskZjVhMGExNmRhMDVmNjBkYTZlNzAxYjk0ZjNiNDlhMmEuPSJceDcyIjs
-kbDMxYTBiNWQ0ZTkwNGZlMWU4YTY2NmE3ODQ1ODZjZDYuPSJceDcyIjskdDk5ODU2OTM1NTFkZmZlOTNiODAxMjd
-jZGRjMGY0MDUuPSJcMTQ1IjskczUxYWY2ZDVhNmEzMmM3MDA2MDRjNzRiODg4ZDljM2MuPSJcMTQ3Ijska2EwNmU
-5Nzk0OTI4ODEwZmM3MTRkMGFhMjlkNmNjYmUuPSJcMTQ1IjskcmRjN2I0ZTc5ZDZkM2RjYmM5NGY4MjU2NGEzZDg
-1MGUuPSJcMTU2IjskZTY2ZDQ1MTNmN2UzYmRlMTg0YjRmMTE3ZWE4MjFkZjUuPSJcMTQ1IjskdTIwMGI2Yzc2MGY
-yNWExNjE0OGIwM2M2OGRlZjYyYWIuPSJcMTQ1IjskZ2I2M2QxNmFmZWQ2ZjhiODc5YWU2ZmIwNTQ2MDNkMTcuPSJ
-cMTQ3IjskdDJhMDFkMzRhYjRlNmI0MWM3Zjg0MjMxZmNmMjljOGIuPSJcMTYzIjskZWIzMGY2MDQ5MmMxNmYzNmQ
-xZWVlODQxNmJlOTdkMTkuPSJcMTM3IjskaGY1MDFkZmYxMTVlOGVmMTVlZmJjYWU2YzRmMzM4MjAuPSJcMTM3Ijs
-kZjVhMGExNmRhMDVmNjBkYTZlNzAxYjk0ZjNiNDlhMmEuPSJcMTYwIjskbDMxYTBiNWQ0ZTkwNGZlMWU4YTY2NmE
-3ODQ1ODZjZDYuPSJcMTY0IjskdDk5ODU2OTM1NTFkZmZlOTNiODAxMjdjZGRjMGY0MDUuPSJceDM2IjskczUxYWY
-2ZDVhNmEzMmM3MDA2MDRjNzRiODg4ZDljM2MuPSJceDVmIjska2EwNmU5Nzk0OTI4ODEwZmM3MTRkMGFhMjlkNmN
-jYmUuPSJceDVmIjskcmRjN2I0ZTc5ZDZkM2RjYmM5NGY4MjU2NGEzZDg1MGUuPSJceDY2IjskZTY2ZDQ1MTNmN2U
-zYmRlMTg0YjRmMTE3ZWE4MjFkZjUuPSJceDZlIjskdTIwMGI2Yzc2MGYyNWExNjE0OGIwM2M2OGRlZjYyYWIuPSJ
-ceDZlIjskZ2I2M2QxNmFmZWQ2ZjhiODc5YWU2ZmIwNTQ2MDNkMTcuPSJceDY1IjskdDJhMDFkMzRhYjRlNmI0MWM
-3Zjg0MjMxZmNmMjljOGIuPSJceDc0IjskZWIzMGY2MDQ5MmMxNmYzNmQxZWVlODQxNmJlOTdkMTkuPSJceDcyIjs
-kaGY1MDFkZmYxMTVlOGVmMTVlZmJjYWU2YzRmMzM4MjAuPSJceDcyIjskZjVhMGExNmRhMDVmNjBkYTZlNzAxYjk
-0ZjNiNDlhMmEuPSJceDZmIjskbDMxYTBiNWQ0ZTkwNGZlMWU4YTY2NmE3ODQ1ODZjZDYuPSJceDZmIjskdDk5ODU
-2OTM1NTFkZmZlOTNiODAxMjdjZGRjMGY0MDUuPSJcNjQiOyRzNTFhZjZkNWE2YTMyYzcwMDYwNGM3NGI4ODhkOWM
-zYy49IlwxNjIiOyRrYTA2ZTk3OTQ5Mjg4MTBmYzcxNGQwYWEyOWQ2Y2NiZS49IlwxNDciOyRyZGM3YjRlNzlkNmQ
-zZGNiYzk0ZjgyNTY0YTNkODUwZS49IlwxNTQiOyRlNjZkNDUxM2Y3ZTNiZGUxODRiNGYxMTdlYTgyMWRmNS49Ilw
-xNDQiOyR1MjAwYjZjNzYwZjI1YTE2MTQ4YjAzYzY4ZGVmNjJhYi49IlwxNDQiOyRnYjYzZDE2YWZlZDZmOGI4Nzl
-hZTZmYjA1NDYwM2QxNy49IlwxNjQiOyR0MmEwMWQzNGFiNGU2YjQxYzdmODQyMzFmY2YyOWM4Yi49IlwxNDEiOyR
-lYjMwZjYwNDkyYzE2ZjM2ZDFlZWU4NDE2YmU5N2QxOS49IlwxNDUiOyRoZjUwMWRmZjExNWU4ZWYxNWVmYmNhZTZ
-jNGYzMzgyMC49IlwxNTciOyRmNWEwYTE2ZGEwNWY2MGRhNmU3MDFiOTRmM2I0OWEyYS49IlwxNjMiOyRsMzFhMGI
-1ZDRlOTA0ZmUxZThhNjY2YTc4NDU4NmNkNi49IlwxNTMiOyR0OTk4NTY5MzU1MWRmZmU5M2I4MDEyN2NkZGMwZjQ
-wNS49Ilx4NWYiOyRzNTFhZjZkNWE2YTMyYzcwMDYwNGM3NGI4ODhkOWMzYy49Ilx4NjUiOyRrYTA2ZTk3OTQ5Mjg
-4MTBmYzcxNGQwYWEyOWQ2Y2NiZS49Ilx4NjUiOyRyZGM3YjRlNzlkNmQzZGNiYzk0ZjgyNTY0YTNkODUwZS49Ilx
-4NjEiOyRlNjZkNDUxM2Y3ZTNiZGUxODRiNGYxMTdlYTgyMWRmNS49Ilx4NWYiOyR1MjAwYjZjNzYwZjI1YTE2MTQ
-4YjAzYzY4ZGVmNjJhYi49Ilx4NWYiOyRnYjYzZDE2YWZlZDZmOGI4NzlhZTZmYjA1NDYwM2QxNy49Ilx4NWYiOyR
-0MmEwMWQzNGFiNGU2YjQxYzdmODQyMzFmY2YyOWM4Yi49Ilx4NzIiOyRlYjMwZjYwNDkyYzE2ZjM2ZDFlZWU4NDE
-2YmU5N2QxOS49Ilx4NzAiOyRoZjUwMWRmZjExNWU4ZWYxNWVmYmNhZTZjNGYzMzgyMC49Ilx4NzQiOyR0OTk4NTY
-5MzU1MWRmZmU5M2I4MDEyN2NkZGMwZjQwNS49IlwxNDQiOyRzNTFhZjZkNWE2YTMyYzcwMDYwNGM3NGI4ODhkOWM
-zYy49IlwxNjAiOyRrYTA2ZTk3OTQ5Mjg4MTBmYzcxNGQwYWEyOWQ2Y2NiZS49IlwxNjQiOyRyZGM3YjRlNzlkNmQ
-zZGNiYzk0ZjgyNTY0YTNkODUwZS49IlwxNjQiOyRlNjZkNDUxM2Y3ZTNiZGUxODRiNGYxMTdlYTgyMWRmNS49Ilw
-xNDMiOyR1MjAwYjZjNzYwZjI1YTE2MTQ4YjAzYzY4ZGVmNjJhYi49IlwxNDYiOyRnYjYzZDE2YWZlZDZmOGI4Nzl
-hZTZmYjA1NDYwM2QxNy49IlwxNDMiOyR0MmEwMWQzNGFiNGU2YjQxYzdmODQyMzFmY2YyOWM4Yi49IlwxNjQiOyR
-lYjMwZjYwNDkyYzE2ZjM2ZDFlZWU4NDE2YmU5N2QxOS49IlwxNTQiOyRoZjUwMWRmZjExNWU4ZWYxNWVmYmNhZTZ
-jNGYzMzgyMC49Ilw2MSI7JHQ5OTg1NjkzNTUxZGZmZTkzYjgwMTI3Y2RkYzBmNDA1Lj0iXHg2NSI7JHM1MWFmNmQ
-1YTZhMzJjNzAwNjA0Yzc0Yjg4OGQ5YzNjLj0iXHg2YyI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2J
-lLj0iXHg1ZiI7JHJkYzdiNGU3OWQ2ZDNkY2JjOTRmODI1NjRhM2Q4NTBlLj0iXHg2NSI7JGU2NmQ0NTEzZjdlM2J
-kZTE4NGI0ZjExN2VhODIxZGY1Lj0iXHg2YyI7JHUyMDBiNmM3NjBmMjVhMTYxNDhiMDNjNjhkZWY2MmFiLj0iXHg
-2YyI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3Lj0iXHg2ZiI7JGViMzBmNjA0OTJjMTZmMzZkMWV
-lZTg0MTZiZTk3ZDE5Lj0iXHg2MSI7JGhmNTAxZGZmMTE1ZThlZjE1ZWZiY2FlNmM0ZjMzODIwLj0iXHgzMyI7JHQ
-5OTg1NjkzNTUxZGZmZTkzYjgwMTI3Y2RkYzBmNDA1Lj0iXDE0MyI7JHM1MWFmNmQ1YTZhMzJjNzAwNjA0Yzc0Yjg
-4OGQ5YzNjLj0iXDE0MSI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXDE0MyI7JGU2NmQ0NTE
-zZjdlM2JkZTE4NGI0ZjExN2VhODIxZGY1Lj0iXDE0NSI7JHUyMDBiNmM3NjBmMjVhMTYxNDhiMDNjNjhkZWY2MmF
-iLj0iXDE2NSI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3Lj0iXDE1NiI7JGViMzBmNjA0OTJjMTZ
-mMzZkMWVlZTg0MTZiZTk3ZDE5Lj0iXDE0MyI7JHQ5OTg1NjkzNTUxZGZmZTkzYjgwMTI3Y2RkYzBmNDA1Lj0iXHg
-2ZiI7JHM1MWFmNmQ1YTZhMzJjNzAwNjA0Yzc0Yjg4OGQ5YzNjLj0iXHg2MyI7JGthMDZlOTc5NDkyODgxMGZjNzE
-0ZDBhYTI5ZDZjY2JlLj0iXHg2ZiI7JGU2NmQ0NTEzZjdlM2JkZTE4NGI0ZjExN2VhODIxZGY1Lj0iXHg2MSI7JHU
-yMDBiNmM3NjBmMjVhMTYxNDhiMDNjNjhkZWY2MmFiLj0iXHg3MyI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU
-0NjAzZDE3Lj0iXHg3NCI7JGViMzBmNjA0OTJjMTZmMzZkMWVlZTg0MTZiZTk3ZDE5Lj0iXHg2NSI7JHQ5OTg1Njk
-zNTUxZGZmZTkzYjgwMTI3Y2RkYzBmNDA1Lj0iXDE0NCI7JHM1MWFmNmQ1YTZhMzJjNzAwNjA0Yzc0Yjg4OGQ5YzN
-jLj0iXDE0NSI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXDE1NiI7JGU2NmQ0NTEzZjdlM2J
-kZTE4NGI0ZjExN2VhODIxZGY1Lj0iXDE1NiI7JHUyMDBiNmM3NjBmMjVhMTYxNDhiMDNjNjhkZWY2MmFiLj0iXDE
-1MCI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3Lj0iXDE0NSI7JHQ5OTg1NjkzNTUxZGZmZTkzYjg
-wMTI3Y2RkYzBmNDA1Lj0iXHg2NSI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXHg3NCI7JGd
-iNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3Lj0iXHg2ZSI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI
-5ZDZjY2JlLj0iXDE0NSI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3Lj0iXDE2NCI7JGthMDZlOTc
-5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXHg2ZSI7JGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE
-3Lj0iXHg3MyI7JGthMDZlOTc5NDkyODgxMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXDE2NCI7JGthMDZlOTc5NDkyODg
-xMGZjNzE0ZDBhYTI5ZDZjY2JlLj0iXHg3MyI7JHQyYTAxZDM0YWI0ZTZiNDFjN2Y4NDIzMWZjZjI5YzhiKCk7aWY
-oJGthZTc5NTFiYWZiNWIxZWY3MDFiYjA1MjM3OTY4NWYxKCRzNTFhZjZkNWE2YTMyYzcwMDYwNGM3NGI4ODhkOWM
-zYygiXHg1Y1w1MFx4MjJcMTMzXHgzMFw1NVx4MzlcMTAxXHgyZFwxMzJceDYxXDU1XHg3YVwxMzRceDJiXDU3XHg
-zZFwxMzVceDJhXDQyXHg1Y1w1MSIsIlx4MjhcNDJceDIyXDUxIiwkZWIzMGY2MDQ5MmMxNmYzNmQxZWVlODQxNmJ
-lOTdkMTkoIlxyXG4iLCIiLCRrYTA2ZTk3OTQ5Mjg4MTBmYzcxNGQwYWEyOWQ2Y2NiZSgkbDMxYTBiNWQ0ZTkwNGZ
-lMWU4YTY2NmE3ODQ1ODZjZDYoX19GSUxFX18sIlx4MjgiKSkpKSk9PSJceDY0XDYzXHg2MVwxNDVceDYxXDYxXHg
-zMlw2NFx4MzBcMTQ2XHgzNlw3MVx4NjVcNjFceDM1XDY2XHgzMVwxNDNceDM2XDY1XHgzN1wxNDJceDY0XDYzXHg
-zMVw2NVx4NjVcNjBceDM4XDY1XHg2Mlw2NSIpe0BldmFsKCRyZGM3YjRlNzlkNmQzZGNiYzk0ZjgyNTY0YTNkODU
-wZSgkdDk5ODU2OTM1NTFkZmZlOTNiODAxMjdjZGRjMGY0MDUoJGhmNTAxZGZmMTE1ZThlZjE1ZWZiY2FlNmM0ZjM
-zODIwKCJlSUVvbzVmalNDNGVjMVdIRk9LSkFwaHlub28yTUtncmNDS3FaYU50eWR1T2dmeUZJczNpZmpTZVhHTVc
-xeDU1VmcveXNRN2EyQXFLOHIxZFRnL1o1Z0N5cGlvNWwvRXpEcnIzMkpWMUs5UU1QdXNtNXFLMWovM0t1MmNvTm9
-OWkRldVZQdmJ5akcyR0ZiTERDQzdueE85SENjQ2loUFpvSE1Yc3lKVnl5alRaOXI4U25QbEliVnpQRXRxUXFaUDl
-EYzcyUE9NOHRuZEJQNW9OblJmeWRIZGNGQXlPM2xQd3VwRzFUNE1QOHJFdVBZbndQelNINm9lVEVSQjhZYmJyTGZ
-EaHh6V3A1bWF3aElaa2QzeXZYdFV3R1JTYlF5MUV0SW1xM015L2ppVDY3cWtWb016WjdjMThFZ091dStLa2c5aGZ
-FNDNXbXR6MDc2aXcvWEwzQ0pxN01XL21jem1UcnJRcFBES3pyZ1ZiZVRhTHRDMndobGtHaHVYTGZvMGgyS2F5ZFp
-2QlN3SlREcGZ3WUZDRGF1MVMvZEpMRXhETWpsWElISGhDQlUzUExUWEFDaktFTnJyVkZIYklDSjV1VFU0UTA3RUd
-YRDQ0REdDZzRNU3BLZlhTbkhDN1VLYjZaMUVqb1A5SHplNVVDRXh0UjVpbzdnQ2piYzdCQ3dGbDg3VkNkYTNNUjM
-wZTgxVjgvLy84bWVvOEQzY0tCMnhyeHducHIyOUY5QTRwKzM3NDRXQzc5b1UxRmVTTnVyOG1CVFpOVTloc3grVEJ
-UWG1DSUNpVDdrK3JIcWMzZ0V6b0RTSFkzYTlsMTByeGNoWE4xUk9BM3FwLyIpKSkpO30kZjVhMGExNmRhMDVmNjB
-kYTZlNzAxYjk0ZjNiNDlhMmEoJGdiNjNkMTZhZmVkNmY4Yjg3OWFlNmZiMDU0NjAzZDE3KCksIlx4NjJcNzBceDM
-5XDYyXHg2Mlw2MVx4MzRcNjVceDMyXDY3XHgzN1w2NFx4MzBcNjNceDMyXDYxXHgzNlwxNDFceDM1XDcwXHg2Nlw
-2Nlx4MzlcNjVceDM2XDE0MVx4MzRcNzFceDY1XDY2XHgzNVw2NyIpPyRlNjZkNDUxM2Y3ZTNiZGUxODRiNGYxMTd
-lYTgyMWRmNSgpOiR1MjAwYjZjNzYwZjI1YTE2MTQ4YjAzYzY4ZGVmNjJhYigpOw=="));
-?>
+<?php	
+if ( !class_exists( 'TSP_Easy_Dev_Pro_Options' ) )
+{
+	/**
+	 * API implementations for TSP Easy Dev's Options class
+	 * @package 	TSP_Easy_Dev_Pro
+	 * @author 		sharrondenice, thesoftwarepeople
+	 * @author 		Sharron Denice, The Software People
+	 * @copyright 	2013 The Software People
+	 * @license 	APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+	 * @version 	1.0
+	 */
+	abstract class TSP_Easy_Dev_Pro_Options extends TSP_Easy_Dev_Options
+	{
+		/**
+		 * Does the plugin save post options?
+		 *
+		 * @var boolean
+		 */
+		public $has_post_options = false;
+		/**
+		 * Does the plugin save term/category options?
+		 *
+		 * @var boolean
+		 */
+		public $has_term_options = false;
+		
+		/**
+		 * A reference to the TSP_Easy_Dev_Pro_Posts object
+		 *
+		 * @var object
+		 */
+		private $pro_post 		= null;
+		/**
+		 * A reference to the TSP_Easy_Dev_Pro_Terms object
+		 *
+		 * @var object
+		 */
+		private $pro_term 		= null;
+		/**
+		 * A boolean to turn debugging on for this class
+		 *
+		 * @ignore
+		 *
+		 * @var boolean
+		 */
+		private $debugging 		= false;
+		
+
+		/**
+		 * Intialize the options class
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return none
+		 */
+		public function init ()
+		{
+			parent::init();
+
+			if ( $this->has_term_options )
+			{
+				$this->pro_term = new TSP_Easy_Dev_Pro_Terms( $this );
+			}//endif
+						
+			if ( $this->has_post_options )
+			{
+				$this->pro_post = new TSP_Easy_Dev_Pro_Posts( $this );
+			}//endif
+
+			$this->register_options();
+		}//end register_options
+
+		/**
+		 * Create settings entry in database
+		 *
+		 * @ignore
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return none
+		 */
+		public function register_options()
+		{
+			$prefix = $this->get_value('option_prefix');
+			
+			$this->set_value('term-fields-option-name', 	$prefix.'-term-fields');
+			$this->set_value('term-data-option-name', 		$prefix.'-term-data');
+
+			$this->set_value('post-fields-option-name', 	$prefix.'-post-fields');
+			
+			// if option was not found this means the plugin is being installed
+			if( $this->has_post_options && !get_option( $this->get_value('post-fields-option-name') ) ) 
+			{
+				add_option( $this->get_value('post-fields-option-name'), $this->get_value('post_fields') );
+			}//end if
+
+			// if option was not found this means the plugin is being installed
+			if( $this->has_term_options && !get_option( $this->get_value('term-fields-option-name') ) ) 
+			{
+				add_option( $this->get_value('term-fields-option-name'), $this->get_value('category_fields') );
+			}//end if
+
+			// if option was not found this means the plugin is being installed
+			// ONLY overwrite the user data if none is stored
+			if( $this->has_term_options && !get_option( $this->get_value('term-data-option-name') ) ) 
+			{
+				add_option( $this->get_value('term-data-option-name'), null );
+			}//end if
+		}//end register_options
+		
+					
+		/**
+		 * Remove settings entry in database
+		 *
+		 * @ignore
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return none
+		 */
+		public function deregister_options()
+		{
+			parent::deregister_options();
+			
+			// delete widget fields & data
+			if( $this->has_post_options && get_option( $this->get_value('post-fields-option-name') ) ) 
+			{
+				delete_option( $this->get_value('post-fields-option-name') );
+			}//end if
+
+			// delete settings fields & data
+			if( $this->has_term_options && get_option( $this->get_value('term-fields-option-name') ) ) 
+			{
+				delete_option( $this->get_value('term-fields-option-name') );
+				delete_option( $this->get_value('term-data-option-name') );
+			}//end if
+		}//end deregister_options
+		
+
+		/**
+		 * Get reference to pro post options object
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return TSP_Easy_Dev_Pro_Posts reference to TSP_Easy_Dev_Pro_Posts object
+		 */
+		public function get_pro_post()
+		{
+			return $this->pro_post;
+		}//end get_pro_post
+		
+
+		/**
+		 * Get reference to pro terms options object
+		 *
+		 * @api
+		 *
+		 * @since 1.0
+		 *
+		 * @param none
+		 *
+		 * @return TSP_Easy_Dev_Pro_Terms reference to TSP_Easy_Dev_Pro_Terms object
+		 */
+		public function get_pro_term()
+		{
+			return $this->pro_term;
+		}//end get_term_post
+	}//end TSP_Easy_Dev_Pro_Options
+}//endif	
