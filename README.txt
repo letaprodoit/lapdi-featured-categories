@@ -50,7 +50,7 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 == Changelog ==
 
 = 1.1.3 =
-Required fix to properly store new widget/shortcode attributes into database. (Update to Easy Dev 1.2.2).
+* Required fix to properly store new widget/shortcode attributes into database. (Update to Easy Dev 1.2.2).
 
 = 1.1.2 =
 * Added back in assets folder
