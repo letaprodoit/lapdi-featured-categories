@@ -92,17 +92,43 @@ if ( !class_exists( 'TSP_Easy_Dev_Pro_Options' ) )
 			$this->set_value('term-data-option-name', 		$prefix.'-term-data');
 
 			$this->set_value('post-fields-option-name', 	$prefix.'-post-fields');
+						
+			$database_post_fields 	= get_option( $this->get_value('post-fields-option-name') );
+			$database_term_fields 	= get_option( $this->get_value('term-fields-option-name') );
 			
-			// if option was not found this means the plugin is being installed
-			if( $this->has_post_options && !get_option( $this->get_value('post-fields-option-name') ) ) 
+			$default_post_fields 	= $this->get_value('post_fields');
+			$default_term_fields 	= $this->get_value('category_fields');
+
+			// if has options and the database options != the current options
+			// then if database options are not empty copy them to the default fields and update
+			// if the database option does not exist add default
+			if( $this->has_post_options &&  $database_post_fields != $default_post_fields ) 
 			{
-				add_option( $this->get_value('post-fields-option-name'), $this->get_value('post_fields') );
+				if (!empty ( $database_post_fields ) )
+				{
+					$default_post_fields = array_merge( $default_post_fields, $database_post_fields);
+					update_option( $this->get_value('post-fields-option-name'), $default_post_fields );
+				}//end if
+				else
+				{
+					add_option( $this->get_value('post-fields-option-name'), $default_post_fields );
+				}//end else
 			}//end if
 
-			// if option was not found this means the plugin is being installed
-			if( $this->has_term_options && !get_option( $this->get_value('term-fields-option-name') ) ) 
+			// if has options and the database options != the current options
+			// then if database options are not empty copy them to the default fields and update
+			// if the database option does not exist add default
+			if( $this->has_term_options &&  $database_term_fields != $default_term_fields ) 
 			{
-				add_option( $this->get_value('term-fields-option-name'), $this->get_value('category_fields') );
+				if (!empty ( $database_term_fields ) )
+				{
+					$default_term_fields = array_merge( $default_term_fields, $database_term_fields);
+					update_option( $this->get_value('term-fields-option-name'), $default_term_fields );
+				}//end if
+				else
+				{
+					add_option( $this->get_value('term-fields-option-name'), $default_term_fields );
+				}//end else
 			}//end if
 
 			// if option was not found this means the plugin is being installed
