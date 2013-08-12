@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 1.1.4
+Stable tag: 1.1.6
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -49,6 +49,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
+= 1.1.6 =
+* Enhancement. Updated support link
+
 = 1.1.5 =
 * Removed inline function from widget_init hook to support older versions of PHP.
 
@@ -85,6 +88,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.1.6 =
+Enhancement. Updated support link
 
 = 1.1.5 =
 Required fix to properly initialize widgets for older versions of PHP.
