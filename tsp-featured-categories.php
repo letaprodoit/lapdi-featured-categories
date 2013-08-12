@@ -5,7 +5,7 @@ Plugin URI: 	http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Description: 	Featured Categories allows you to <strong>add featured categories with images to your blog</strong>'s website. Powered by <strong><a href="http://wordpress.org/plugins/tsp-easy-dev/">TSP Easy Dev</a></strong>.
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.1.4
+Version: 		1.1.5
 Text Domain: 	tspfc
 Copyright: 		Copyright © 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
@@ -95,12 +95,14 @@ $featured_categories->add_shortcode ( 'tsp_featured_categories' ); //backwards c
 
 $featured_categories->run( TSPFC_PLUGIN_FILE );
 
-// Initialize widget - Required by WordPress
-add_action('widgets_init', function () {
+function tspfc_widgets_init()
+{
 	global $featured_categories;
 	
-	register_widget ( $featured_categories->get_widget_handler() ); 
+	register_widget ( $featured_categories->get_widget_handler() );
 	apply_filters( $featured_categories->get_widget_handler().'-init', $featured_categories->get_options_handler() );
-});
+}// end tspfc_widgets_init
 
+// Initialize widget - Required by WordPress
+add_action('widgets_init', 'tspfc_widgets_init');
 ?>

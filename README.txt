@@ -49,6 +49,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
+= 1.1.5 =
+* Removed inline function from widget_init hook to support older versions of PHP.
+
 = 1.1.4 =
 * Required fix to properly load media upload script.
 
@@ -82,6 +85,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.1.5 =
+Required fix to properly initialize widgets for older versions of PHP.
 
 = 1.1.4 =
 Required fix to properly load media upload script.
