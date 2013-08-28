@@ -268,7 +268,7 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 		if ($cat_type == 'featured')
 		{
 			// Return all categories
-			$cat_args = array( 'orderby' => $order_by, 'child_of' => $parent_cat, 'hide_empty' => ($hide_empty == 'Y') ? 1 : 0 );
+			$cat_args = array( 'orderby' => $order_by, 'child_of' => $parent_cat, 'include' => $cat_ids, 'hide_empty' => ($hide_empty == 'Y') ? 1 : 0 );
 			$all_categories = get_terms( 'category', $cat_args );
 	
 			$cat_cnt = 1;
@@ -299,7 +299,7 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 		else
 		{
 			// Return all categories with a limit of $number_cats categories
-			$cat_args = array('orderby' => $order_by, 'number' => $number_cats, 'child_of' => $parent_cat, 'hide_empty' => ($hide_empty == 'Y') ? 1 : 0 );
+			$cat_args = array('orderby' => $order_by, 'number' => $number_cats, 'child_of' => $parent_cat, 'include' => $cat_ids, 'hide_empty' => ($hide_empty == 'Y') ? 1 : 0 );
 			$queried_categories = get_terms('category',$cat_args);
 		}//endelse
 		

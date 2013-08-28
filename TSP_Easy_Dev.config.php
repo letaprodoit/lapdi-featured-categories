@@ -79,6 +79,11 @@ $easy_dev_settings['plugin_options']		= array(
 			'value' 		=> 5,
 			'old_labels'	=> array ('numbercats'),
 		),		
+		'cat_ids' 		=> array( 
+			'type' 			=> 'INPUT', 
+			'label' 		=> 'Category IDs to display', 
+			'value' 		=> '',
+		),		
 		'parent_cat' 	=> array( 
 			'type' 			=> 'INPUT', 
 			'label' 		=> 'Category ID of Parent Category', 
