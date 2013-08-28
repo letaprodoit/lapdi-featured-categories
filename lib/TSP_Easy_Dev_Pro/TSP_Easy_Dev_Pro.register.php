@@ -5,7 +5,7 @@ URI: 			http://www.thesoftwarepeople.com/software/plugins/wordpress/easy-dev-for
 Description: 	Easy Dev Professional is a <strong>WordPress API library</strong> with advanced features (Pro is updated often Easy Dev Standard is not). See <a target="_blank" href="http://lab.thesoftwarepeople.com/tracker/wiki/wordpress-ed:MainPage">API Docs</a> for information and instructions. <a target="_blank" href="https://twitter.com/#bringbackOOD">#bringbackOOD</a> 
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.0
+Version: 		1.0.1
 Copyright: 		Copyright © 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
 */

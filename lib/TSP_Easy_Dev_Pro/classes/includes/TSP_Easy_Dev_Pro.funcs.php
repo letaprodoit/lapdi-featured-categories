@@ -14,6 +14,7 @@
 	 * Determines if a particular browser is currently being used by the current user
 	 *
 	 * @since 1.0
+	 * @deprecated 1.0.1 No longer used by internal code and not recommended Use TSP_Easy_Dev_Pro_Tools::this_browser instead.
 	 *
 	 * @param string $key Required the browser key, (values: IE, Chrome, FireFox, Opera, Safari)
 	 * @param integer $version Optional the version of the browser
@@ -67,7 +68,6 @@
 			{
 				$match = true;
 			}//end else
-			exit;
 		}//end elseif
 		elseif ( strpos( $this_browser, 'Firefox') !== FALSE && $key == 'Firefox' ) 
 		{
