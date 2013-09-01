@@ -171,7 +171,7 @@ if ( !class_exists( 'TSP_Easy_Dev_Pro_Posts' ) )
 		public function get_post_media( &$a_post, $thumb_width, $thumb_height )
 		{
 	       	$media 		= null;
-	        $img     	= $this->get_post_thumbnail( $a_post );
+	        $img     	= $this->get_post_thumbnail( $a_post, $thumb_width, $thumb_height );
 	        
 	        if ( empty( $img ) )
 	        {
@@ -236,10 +236,12 @@ if ( !class_exists( 'TSP_Easy_Dev_Pro_Posts' ) )
 		 * @since 1.0
 		 *
 		 * @param object $a_post  - the post to parse
+		 * @param int $thumb_width Optional  - the width to set the image to
+		 * @param int $thumb_height Optional  - the height to set the image to
 		 *
 		 * @return string $img return the the first image found
 		 */
-		public function get_post_thumbnail( &$a_post )
+		public function get_post_thumbnail( &$a_post, $thumb_width = null, $thumb_height = null )
 		{
 		   	$img = null;
 		   
@@ -248,7 +250,31 @@ if ( !class_exists( 'TSP_Easy_Dev_Pro_Posts' ) )
 				ob_start();
 				ob_end_clean();
 				
-				$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $a_post->post_content, $matches);
+				$thumb_size = array();
+				
+				// if thumb size passed in use it
+				// passing sizes to get_the_post_thumbnail is necessary
+				// to get a URL link that has the correct thumbnail size
+				// which changes based on the thumbnail size, if no size
+				// is passed in it will return the size of the thumbnail
+				// which is very small and will be stretched to the size the user requires
+				if ($thumb_width && $thumb_height)
+				{
+					$thumb_size = array($thumb_width, $thumb_height);
+				}//end if
+				
+				// Check to see if the post has a featured image
+				// if it does then we will parse the image for matches
+				// else we will parse the content for matches
+				$search = get_the_post_thumbnail($a_post->ID, $thumb_size);
+				
+				if (empty($search))
+				{
+					$search = $a_post->post_content;
+				}//end if
+				
+				// If it does not have a featured image check the content for an image
+				$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $search, $matches);
 				
 				if ( !empty( $matches[1] ))
 				{

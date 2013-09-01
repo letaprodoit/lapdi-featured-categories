@@ -2,7 +2,9 @@
 	{if $hide_desc == 'N'}
 		<div class="row">
 			<div class="6u">	 
-				<img src="{$image}" width="{$thumb_width}" height="{$thumb_height}" style="width:{$thumb_width}px; height:{$thumb_height}px;"/>
+				<a href="{$url}" title="{$title}">
+				    <img src="{$image}" width="{$thumb_width}" height="{$thumb_height}" style="width:{$thumb_width}px; height:{$thumb_height}px;" border="0"/>
+			    </a>
 			</div>
 			<div class="6u">
 				<span class="title"><a href="{$url}" title="{$title}">{$title}</a></span>
