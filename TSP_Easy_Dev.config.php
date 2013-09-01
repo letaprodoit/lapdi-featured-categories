@@ -69,8 +69,8 @@ $easy_dev_settings['plugin_options']		= array(
 			'label' 		=> 'Title is below or above image?:', 
 			'value' 		=> 0,
 			'options'		=> array( 
-									'below'	=> 0,
-									'above'	=> 1 ),
+									'below'	=> 'below',
+									'above'	=> 'above' ),
 		),		
 		'cat_type' 		=> array( 
 			'type' 			=> 'SELECT', 
