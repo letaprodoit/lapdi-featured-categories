@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
 Tested up to: 3.6
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,7 +19,7 @@ The Software People's (TSP) Featured Categories plugin allows you to add feature
 Add a `Featured Categories` to posts and pages by using a shortcode inside your text or evaluated from within your theme. You may override page/post `Featured Categories` options with shortcode attributes defined on the plugin's settings page.
 
 * `[tsp-featured-categories]` - Will display posts with the default options defined in the plugin's settings page.
-* `[tsp-featured-categories title="Featured Categories"  number_cats="3" cat_ids="5,3,4" cat_type="all" hide_empty="1" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]` - Will override all attributes defined on the plugin's settings page.
+* `[tsp-featured-categories title="Featured Categories" title_pos="below" number_cats="3" cat_ids="5,3,4" cat_type="all" hide_empty="1" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]` - Will override all attributes defined on the plugin's settings page.
 
 == Installation ==
 
@@ -48,6 +48,10 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 4. Admin area shortcode settings area.
 
 == Changelog ==
+
+= 1.1.8 =
+* New Feature. Added new attribute `title_pos` for title placement options. 
+* New Feature. Category image is now clickable.
 
 = 1.1.7 =
 * Enhancement. Added new attribute `cat_ids` to support specific categories
@@ -91,6 +95,9 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.1.8 =
+New Features. Added new attribute `title_pos` for title placement options. Category image is now clickable.
 
 = 1.1.7 =
 Enhancement. Added new attribute `cat_ids` to support specific categories
