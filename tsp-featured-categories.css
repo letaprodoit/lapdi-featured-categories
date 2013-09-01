@@ -1,3 +1,13 @@
+.tsp_featured_categories .title.above{
+	padding-bottom: 3px;
+}
+.tsp_featured_categories .title.below,
+.tsp_featured_categories .text {
+    padding-top: 3px;
+}
+.tsp_featured_categories{
+	/*text-align: center;*/
+}
 #makeMeScrollable {
 	position:relative;
 	z-index:1;

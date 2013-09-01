@@ -80,7 +80,7 @@ $featured_categories->add_css( TSPFC_PLUGIN_URL . TSPFC_PLUGIN_NAME . '.css' );
 // Quueue User Scripts
 $featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.smoothDivScroll-1.1.js', array('jquery','jquery-ui-widget') );
 $featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'gallery-scripts.js', array('jquery','jquery-ui-widget') );
-$featured_categories->add_script( TSP_EASY_DEV_ASSETS_JS_URL . 'pro-skel-min.js' );
+$featured_categories->add_script( TSP_EASY_DEV_PRO_ASSETS_JS_URL . 'pro-skel.min.js' );
 
 // Queue Admin Styles
 $featured_categories->add_css( includes_url() . 'js' . DS . 'thickbox' . DS . 'thickbox.css', true );

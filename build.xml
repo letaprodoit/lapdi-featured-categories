@@ -25,6 +25,7 @@
         <include name="js/*" />
         <include name="lib/*" />
         <include name="templates/*" />
+        <include name="*.css" />
         <include name="*.php" />
         <include name="*.html" />
         <include name="LICENSE*" />
