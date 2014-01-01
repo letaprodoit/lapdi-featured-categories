@@ -5,7 +5,7 @@ Plugin URI: 	http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Description: 	Featured Categories allows you to <strong>add featured categories with images to your blog</strong>'s website. Powered by <strong><a href="http://wordpress.org/plugins/tsp-easy-dev/">TSP Easy Dev</a></strong>.
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.1.9
+Version: 		1.2.0
 Text Domain: 	tspfc
 Copyright: 		Copyright © 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
@@ -24,7 +24,7 @@ define('TSPFC_PLUGIN_REQ_VERSION', 			"3.5.1");
 // The recommended option would be to require the installation of the standard version and
 // bundle the Pro classes into your plugin if needed, this plugin requires both the Easy Dev plugin installation
 // and looks for the existence of the Easy Dev Pro libraries
-if ( !file_exists ( WP_PLUGIN_DIR . "/tsp-easy-dev/TSP_Easy_Dev.register.php" ) || !file_exists( TSPFC_PLUGIN_PATH . "/lib//TSP_Easy_Dev_Pro/TSP_Easy_Dev_Pro.register.php" ) )
+if ( !file_exists ( WP_PLUGIN_DIR . "/tsp-easy-dev/TSP_Easy_Dev.register.php" ) || !file_exists( TSPFC_PLUGIN_PATH . "lib/TSP_Easy_Dev_Pro/TSP_Easy_Dev_Pro.register.php" ) )
 {
 	function display_tspfc_notice()
 	{
