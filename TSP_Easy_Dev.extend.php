@@ -311,7 +311,13 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 
 		if ( $num_cats > 1 )
 		{
-			$cat_width = round(95 / $num_cats).'%'; //only take up 95% of the area instead of 100%
+			// Fix for ticket #FC-11
+			$cat_width = round(95 / $num_cats); //divide category with by number of categories
+			
+			if ($cat_width < 20)
+				$cat_width = 20;
+			
+			$cat_width .= '%';
 		}//end if
 	   
 	    foreach ($queried_categories as $category)
