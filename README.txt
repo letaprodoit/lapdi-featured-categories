@@ -81,6 +81,10 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 
 == Changelog ==
 
+= 1.2.1 =
+* Enhancement: Set max width for horizontal display of categories
+* Enhancement: Include instructions on how to display categories at runtime
+
 = 1.2.0 =
 * Fixed bug. Correctly locates TSP Easy Dev.
 
@@ -133,6 +137,10 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 * Launch
 
 == Upgrade notice ==
+
+= 1.2.1 =
+Enhancement. Set max width for horizontal display of categories
+Enhancement. Include instructions on how to display categories at runtime
 
 = 1.2.0 =
 Fixed bug. Correctly locates TSP Easy Dev.
