@@ -84,6 +84,8 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 = 1.2.1 =
 * Enhancement: Set max width for horizontal display of categories
 * Enhancement: Include instructions on how to display categories at runtime
+* Enhancement: Allow spaces between commas when listing category IDs
+* Enhancement: Replace shortcode setting with shortcode generator
 
 = 1.2.0 =
 * Fixed bug. Correctly locates TSP Easy Dev.
@@ -141,6 +143,8 @@ Add a `Featured Categories` to posts and pages by using a shortcode inside your 
 = 1.2.1 =
 Enhancement. Set max width for horizontal display of categories
 Enhancement. Include instructions on how to display categories at runtime
+Enhancement. Allow spaces between commas when listing category IDs
+Enhancement. Replace shortcode setting with shortcode generator
 
 = 1.2.0 =
 Fixed bug. Correctly locates TSP Easy Dev.

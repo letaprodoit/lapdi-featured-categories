@@ -262,6 +262,14 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 		$pro_term = $this->options->get_pro_term();
 		
 		$all_term_data = $pro_term->get_term_metadata();
+		
+		// remove unnecessary spaces from cat_ids #FC-13
+		if (!empty($cat_ids))
+		{
+			$cat_ids = preg_replace( "/\s+/", " ", $cat_ids ); //remove extra spaces
+			$cat_ids = preg_replace( "/\,(\s+)/", ",", $cat_ids ); // remove comma's with extra spaces
+			$cat_ids = preg_replace( "/(\s+)/", ",", $cat_ids ); // replace spaces with commas
+		}		
 
 		// If the user wants to display only featured categories then add only featured categories to the array
 		// else add them all
@@ -279,14 +287,18 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 				$term_ID = $category->term_id;
 				$featured = null;
 				
-				// Determine if the category is featured
-				if ( array_key_exists( $term_ID, $all_term_data ) )
+				if (!empty( $all_term_data ))
 				{
-					if ( array_key_exists( 'featured', $all_term_data[$term_ID] ) )
+					// Determine if the category is featured
+					if ( array_key_exists( $term_ID, $all_term_data ) )
 					{
-						$featured   = $all_term_data[$term_ID]['featured'];
+						if ( array_key_exists( 'featured', $all_term_data[$term_ID] ) )
+						{
+							$featured   = $all_term_data[$term_ID]['featured'];
+						}//end if
 					}//end if
-				}//end if
+								
+				}				
 				
 				if ($featured && $cat_cnt <= $number_cats)
 				{
