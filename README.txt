@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
 Tested up to: 3.8
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -42,6 +42,38 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 1. Make sure the folder `/wp-content/uploads/` has recursive, 777 permissions
 2. Make sure you are listing all `categories` and/or `parent_cat` is empty or the `parent_cat` has children categories.
 
+= How can I display category images at run-time? =
+
+1. You can add similar code to your PHP file. This will display the category title, description and thumbnail at runtime. Remember you can use shortcodes to display category information at design time. 
+`
+			<div class="row" style="margin: 20px 0px;">
+			    <div class="2u">
+					<?php 
+						// get category ID
+						$cat_id =  get_cat_ID( single_cat_title(null,false) );
+						
+						// get options for tsp featured categories
+						$options = get_option('tsp-featured-categories-option-term-data');
+ 
+ 						// check to see if the category has term data
+						if ( array_key_exists( $cat_id, $options )):
+							if ( $options[$cat_id]['image'] != null ):
+								// display the image
+					?>		
+								<img class="image" src="<?php echo $options[$cat_id]['image'];?>" width="125" height="125" border="0">
+					<?php
+							endif;
+						endif;
+
+					?>
+			    </div>
+			    <div class="10u">
+					<h2><?php _e("Browsing category", "site5framework"); ?> / <span><?php single_cat_title(); ?></span></h2>
+					<h4><em><?php echo category_description(); ?></em></h4>
+			    </div>
+			</div>
+`
+
 == Screenshots ==
 
 1. Admin area widget settings.
@@ -50,6 +82,12 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 4. Admin area shortcode settings area.
 
 == Changelog ==
+
+= 1.2.1 =
+* Enhancement: Set max width for horizontal display of categories
+* Enhancement: Include instructions on how to display categories at runtime
+* Enhancement: Allow spaces between commas when listing category IDs
+* Enhancement: Replace shortcode setting with shortcode generator
 
 = 1.2.0 =
 * Fixed bug. Correctly locates TSP Easy Dev.
@@ -103,6 +141,12 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 * Launch
 
 == Upgrade notice ==
+
+= 1.2.1 =
+Enhancement. Set max width for horizontal display of categories
+Enhancement. Include instructions on how to display categories at runtime
+Enhancement. Allow spaces between commas when listing category IDs
+Enhancement. Replace shortcode setting with shortcode generator
 
 = 1.2.0 =
 Fixed bug. Correctly locates TSP Easy Dev.
