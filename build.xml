@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="TSP Featured Categories" default="copy_all" basedir=".">
     <property name="name"  				value="tsp-featured-categories" />
-    <property name="pro_library_src"	value="/Users/SharronDenice/myGIT/Plugins/WordPress/tsp-easy-dev-pro/trunk" />
+    <property name="pro_library_src"	value="/Users/SharronDenice/myGIT/Plugins/WordPress/tsp-easy-dev-pro" />
     <property name="pro_library_dest"	value="${project.basedir}/lib/TSP_Easy_Dev_Pro" />
     <property name="test_site"  		value="/Users/SharronDenice/Sites/_testsites/wordpress_latest/wp-content/plugins/${name}" />
     <property name="live_site"  		value="/Users/SharronDenice/Sites/www.sharrondenice.me/wp-content/plugins/${name}" />

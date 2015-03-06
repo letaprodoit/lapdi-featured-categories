@@ -3,8 +3,8 @@ Contributors: thesoftwarepeople, sharrondenice
 Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
-Tested up to: 3.8
-Stable tag: 1.2.1
+Tested up to: 4.1.1
+Stable tag: 1.2.2
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -83,6 +83,9 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 
 == Changelog ==
 
+= 1.2.2 =
+* Fixed bug: Removed the use of Pro Skeleten which caused pages to default to size of 960px
+
 = 1.2.1 =
 * Enhancement: Set max width for horizontal display of categories
 * Enhancement: Include instructions on how to display categories at runtime
@@ -141,6 +144,9 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 * Launch
 
 == Upgrade notice ==
+
+= 1.2.2 =
+Fixed bug: Removed the use of Pro Skeleten which caused pages to default to size of 960px
 
 = 1.2.1 =
 Enhancement. Set max width for horizontal display of categories
