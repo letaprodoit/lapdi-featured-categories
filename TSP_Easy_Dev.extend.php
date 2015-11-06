@@ -227,13 +227,16 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 	 */
 	public function display_form( $fields )
 	{
-		$smarty = new TSP_Easy_Dev_Smarty( $this->options->get_value('smarty_template_dirs'), 
-			$this->options->get_value('smarty_cache_dir'), 
-			$this->options->get_value('smarty_compiled_dir'), true );
-
-    	$smarty->assign( 'form_fields', $fields );
-    	$smarty->assign( 'class', 'widefat' );
-		$smarty->display( 'default_form.tpl' );
+		if (!empty($this->options))
+		{
+			$smarty = new TSP_Easy_Dev_Smarty( $this->options->get_value('smarty_template_dirs'),
+					$this->options->get_value('smarty_cache_dir'),
+					$this->options->get_value('smarty_compiled_dir'), true );
+			
+			$smarty->assign( 'form_fields', $fields );
+			$smarty->assign( 'class', 'widefat' );
+			$smarty->display( 'default_form.tpl' );				
+		}
 	}//end form
 	
 	/**
