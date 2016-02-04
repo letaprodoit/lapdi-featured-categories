@@ -3,8 +3,8 @@ Contributors: thesoftwarepeople, sharrondenice
 Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/featured-categories-for-wordpress.html
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
-Tested up to: 4.3.1
-Stable tag: 1.2.3
+Tested up to: 4.4.2
+Stable tag: 1.2.4
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,7 +19,7 @@ The Software People's (TSP) Featured Categories plugin allows you to add feature
 Add a `Featured Categories` to posts and pages by using a shortcode inside your text or evaluated from within your theme. You may override page/post `Featured Categories` options with shortcode attributes defined on the plugin's settings page.
 
 * `[tsp-featured-categories]` - Will display posts with the default options defined in the plugin's settings page.
-* `[tsp-featured-categories title="Featured Categories" title_pos="below" number_cats="3" cat_ids="5,3,4" cat_type="all" hide_empty="1" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]` - Will override all attributes defined on the plugin's settings page.
+* `[tsp-featured-categories title="Featured Categories" title_pos="below" number_cats="3" shrink_fit="Y" cat_ids="5,3,4" cat_type="all" hide_empty="1" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]` - Will override all attributes defined on the plugin's settings page.
 
 == Installation ==
 
@@ -82,6 +82,10 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 4. Admin area shortcode settings area.
 
 == Changelog ==
+
+= 1.2.4 =
+* Enhancement: Using only TSP Easy Dev (Pro version no longer available.)
+* Enhancement. Option to turn Shrink Boxes to Fit off
 
 = 1.2.3 =
 * Fixed bug: Fixed bug to handle null options
@@ -147,6 +151,10 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 * Launch
 
 == Upgrade notice ==
+
+= 1.2.4 =
+Enhancement: Using only TSP Easy Dev (Pro version no longer available.)
+Enhancement. Option to turn Shrink Boxes to Fit off
 
 = 1.2.3 =
 Fixed bug: Fixed bug to handle null options

@@ -32,7 +32,7 @@ $easy_dev_settings['base_name']	 			= TSPFC_PLUGIN_BASE_NAME;
 $easy_dev_settings['widget_width']	 		= 300;
 $easy_dev_settings['widget_height'] 		= 350;
 
-$easy_dev_settings['smarty_template_dirs']	= array( TSPFC_PLUGIN_PATH . 'templates', TSP_EASY_DEV_ASSETS_TEMPLATES_PATH, TSP_EASY_DEV_PRO_ASSETS_TEMPLATES_PATH );
+$easy_dev_settings['smarty_template_dirs']	= array( TSPFC_PLUGIN_PATH . 'templates', TSP_EASY_DEV_ASSETS_TEMPLATES_PATH );
 $easy_dev_settings['smarty_compiled_dir']  	= TSP_EASY_DEV_TMP_PATH . TSPFC_PLUGIN_NAME . DS . 'compiled';
 $easy_dev_settings['smarty_cache_dir'] 		= TSP_EASY_DEV_TMP_PATH . TSPFC_PLUGIN_NAME . DS . 'cache';
 
@@ -86,6 +86,12 @@ $easy_dev_settings['plugin_options']		= array(
 			'label' 		=> 'How many categories do you want to display?', 
 			'value' 		=> 5,
 			'old_labels'	=> array ('numbercats'),
+		),		
+		'shrink_fit' 	=> array( 
+			'type' 			=> 'SELECT', 
+			'label' 		=> 'Shrink boxes to fit all on one row?', 
+			'value' 		=> 'Y',
+			'options'		=> array ('Yes' => 'Y', 'No' => 'N'),
 		),		
 		'cat_ids' 		=> array( 
 			'type' 			=> 'INPUT', 

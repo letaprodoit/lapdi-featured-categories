@@ -11,6 +11,7 @@
 						<li>Title: <strong>title="Title of Posts"</strong></li>
 						<li>Title Position: <strong>title_pos="below"</strong></li>
 						<li>Number Categories: <strong>number_cats="5"</strong></li>
+						<li>Shrink to Fit: <strong>shrink_fit="Y"</strong></li>
                         <li>Category IDs: <strong>cat_ids="5,3,4"</strong></li>
 						<li>Parent Category: <strong>parent_cat="5"</strong></li>
 						<li>Category Type: <strong>cat_type="all"</strong>(Options: all, featured)</li>
@@ -37,7 +38,7 @@
 			</ul>
 			<hr>
 			A shortcode with all the options will look like the following:<br><br>
-			<strong>[tsp-featured-categories title="Featured Categories" title_pos="below" number_cats="3" cat_ids="5,3,4" cat_type="all" hide_empty="Y" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]</strong>
+			<strong>[tsp-featured-categories title="Featured Categories" title_pos="below" number_cats="3" shrink_fit="Y" cat_ids="5,3,4" cat_type="all" hide_empty="Y" hide_desc="N" max_desc="60" layout="0" parent_cat="3" box_width=500 box_height=300 order_by="count" thumb_width="80" thumb_height="80" before_title="" after_title=""]</strong>
 		</div>
 	</div>
 	<script>

@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="TSP Featured Categories" default="copy_all" basedir=".">
     <property name="name"  				value="tsp-featured-categories" />
-    <property name="pro_library_src"	value="/Users/SharronDenice/myGIT/Plugins/WordPress/tsp-easy-dev-pro" />
-    <property name="pro_library_dest"	value="${project.basedir}/lib/TSP_Easy_Dev_Pro" />
     <property name="test_site"  		value="/Users/SharronDenice/Sites/_testsites/wordpress_latest/wp-content/plugins/${name}" />
-    <property name="live_site"  		value="/Users/SharronDenice/Sites/www.sharrondenice.me/wp-content/plugins/${name}" />
+    <property name="live_site"  		value="/Users/SharronDenice/Sites/portal.hpawebservices.com/wp-content/plugins/${name}" />
  
-    <!-- Fileset for library files -->
-    <fileset dir="${pro_library_src}" id="libraryfiles">
-        <include name="assets/*" />
-        <include name="assets/css/*" />
-        <include name="assets/font/*" />
-        <include name="assets/js/*" />
-        <include name="assets/templates/*" />
-        <include name="classes/*" />
-        <include name="classes/includes/*" />
-        <include name="TSP_Easy_Dev_Pro.register.php" />
-        <include name="*.html" />
-    </fileset>
-
 	<!-- Fileset for all files -->
     <fileset dir="${project.basedir}" id="allfiles">
         <include name="images/*" />
         <include name="images/cursors/*" />
         <include name="js/*" />
-        <include name="lib/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/assets/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/assets/css/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/assets/font/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/assets/js/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/assets/templates/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/classes/*" />
-        <include name="lib/TSP_Easy_Dev_Pro/classes/includes/*" />
         <include name="templates/*" />
         <include name="*.css" />
         <include name="*.php" />
@@ -43,10 +19,6 @@
 
     <!-- copy_all Target -->
     <target name="copy_all" description="copy all files target">
-        <echo message="Copying most recent TSP_Easy_Dev_Pro library files to this project..." />
-        <copy todir="${pro_library_dest}">
-            <fileset refid="libraryfiles" />
-        </copy>
         <echo message="Copying files to test project..." />
         <copy todir="${test_site}">
             <fileset refid="allfiles" />

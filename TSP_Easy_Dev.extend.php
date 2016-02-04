@@ -1,6 +1,6 @@
 <?php				
 /**
- * TSP_Easy_Dev_Options_Featured_Categories - Extends the TSP_Easy_Dev_Pro_Options Class
+ * TSP_Easy_Dev_Options_Featured_Categories - Extends the TSP_Easy_Dev_Options Class
  * @package TSP_Easy_Dev
  * @author sharrondenice, thesoftwarepeople
  * @author Sharron Denice, The Software People
@@ -13,7 +13,7 @@
  * @method void display_parent_page()
  * @method void display_plugin_options_page()
  */
-class TSP_Easy_Dev_Options_Featured_Categories extends TSP_Easy_Dev_Pro_Options
+class TSP_Easy_Dev_Options_Featured_Categories extends TSP_Easy_Dev_Options
 {
 	/**
 	 * Display all the plugins that The Software People has released
@@ -134,7 +134,7 @@ class TSP_Easy_Dev_Options_Featured_Categories extends TSP_Easy_Dev_Pro_Options
 		// get settings from database
 		$shortcode_fields = get_option( $this->get_value('shortcode-fields-option-name') );
 		
-		$defaults = new TSP_Easy_Dev_Data ( $shortcode_fields );
+		$defaults = new TSP_Easy_Dev_Data ( $shortcode_fields, 'shortcode' );
 
 		$form = null;
 		if ( array_key_exists( $this->get_value('name') . '_form_submit', $_REQUEST ))
@@ -355,7 +355,7 @@ class TSP_Easy_Dev_Widget_Featured_Categories extends TSP_Easy_Dev_Widget
 		    		    
 	        $cat_cnt++;
 	
-			$smarty = new TSP_Easy_Dev_Pro_Smarty( $this->options->get_value('smarty_template_dirs'), 
+			$smarty = new TSP_Easy_Dev_Smarty( $this->options->get_value('smarty_template_dirs'), 
 				$this->options->get_value('smarty_cache_dir'), 
 				$this->options->get_value('smarty_compiled_dir'), true );
 	
