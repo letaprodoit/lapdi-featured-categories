@@ -6,6 +6,7 @@
  
 	<!-- Fileset for all files -->
     <fileset dir="${project.basedir}" id="allfiles">
+        <include name="css/*" />
         <include name="images/*" />
         <include name="images/cursors/*" />
         <include name="js/*" />

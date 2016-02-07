@@ -5,7 +5,7 @@ Plugin URI: 	http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Description: 	Featured Categories allows you to <strong>add featured categories with images to your blog</strong>'s website. Powered by <strong><a href="http://wordpress.org/plugins/tsp-easy-dev/">TSP Easy Dev</a></strong>.
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.2.4
+Version: 		1.2.5
 Text Domain: 	tspfc
 Copyright: 		Copyright � 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
@@ -69,18 +69,22 @@ $featured_categories->uses_smarty 					= true;
 
 $featured_categories->uses_shortcodes 				= true;
 
-// Quueue User styles
+// Queue User styles
 $featured_categories->add_css( TSPFC_PLUGIN_URL . TSPFC_PLUGIN_NAME . '.css' );
 
-// Quueue User Scripts
+// Queue User Scripts
 $featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.smoothDivScroll-1.1.js', array('jquery','jquery-ui-widget') );
 $featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'gallery-scripts.js', array('jquery','jquery-ui-widget') );
 //$featured_categories->add_script( TSP_EASY_DEV_ASSETS_JS_URL . 'skel.min.js' );
 
 // Queue Admin Styles
 $featured_categories->add_css( includes_url() . 'js' . DS . 'thickbox' . DS . 'thickbox.css', true );
+$featured_categories->add_css( TSP_EASY_DEV_ASSETS_CSS_URL . 'font-awesome.min.css', true );
+$featured_categories->add_css( TSP_EASY_DEV_ASSETS_CSS_URL . 'admin-style.css', true );
+$featured_categories->add_css( TSP_EASY_DEV_ASSETS_CSS_URL . 'style.css', true );
 
 // Queue Admin Scripts
+$featured_categories->add_script( TSP_EASY_DEV_ASSETS_JS_URL . 'admin-script.js',  array('jquery','jquery-ui-tabs'), true );
 $featured_categories->add_script( TSP_EASY_DEV_ASSETS_JS_URL . 'media-upload.js',  array('jquery','thickbox','media-upload','quicktags'), true );
 
 $featured_categories->set_plugin_icon( TSPFC_PLUGIN_URL . 'images' . DS . 'tsp_icon_16.png' );

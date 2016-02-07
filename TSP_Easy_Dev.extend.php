@@ -160,6 +160,12 @@ class TSP_Easy_Dev_Options_Featured_Categories extends TSP_Easy_Dev_Options
 			$this->get_value('smarty_cache_dir'), 
 			$this->get_value('smarty_compiled_dir'), true );
 
+		global $featured_categories;
+		
+		$smarty->assign( 'plugin_title',			TSPFC_PLUGIN_TITLE);
+		$smarty->assign( 'plugin_links',			implode(' | ', $featured_categories->get_meta_links()));
+		$smarty->assign( 'EASY_DEV_SETTINGS_UI',	$this->get_value('name') . '_shortcode_settings.tpl');
+		
 		$smarty->assign( 'form_fields',				$form_fields);
 		$smarty->assign( 'message',					$message);
 		$smarty->assign( 'error',					$error);
@@ -167,7 +173,7 @@ class TSP_Easy_Dev_Options_Featured_Categories extends TSP_Easy_Dev_Options
 		$smarty->assign( 'plugin_name',				$this->get_value('name'));
 		$smarty->assign( 'nonce_name',				wp_nonce_field( $this->get_value('name'), $this->get_value('name').'_nonce_name' ));
 		
-		$smarty->display( $this->get_value('name') . '_shortcode_settings.tpl');
+		$smarty->display( 'easy-dev-shortcode-ui.tpl');
 				
 	}//end settings_page
 	

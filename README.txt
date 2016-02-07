@@ -4,7 +4,7 @@ Donate link: http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 3.5.1
 Tested up to: 4.4.2
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -83,6 +83,9 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 
 == Changelog ==
 
+= 1.2.5 =
+* Enhancement: Improved settings UI
+
 = 1.2.4 =
 * Enhancement: Using only TSP Easy Dev (Pro version no longer available.)
 * Enhancement. Option to turn Shrink Boxes to Fit off
@@ -151,6 +154,9 @@ BEFORE YOU BEGIN: Requires the installation and activation of [TSP Easy Dev Late
 * Launch
 
 == Upgrade notice ==
+
+= 1.2.5 =
+Enhancement: Improved settings UI
 
 = 1.2.4 =
 Enhancement: Using only TSP Easy Dev (Pro version no longer available.)
