@@ -5,7 +5,7 @@ Plugin URI: 	http://www.thesoftwarepeople.com/software/plugins/wordpress/feature
 Description: 	Featured Categories allows you to <strong>add featured categories with images to your blog</strong>'s website. Powered by <strong><a href="http://wordpress.org/plugins/tsp-easy-dev/">TSP Easy Dev</a></strong>.
 Author: 		The Software People
 Author URI: 	http://www.thesoftwarepeople.com/
-Version: 		1.2.5
+Version: 		1.2.7
 Text Domain: 	tspfc
 Copyright: 		Copyright � 2013 The Software People, LLC (www.thesoftwarepeople.com). All rights reserved
 License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
@@ -73,8 +73,10 @@ $featured_categories->uses_shortcodes 				= true;
 $featured_categories->add_css( TSPFC_PLUGIN_URL . TSPFC_PLUGIN_NAME . '.css' );
 
 // Queue User Scripts
-$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.smoothDivScroll-1.1.js', array('jquery','jquery-ui-widget') );
-$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'gallery-scripts.js', array('jquery','jquery-ui-widget') );
+$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.mousewheel.min.js', array('jquery','jquery-effects-core','jquery-ui-widget') );
+$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.kinetic.min.js', array('jquery','jquery-effects-core','jquery-ui-widget') );
+$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'jquery.smoothdivscroll-1.3-min.js', array('jquery','jquery-effects-core','jquery-ui-widget') );
+$featured_categories->add_script( TSPFC_PLUGIN_URL . 'js' . DS . 'gallery-scripts.js', array('jquery','jquery-effects-core','jquery-ui-widget') );
 //$featured_categories->add_script( TSP_EASY_DEV_ASSETS_JS_URL . 'skel.min.js' );
 
 // Queue Admin Styles

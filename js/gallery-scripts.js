@@ -1,10 +1,9 @@
 jQuery(document).ready(function() {
 
 	jQuery("div#makeMeScrollable").smoothDivScroll({ 
-		autoScroll: "onstart",
+		autoScrollingMode: "onStart",
 		autoScrollDirection: "endlessloopright", 
-		autoScrollStep: 1, 
-		autoScrollInterval: 20,
-		visibleHotSpots: "always"
+		autoScrollingDirection: 1, 
+		autoScrollingInterval: 20,
 	});
 });
