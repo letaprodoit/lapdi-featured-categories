@@ -4,6 +4,7 @@
 .tsp_featured_categories .title.below,
 .tsp_featured_categories .text {
     padding-top: 3px;
+	text-align: 'center';
 }
 .tsp_featured_categories{
 	/*text-align: center;*/

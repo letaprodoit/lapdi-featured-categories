@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="TSP Featured Categories" default="copy_all" basedir=".">
+<project name="LAPDI Featured Categories" default="copy_all" basedir=".">
     <property name="name"  				value="tsp-featured-categories" />
     <property name="test_site"  		value="/Users/SharronDenice/Sites/_testsites/wordpress_latest/wp-content/plugins/${name}" />
     <property name="live_site"  		value="/Users/SharronDenice/Sites/portal.hpawebservices.com/wp-content/plugins/${name}" />

@@ -3,18 +3,18 @@ Featured Categories for WordPress
 Featured Categories for WordPress allows you to add featured categories with images to your blog's website. Featured categories have three (3) layouts and include thumbnails.
 
 For up-to-date installation and setup notes, visit the FAQ:
-[http://lab.thesoftwarepeople.com/tracker/wiki/wordpress-fc:MainPage](http://lab.thesoftwarepeople.com/tracker/wiki/wordpress-fc:MainPage)
+[https://lab.letaprodoit.com/public/wiki/wordpress-fc:MainPage](https://lab.letaprodoit.com/public/wiki/wordpress-fc:MainPage)
 
 *GENERAL INSTALLATION NOTES*
 
 - Install Featured Categories either via the WordPress.org plugin directory, or by uploading the files to your server
-- Visit 'Admin Menu > TSP Plugins > 'TSP Featured Categories'' and adjust your shortcode configuration.
+- Visit 'Admin Menu > LAPDI Plugins > 'LAPDI Featured Categories'' and adjust your shortcode configuration.
 - That's it. You're ready to go!
 
 *USING THE MODULE*
 
-- After installation, refer to the 'TSP Featured Categories' settings page for more detailed instructions on setting up your shortcodes.
-- Featured Categories widgets can be added to the sidemenu bar by visiting 'Appearance > Widgets' and dragging the TSP Featured Categories widget to your sidebar menu.
+- After installation, refer to the 'LAPDI Featured Categories' settings page for more detailed instructions on setting up your shortcodes.
+- Featured Categories widgets can be added to the sidemenu bar by visiting 'Appearance > Widgets' and dragging the LAPDI Featured Categories widget to your sidebar menu.
 - Add some widgets to the sidemenu bar, Add shortcodes to pages and posts (see Instructions)
 - View your site
 - Adjust your CSS for your theme by visiting 'Appearance > Edit CSS'
@@ -23,11 +23,11 @@ For up-to-date installation and setup notes, visit the FAQ:
 
 Thank you for downloading the Featured Categories (Wordress Plugin) 1.0
 If you find any issues, please report them in the issue tracker on our website:
-[http://lab.thesoftwarepeople.com/tracker/wordpress-fc](http://lab.thesoftwarepeople.com/tracker/wordpress-fc)
+[https://lab.letaprodoit.com/public/wordpress-fc](https://lab.letaprodoit.com/public/wordpress-fc)
 
 *COPYRIGHT AND LICENSE*
 
-Copyright 2013 The Software People, LLC
+Copyright 2013 Let A Pro Do IT!, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
