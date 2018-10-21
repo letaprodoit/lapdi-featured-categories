@@ -1,6 +1,6 @@
 === LAPDI Featured Categories ===
 Contributors: letaprodoit, sharrondenice
-Donate link: http://www.letaprodoit.com/software/plugins/wordpress/featured-categories-for-wordpress.html
+Donate link: https://www.letaprodoit.com/apps/plugins/wordpress/featured-categories-for-wordpress
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 4.5.0
 Tested up to: 5.0.0
@@ -252,7 +252,7 @@ Required Bug Fixes.
 Required Bug Fixes.
 
 = 1.1.0 =
-Plugin now requires LAPDI Easy Dev. Uses LAPDI Easy Dev Pro. New features.
+Plugin now requires TSP Easy Dev. Uses TSP Easy Dev Pro. New features.
 
 = 1.0.3 =
 Setting directory permissions no longer required.
