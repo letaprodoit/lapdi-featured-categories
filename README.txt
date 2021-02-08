@@ -1,10 +1,10 @@
 === LAPDI Featured Categories ===
 Contributors: letaprodoit, sharrondenice
-Donate link: https://www.letaprodoit.com/apps/plugins/wordpress/featured-categories-for-wordpress
+Donate link: https://letaprodoit.com/apps/plugins/wordpress/featured-categories-for-wordpress
 Tags: categories, category, category images, featured categories, display gallery, slider, jquery, moving boxes, the software people
 Requires at least: 4.5.0
-Tested up to: 5.0.0
-Stable tag: 1.2.9
+Tested up to: 5.6.1
+Stable tag: 1.3.0
 License: Apache v2.0
 License URI: http://www.apache.org/licenses/LICENSE-2.0
 
@@ -97,6 +97,8 @@ This simply means this category type is not supported.
 4. Admin area shortcode settings area.
 
 == Changelog ==
+= 1.3.0 =
+* Maintenance
 
 = 1.2.9 =
 * Enhancement: Requires v2.0.0 of LAPDI Easy Dev
@@ -185,6 +187,9 @@ This simply means this category type is not supported.
 * Launch
 
 == Upgrade notice ==
+
+= 1.3.0 =
+* Maintenance
 
 = 1.2.9 =
 Enhancement: Requires v2.0.0 of LAPDI Easy Dev

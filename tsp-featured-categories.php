@@ -1,13 +1,13 @@
 <?php
     /*
     Plugin Name: 	LAPDI Featured Categories
-    Plugin URI: 	https://www.letaprodoit.com/apps/plugins/wordpress/featured-categories-for-wordpress
+    Plugin URI: 	https://letaprodoit.com/apps/plugins/wordpress/featured-categories-for-wordpress
     Description: 	Featured Categories allows you to <strong>add featured categories with images to your blog</strong>'s website. Powered by <strong><a href="http://wordpress.org/plugins/tsp-easy-dev/">LAPDI Easy Dev</a></strong>.
     Author: 		Let A Pro Do IT!
-    Author URI: 	http://www.letaprodoit.com/
-    Version: 		1.2.9
+    Author URI: 	https://letaprodoit.com/
+    Version: 		1.3.0
     Text Domain: 	tspfc
-    Copyright: 		Copyright � 2013 Let A Pro Do IT!, LLC (www.letaprodoit.com). All rights reserved
+    Copyright: 		Copyright � 2021 Let A Pro Do IT!, LLC (www.letaprodoit.com). All rights reserved
     License: 		APACHE v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
     */
 

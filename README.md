@@ -27,7 +27,7 @@ If you find any issues, please report them in the issue tracker on our website:
 
 *COPYRIGHT AND LICENSE*
 
-Copyright 2013 Let A Pro Do IT!, LLC
+Copyright 2021 Let A Pro Do IT!, LLC
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
